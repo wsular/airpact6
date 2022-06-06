@@ -3,6 +3,7 @@ From: centos:7
 Include: yum
 
 %post
+    # ....Important Linux packages
     yum -y install epel-release
     yum -y install bc
     yum -y install bison
@@ -21,12 +22,12 @@ Include: yum
     yum -y install glibc-devel
     yum -y install gnuplot
     yum -y install hwloc hwloc-devel
+#    yum -y install intel-basekit
     yum -y install ImageMagick
     yum -y install infiniband-diags-devel
     yum -y install jre
-    yum -y install ksh
-    yum -y install kate
     yum -y install lzma lzma-devel
+    yum -y install make
     yum -y install man
     yum -y install motif
     yum -y install mpich mpich-devel
@@ -42,12 +43,11 @@ Include: yum
     yum -y install xguest
     yum -y install zlib zlib-devel
 
+    # ....Extra packages for CMAQ compilation
     yum -y install grads
-    yum -y install meld
     yum -y install ncarg
     yum -y install ncview
     yum -y install nco
-    yum -y install nedit
     yum -y install netcdf
     yum -y install netcdf-devel
     yum -y install netcdf-static
@@ -59,42 +59,29 @@ Include: yum
     yum -y install netcdf-fortran-static
     yum -y install netcdf4-python
 
-    rpm -i -vv http://www.city-fan.org/ftp/contrib/yum-repo/rhel7/x86_64/xxdiff-4.0.1-1.0.cf.rhel7.x86_64.rpm
-
+    # ....Create base directories for software installation
     mkdir /opt/bin
     mkdir /opt/share
     mkdir /opt/share/nedit
-    mkdir /opt/source
-        cd /opt/source
-        cat >& xtitle.c  << HERE
-#include <stdio.h>
-main( int argc, char *argv[] )
-    {
-    if ( argc > 1 ) 
-        {
-        printf( "\033]1;%s\007", argv[1] ) ;
-        printf( "\033]2;%s\007", argv[1] ) ;
-        }
-    else{
-        printf( "\033]1;%s\007", "usage:  xtitle <title>" ) ;
-        printf( "\033]2;%s\007", "usage:  xtitle <title>" ) ;
-        }
-    }
-HERE
-        cc -o /opt/bin/xtitle xtitle.c
 
+    # ....Install grib decoder for NCEP/NCAR reanalysis, etc. 
     mkdir /opt/wgrib
         cd /opt/wgrib
         wget ftp://ftp.cpc.ncep.noaa.gov/wd51we/wgrib/wgrib.c
         cc -o /opt/bin/wgrib wgrib.c
 
-%environment
-    setenv PATH "/usr/sbin:/usr/bin:/usr/local/bin"
-    setenv PERLLIB         ""
-    setenv MANPATH         ""
-    setenv LD_LIBRARY_PATH ""
-    setenv LIBRARY_PATH    "/usr/lib:/usr/lib64:/usr/lib/gcc/x86_64-redhat-linux/"
-    setenv PYTHONPATH      ""
+    # ....Install and compile ioapi (for use by CMAQ)
+    export HOME="/opt"
+    export BIN="Linux2_x86_64gfort_medium"
+    cd /opt
+    git clone https://github.com/cjcoats/ioapi-3.2.git
+    cd /opt/ioapi-3.2; mkdir ${BIN} ; mkdir ${BIN}dbg
+    cd /opt/ioapi-3.2/ioapi
+    make -f Makefile.pncf
+    make BIN=${BIN}dbg
+    cd /opt/ioapi-3.2/m3tools
+    make -f Makefile.pncf
+    make BIN=${BIN}dbg            
 
 %runscript
     echo "Container was created $NOW"
