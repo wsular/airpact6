@@ -1,4 +1,4 @@
-# development notes
+# Development notes for AIRPACT6
 
 ## Useful information
 - To connect to Azure VM
@@ -6,6 +6,16 @@
     ssh -i ~/.ssh/airpact6_key.pem vpwalden@airpact6.westus2.cloudapp.azure.com
     ```
 
+---
+## 13 August 2022
+- Command to build Singularity Image File
+  ```
+  sudo singularity build /work/airpact6.sif airpact6.def
+  ```
+  - And as a sandbox directory structure
+    ```
+    sudo singularity build --sandbox /work/airpact6.sif airpact6.def
+    ```
 ---
 ## 27 June 2022
 - How to download UW WRF data using secure copy from aeolus (b/c sshkeys have been set up)
