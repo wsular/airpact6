@@ -1,0 +1,10 @@
+============================
+h5dump_plugin.sh  Test Log
+============================
+Testing ../../src/h5dump/h5dump --enable-error-stack tudfilter.h5      PASSED
+All Plugin API tests passed.
+0.04user 0.01system 0:00.06elapsed 94%CPU (0avgtext+0avgdata 6896maxresident)k
+0inputs+104outputs (0major+10889minor)pagefaults 0swaps
+
+Finished testing h5dump_plugin.sh 
+============================

@@ -1,0 +1,12 @@
+============================
+Test log for event_set 
+============================
+Testing event set creation                                             PASSED
+Testing event set H5ES_NONE                                            PASSED
+Testing event set get requests                                         PASSED
+All event set tests passed.
+0.00user 0.00system 0:00.00elapsed 114%CPU (0avgtext+0avgdata 5644maxresident)k
+0inputs+0outputs (0major+1913minor)pagefaults 0swaps
+
+Finished testing event_set 
+============================

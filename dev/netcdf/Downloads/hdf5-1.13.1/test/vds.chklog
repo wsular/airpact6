@@ -1,0 +1,117 @@
+============================
+Test log for vds 
+============================
+Testing virtual dataset I/O with file version bounds: (earliest, v110):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (earliest, v112):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (earliest, latest):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v18, v110):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v18, v112):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v18, latest):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v110, v110):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v110, v112):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v110, latest):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v112, v112):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (v112, latest):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+Testing virtual dataset I/O with file version bounds: (latest, latest):
+  Testing virtual dataset API functions                                PASSED
+  Testing virtual dataset API functions with copied plists             PASSED
+  Testing virtual dataset API functions with encoded and decoded plists PASSED
+  Testing virtual dataset create                                       PASSED
+  Testing virtual dataset create with reopened dataset                 PASSED
+  Testing virtual dataset create with reopened file                    PASSED
+  Testing Virtual dataset I/O                                          PASSED
+  Testing H5Dget_access_plist() returns dapl w/ correct values         PASSED
+All virtual dataset tests passed.
+6.41user 1.70system 0:17.76elapsed 45%CPU (0avgtext+0avgdata 9880maxresident)k
+0inputs+211960outputs (0major+146427minor)pagefaults 0swaps
+
+Finished testing vds 
+============================

@@ -1,0 +1,19 @@
+============================
+Fortran API: Test log for vol_connector 
+============================
+                  ==============================
+                        FORTRAN VOL tests
+                  ==============================
+Testing VOL connector plugin functionality.
+ Testing VOL registration by name                                               PASSED 
+ Testing VOL registration by value                                              PASSED 
+ Testing VOL registration by fapl                                               PASSED 
+
+                  ============================================
+                    FORTRAN VOL tests completed with    0 error(s) ! 
+                  ============================================
+0.00user 0.00system 0:00.01elapsed 81%CPU (0avgtext+0avgdata 7548maxresident)k
+0inputs+16outputs (0major+2253minor)pagefaults 0swaps
+
+Finished testing vol_connector 
+============================

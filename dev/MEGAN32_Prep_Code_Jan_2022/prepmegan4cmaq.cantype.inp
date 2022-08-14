@@ -1,0 +1,38 @@
+&control
+
+ start_lai_mnth = 1,
+ end_lai_mnth   = 12,
+ wrffile   = './input/wrfout_d02_2018-05-01_00:00:00',
+ megan_dir = '/glade/u/home/huiw16/work/MEGAN/MEGAN31_Prep_test_July',
+ out_dir = './output',
+/
+
+&cantype
+treefilename  = 'GF3aTree.nc' 
+treevarname   = 'm20tree'
+treefillvalue = '-128'
+NTfilename  = 'NTfrac_reorder_lat.nc' 
+NTvarname   = 'NTfrac'
+NTfillvalue = '0.'
+TRTfilename  = 'tropfrac_reorder_lat.nc' 
+TRTvarname   = 'tropfrac'
+TRTfillvalue = '-1'
+shrubfilename = 'GF3aShrub.nc' 
+shrubvarname  = 'm204shrub'
+shrubfillvalue = '-128'
+grassfilename = 'GF3aGrass.nc' 
+grassvarname  = 'm202grass'
+grassfillvalue = '-128'
+cropfilename  = 'GF3aCrop.nc' 
+cropvarname   = 'm20crop'
+cropfillvalue = '-128'
+/
+
+&windowdefs
+
+ x0         =  1,
+ y0         =  1,
+ ncolsin    =  1000,
+ nrowsin    =  1000,
+
+/

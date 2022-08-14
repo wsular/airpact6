@@ -1,0 +1,15 @@
+============================
+test_vol_plugin.sh  Test Log
+============================
+Testing VOL connector plugin functionality.
+Testing VOL registration by name                                       PASSED
+Testing VOL registration by value                                      PASSED
+Testing registering a VOL connector multiple times                     PASSED
+Testing VOL getters                                                    PASSED
+All VOL connector plugin tests passed.
+All VOL plugin tests passed.
+0.00user 0.00system 0:00.01elapsed 100%CPU (0avgtext+0avgdata 5640maxresident)k
+0inputs+32outputs (0major+2922minor)pagefaults 0swaps
+
+Finished testing test_vol_plugin.sh 
+============================

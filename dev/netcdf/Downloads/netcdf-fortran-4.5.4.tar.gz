@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>netCDF Downloads</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/js/jquery/jquery-latest.min.js" type="text/javascript"></script>
+  <script src="/js/release_info.js" type="text/javascript" ></script>
+  <script src="/js/common.js" type="text/javascript" ></script>
+  <link href="/css/upcdocs.css" rel="stylesheet" type="text/css">
+  <link href="/css/flexdocs.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/release_info.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="vwrapper">
+    <div w3-include-html="/includes/hd_downloads.html" id="head"></div>
+
+    <div id="wrap">
+      <div id="container">
+        <h1>NetCDF Downloads</h1>
+        <img src="/images/logos/netcdf-50x50.png" alt="NetCDF Libraries" class="dec">
+        <p>NetCDF (network Common Data Form) is a set of software libraries and
+          machine-independent data formats that support the creation, access, and sharing of
+          array-oriented scientific data. Distributions are provided for Java and C/C++/Fortran.
+          See the <a href="https://www.unidata.ucar.edu/software/netcdf">netCDF web site</a> and the FAQ answer to <a href="https://docs.unidata.ucar.edu/netcdf/documentation/4.8.0/faq.html#howtoget">How do I get the netCDF software
+            package?</a> for more information.</p>
+
+        <h2>netCDF-C Libraries</h2>
+        <div class="current_release">
+          <h3>Current Release</h3>
+            <p>The current release of <span class="package netcdf-c">(unknown package)</span> is version <span class="currVersion netcdf-c">(unknown)</span>:</p>
+            <div class="downloadTable netcdf-c" id="current"></div>
+        </div>
+
+        <div class="previous_release">
+          <h3>Previous Release</h3>
+            <p>The previous release of <span class="package netcdf-c">(unknown package)</span> is version <span class="prevVersion netcdf-c">(version)</span>:</p>
+            <div class="downloadTable netcdf-c" id="previous"></div>
+        </div>
+
+        <div class="beta_release">
+          <h3>Beta Release</h3>
+            <p>The beta-test release of <span class="package netcdf-c">(unknown package)</span> is version <span class="betaVersion netcdf-c">(version)</span>:</p>
+            <div class="downloadTable netcdf-c" id="beta"></div>
+        </div>
+
+        <h3>Useful Links</h3>
+          <ul>
+            <li><a href="http://github.com/Unidata/netcdf-c/releases" target="_blank">netCDF-C library and utilities source code on GitHub.</a><br>
+              All current and historic releases of the netCDF C library source code, including pre-release code.</li>
+            <li><a href="http://github.com/Unidata/netcdf-c/" target="_blank">The netCDF-C development source repository</a><br>
+              The GitHub repository for the netCDF C source code. Unless you are interested in
+              working with the development version of netCDF-C, you will want to use one of the
+              releases linked above. If you choose work with the development branch, you will
+              need to generate the 'configure' script using <code>autoreconf -i -f</code>.</li>
+            <li><a href="https://www.unidata.ucar.edu/software/netcdf/documentation/NUG/getting_and_building_netcdf.html">NetCDF C Installation and Porting Guide</a><br>
+              Information about installing NetCDF C.</li>
+            <li><a href="https://docs.unidata.ucar.edu/netcdf-c/current/">NetCDF C Library Documentation</a><br>
+              The complete documentation, including the C API and utilities for the latest release.</li>
+          </ul>
+
+
+        <h2 id="fortran">netCDF-FORTRAN Libraries</h2>
+
+        <div class="current_release" id="fortran-div">
+          <h3>Current Release</h3>
+          <p>The current release of <span class="package netcdf-fortran">(unknown package)</span> is version <span class="currVersion netcdf-fortran">(unknown)</span>:</p>
+          <div class="downloadTable netcdf-fortran" id="current"></div>
+        </div>
+        <div class="previous_release">
+          <h3>Previous Release</h3>
+          <p>The previous release of <span class="package netcdf-fortran">(unknown package)</span> is version <span class="prevVersion netcdf-fortran">(version)</span>:</p>
+          <div class="downloadTable netcdf-fortran" id="previous"></div>
+        </div>
+        <div class="beta_release">
+          <h3>Beta Release</h3>
+          <p>The beta-test release of <span class="package netcdf-fortran">(unknown package)</span> is version <span class="betaVersion netcdf-fortran">(version)</span>:</p>
+          <div class="downloadTable netcdf-fortran" id="beta"></div>
+        </div>
+
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="http://github.com/Unidata/netcdf-fortran/releases" target="_blank">All netCDF Fortran 77 and Fortran 90 library source releases.</a><br>
+            All current unbundled releases of the netCDF Fortran library source code, including pre-release code.</li>
+          <li><a href="http://github.com/Unidata/netcdf-fortran/" target="_blank">The netCDF Fortran development source repository</a><br>
+            The GitHub repository for the netCDF Fortran source code. Unless you are interested in
+            working with the development version of netCDF-Fortran, you will want to use one of the
+            releases linked above. If you choose work with the development branch, you will
+            need to generate the 'configure' script using'autoreconf -i -f'.</li>
+
+          <li><a href="https://www.unidata.ucar.edu/software/netcdf/fortran/docs/">NetCDF Fortran Library Documentation</a><br>
+            The complete documentation for NetCDF Fortran release.</li>
+        </ul>
+
+        <h2>netCDF-C++ Libraries</h2>
+
+        <div class="current_release">
+          <h3>Current Release</h3>
+          <p>The current release of <span class="package netcdf-cxx">(unknown package)</span> is version <span class="currVersion netcdf-cxx">(unknown)</span>:</p>
+          <div class="downloadTable netcdf-cxx" id="current"></div>
+        </div>
+        <div class="previous_release">
+          <h3>Previous Release</h3>
+          <p>The previous release of <span class="package netcdf-cxx">(unknown package)</span> is version <span class="prevVersion netcdf-cxx">(version)</span>:</p>
+          <div class="downloadTable netcdf-cxx" id="previous"></div>
+        </div>
+        <div class="beta_release">
+          <h3>Beta Release</h3>
+          <p>The beta-test release of <span class="package netcdf-cxx">(unknown package)</span> is version <span class="betaVersion netcdf-cxx">(version)</span>:</p>
+          <div class="downloadTable netcdf-cxx" id="beta"></div>
+        </div>
+
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="http://github.com/Unidata/netcdf-cxx4/releases" target="_blank">All netCDF-4 C++ library source code releases.</a><br>
+            All current unbundled releases of the netCDF-4 C++ library source code, based on the
+            netCDF-CXX4 code provided by Lynton Appel. These releases include pre-release code. </li>
+          <li><a href="http://github.com/Unidata/netcdf-cxx4/" target="_blank">The netCDF C++ development source repository</a><br>
+            The GitHub repository for the netCDF C++ source code. Unless you are interested in working with the development version of
+            the netCDF-C++ libraries, you are advices to use one of the releases linked above. If you choose to work with this development
+            branch, you will need to generate the 'configure' script using 'autoreconf -i -f'. </li>
+
+          <li><a href="/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF C++ Installation and Porting Guide</a><br>
+            Information about installing NetCDF C++.</li>
+          <li><a href="/software/netcdf/docs">NetCDF C++ Library Documentation</a><br>
+            The complete documentation, including the C++ API and utilities for the latest release.</li>
+        </ul>
+
+        <h2>NetCDF-Java Stable Releases/releases</h2>
+        <p>Downloads of stable releases of netCDF-Java.</p>
+        <p><a href="https://downloads.unidata.ucar.edu/netcdf-java/">The netCDF-Java library</a>
+          is a Java interface to "Common Data Model" files, using the netCDF API.</p>
+
+        <script>
+          $(document).ready(function () {
+            showTable("/netcdf-c/release_info.json", "netcdf-c");
+            showTable("/netcdf-fortran/release_info.json", "netcdf-fortran");
+            showTable("/netcdf-cxx/release_info.json", "netcdf-cxx");
+          });
+
+        </script>
+      </div>
+    </div>
+    <div w3-include-html="/includes/ft_downloads.html" id="foot"></div>
+</body>
+<script>
+  includeHTML();
+</script>
+
+</html>

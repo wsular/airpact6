@@ -1,0 +1,31 @@
+============================
+Test log for chunk_info 
+============================
+Testing basic operations                                               PASSED
+Testing getting chunk information in file with version prior to 1.10   PASSED
+Testing getting chunk information in file with versions 1.10 and later
+Testing    Single Chunk index                                          PASSED
+Testing    Implicit index                                              PASSED
+Testing    Fixed Array index                                           PASSED
+Testing    Extensible Array index                                      PASSED
+Testing    Version 2 B-trees index                                     PASSED
+Testing    Invalid Operations                                          PASSED
+Testing    Single Chunk index                                          PASSED
+Testing    Implicit index                                              PASSED
+Testing    Fixed Array index                                           PASSED
+Testing    Extensible Array index                                      PASSED
+Testing    Version 2 B-trees index                                     PASSED
+Testing    Invalid Operations                                          PASSED
+Testing    Single Chunk index                                          PASSED
+Testing    Implicit index                                              PASSED
+Testing    Fixed Array index                                           PASSED
+Testing    Extensible Array index                                      PASSED
+Testing    Version 2 B-trees index                                     PASSED
+Testing    Invalid Operations                                          PASSED
+Testing getting filter mask when compression filter is skipped         PASSED
+All chunk query tests passed.
+0.00user 0.01system 0:00.01elapsed 100%CPU (0avgtext+0avgdata 8900maxresident)k
+0inputs+152outputs (0major+2712minor)pagefaults 0swaps
+
+Finished testing chunk_info 
+============================

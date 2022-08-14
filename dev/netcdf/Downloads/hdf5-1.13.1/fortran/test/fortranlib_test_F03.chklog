@@ -1,0 +1,44 @@
+============================
+Fortran API: Test log for fortranlib_test_F03 
+============================
+                        ==============================
+                              FORTRAN 2003 tests      
+                        ==============================
+ FORTRANLIB_TEST is linked with HDF5 Library version 1.13 release 1
+
+ Testing 1-D Array of Compound Datatypes Functionality                          PASSED 
+ Testing 1-D Array of Compound Array Datatypes Functionality                    PASSED 
+ Testing 3-D array by dataset, using C_LOC                                      PASSED 
+ Testing writing/reading enum dataset, using C_LOC                              PASSED 
+ Testing enumeration conversions                                                PASSED 
+ Testing writing/reading bitfield dataset, using C_LOC                          PASSED 
+ Testing writing/reading opaque datatypes, using C_LOC                          PASSED 
+ Testing writing/reading object references, using C_LOC                         PASSED 
+ Testing writing/reading region references, using C_LOC                         PASSED 
+ Testing writing/reading variable-length datatypes, using C_LOC                 PASSED 
+ Testing writing/reading variable-string datatypes, using C_LOC                 PASSED 
+ Testing variable-string write/read, using h5dwrite_f/h5dread_f                 PASSED 
+ Testing writing/reading string datatypes, using C_LOC                          PASSED 
+ Testing string datatypes containing control characters                         PASSED 
+ Testing filling functions                                                      PASSED 
+ Test function h5kind_to_type                                                   PASSED 
+ Testing Partial I/O of Array Fields in Compound Datatype Functionality         PASSED 
+ Test basic generic property list callback functionality                        PASSED 
+ Testing group iteration functionality                                          PASSED 
+ Testing nbit filter                                                            PASSED 
+ Testing external dataset with offset                                           PASSED 
+ Testing h5pset/get file image                                                  PASSED 
+ Testing object functions                                                       PASSED 
+ Testing object visiting functions                                              PASSED 
+ Testing object info functions                                                  PASSED 
+ Testing get file image                                                         PASSED 
+ Testing vds                                                                    PASSED 
+
+                   ============================================  
+                    FORTRAN tests completed with    0 error(s) ! 
+                   ============================================  
+0.01user 0.01system 0:00.03elapsed 97%CPU (0avgtext+0avgdata 14196maxresident)k
+0inputs+472outputs (0major+9704minor)pagefaults 0swaps
+
+Finished testing fortranlib_test_F03 
+============================
