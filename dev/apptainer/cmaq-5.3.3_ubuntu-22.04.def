@@ -74,8 +74,10 @@ From: ubuntu
   ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
 
   # ....Clone the airpact6 repo, which contains customized Makefiles
+  #     !! One must set up ssh keys between host computer and github account
+  #     We use ssh address here to the airpact6 github repo (not https!).
   cd /opt/share
-  git clone https://github.com/wsular/airpact6.git
+  git clone git@github.com:wsular/airpact6.git
 
   # ....Compile ioapi-3.2
   #     Now must switch to csh; grrrr
