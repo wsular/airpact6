@@ -1,0 +1,234 @@
+    PID TTY STAT TIME COMMAND 1 ?  Ss 0:11 /sbin/init splash 2 ?  S 0:00 [kthreadd] 3 ?  I< 0:00 [rcu_gp] 4 ?  I< 0:00 [rcu_par_gp] 5 ?  I< 
+      0:00 [netns] 7 ?  I< 0:00 [kworker/0:0H-events_highpri] 9 ?  I< 0:04 [kworker/0:1H-kblockd]
+     10 ?  I< 0:00 [mm_percpu_wq] 11 ?  I 0:00 [rcu_tasks_kthread] 12 ?  I 0:00 [rcu_tasks_rude_kthread] 13 ?  I 0:00 
+     [rcu_tasks_trace_kthread] 14 ?  S 0:01 [ksoftirqd/0] 15 ?  I 5:05 [rcu_preempt] 16 ?  S 0:03 [migration/0] 17 ?  S 0:00 [idle_inject/0] 
+     19 ?  S 0:00 [cpuhp/0] 20 ?  S 0:00 [cpuhp/1] 21 ?  S 0:00 [idle_inject/1] 22 ?  S 0:03 [migration/1] 23 ?  S 0:01 [ksoftirqd/1] 25 ?  I< 
+     0:00 [kworker/1:0H-events_highpri] 26 ?  S 0:00 [cpuhp/2] 27 ?  S 0:00 [idle_inject/2] 28 ?  S 0:03 [migration/2] 29 ?  S 0:01 
+     [ksoftirqd/2] 31 ?  I< 0:00 [kworker/2:0H-events_highpri] 32 ?  S 0:00 [cpuhp/3] 33 ?  S 0:00 [idle_inject/3] 34 ?  S 0:03 [migration/3] 
+     35 ?  S 0:01 [ksoftirqd/3] 37 ?  I< 0:00 [kworker/3:0H-events_highpri] 38 ?  S 0:00 [cpuhp/4] 39 ?  S 0:00 [idle_inject/4] 40 ?  S 0:03 
+     [migration/4] 41 ?  S 0:01 [ksoftirqd/4] 43 ?  I< 0:00 [kworker/4:0H-events_highpri] 44 ?  S 0:00 [cpuhp/5] 45 ?  S 0:00 [idle_inject/5] 
+     46 ?  S 0:03 [migration/5] 47 ?  S 0:01 [ksoftirqd/5] 49 ?  I< 0:00 [kworker/5:0H-events_highpri] 50 ?  S 0:00 [cpuhp/6] 51 ?  S 0:00 
+     [idle_inject/6] 52 ?  S 0:03 [migration/6] 53 ?  S 0:01 [ksoftirqd/6] 55 ?  I< 0:00 [kworker/6:0H-events_highpri] 56 ?  S 0:00 [cpuhp/7] 
+     57 ?  S 0:00 [idle_inject/7] 58 ?  S 0:03 [migration/7] 59 ?  S 0:01 [ksoftirqd/7] 61 ?  I< 0:00 [kworker/7:0H-events_highpri] 62 ?  S 
+     0:00 [cpuhp/8] 63 ?  S 0:00 [idle_inject/8] 64 ?  S 0:03 [migration/8] 65 ?  S 0:01 [ksoftirqd/8] 67 ?  I< 0:00 
+     [kworker/8:0H-events_highpri] 68 ?  S 0:00 [cpuhp/9] 69 ?  S 0:00 [idle_inject/9] 70 ?  S 0:03 [migration/9] 71 ?  S 0:01 [ksoftirqd/9] 
+     73 ?  I< 0:00 [kworker/9:0H-events_highpri] 74 ?  S 0:00 [cpuhp/10] 75 ?  S 0:00 [idle_inject/10] 76 ?  S 0:03 [migration/10] 77 ?  S 
+     0:01 [ksoftirqd/10] 79 ?  I< 0:00 [kworker/10:0H-events_highpri] 80 ?  S 0:00 [cpuhp/11] 81 ?  S 0:00 [idle_inject/11] 82 ?  S 0:03 
+     [migration/11] 83 ?  S 0:01 [ksoftirqd/11] 85 ?  I< 0:00 [kworker/11:0H-events_highpri] 86 ?  S 0:00 [cpuhp/12] 87 ?  S 0:00 
+     [idle_inject/12] 88 ?  S 0:03 [migration/12] 89 ?  S 0:01 [ksoftirqd/12] 91 ?  I< 0:00 [kworker/12:0H-events_highpri] 92 ?  S 0:00 
+     [cpuhp/13] 93 ?  S 0:00 [idle_inject/13] 94 ?  S 0:05 [migration/13] 95 ?  S 0:01 [ksoftirqd/13] 97 ?  I< 0:00 
+     [kworker/13:0H-events_highpri] 98 ?  S 0:00 [cpuhp/14] 99 ?  S 0:00 [idle_inject/14]
+    100 ?  S 0:03 [migration/14] 101 ?  S 0:01 [ksoftirqd/14] 103 ?  I< 0:00 [kworker/14:0H-kblockd] 104 ?  S 0:00 [cpuhp/15] 105 ?  S 0:00 
+    [idle_inject/15] 106 ?  S 0:03 [migration/15] 107 ?  S 0:01 [ksoftirqd/15] 109 ?  I< 0:00 [kworker/15:0H-kblockd] 110 ?  S 0:00 [cpuhp/16] 
+    111 ?  S 0:00 [idle_inject/16] 112 ?  S 0:03 [migration/16] 113 ?  S 0:01 [ksoftirqd/16] 115 ?  I< 0:00 [kworker/16:0H-events_highpri] 116 
+    ?  S 0:00 [cpuhp/17] 117 ?  S 0:00 [idle_inject/17] 118 ?  S 0:03 [migration/17] 119 ?  S 0:01 [ksoftirqd/17] 121 ?  I< 0:00 
+    [kworker/17:0H-events_highpri] 122 ?  S 0:00 [cpuhp/18] 123 ?  S 0:00 [idle_inject/18] 124 ?  S 0:03 [migration/18] 125 ?  S 0:01 
+    [ksoftirqd/18] 127 ?  I< 0:00 [kworker/18:0H-events_highpri] 128 ?  S 0:00 [cpuhp/19] 129 ?  S 0:00 [idle_inject/19] 130 ?  S 0:03 
+    [migration/19] 131 ?  S 0:00 [ksoftirqd/19] 133 ?  I< 0:00 [kworker/19:0H-events_highpri] 134 ?  S 0:00 [cpuhp/20] 135 ?  S 0:00 
+    [idle_inject/20] 136 ?  S 0:03 [migration/20] 137 ?  S 0:00 [ksoftirqd/20] 139 ?  I< 0:00 [kworker/20:0H-events_highpri] 140 ?  S 0:00 
+    [cpuhp/21] 141 ?  S 0:00 [idle_inject/21] 142 ?  S 0:03 [migration/21] 143 ?  S 0:00 [ksoftirqd/21] 145 ?  I< 0:00 
+    [kworker/21:0H-events_highpri] 146 ?  S 0:00 [cpuhp/22] 147 ?  S 0:00 [idle_inject/22] 148 ?  S 0:03 [migration/22] 149 ?  S 0:00 
+    [ksoftirqd/22] 151 ?  I< 0:00 [kworker/22:0H-events_highpri] 152 ?  S 0:00 [cpuhp/23] 153 ?  S 0:00 [idle_inject/23] 154 ?  S 0:03 
+    [migration/23] 155 ?  S 0:00 [ksoftirqd/23] 157 ?  I< 0:00 [kworker/23:0H-events_highpri] 158 ?  S 0:00 [cpuhp/24] 159 ?  S 0:00 
+    [idle_inject/24] 160 ?  S 0:03 [migration/24] 161 ?  S 0:01 [ksoftirqd/24] 163 ?  I< 0:00 [kworker/24:0H-events_highpri] 164 ?  S 0:00 
+    [cpuhp/25] 165 ?  S 0:00 [idle_inject/25] 166 ?  S 0:03 [migration/25] 167 ?  S 0:01 [ksoftirqd/25] 169 ?  I< 0:00 
+    [kworker/25:0H-events_highpri] 170 ?  S 0:00 [cpuhp/26] 171 ?  S 0:00 [idle_inject/26] 172 ?  S 0:03 [migration/26] 173 ?  S 0:01 
+    [ksoftirqd/26] 175 ?  I< 0:00 [kworker/26:0H-events_highpri] 176 ?  S 0:00 [cpuhp/27] 177 ?  S 0:00 [idle_inject/27] 178 ?  S 0:03 
+    [migration/27] 179 ?  S 0:01 [ksoftirqd/27] 181 ?  I< 0:00 [kworker/27:0H-events_highpri] 182 ?  S 0:00 [cpuhp/28] 183 ?  S 0:00 
+    [idle_inject/28] 184 ?  S 0:03 [migration/28] 185 ?  S 0:00 [ksoftirqd/28] 187 ?  I< 0:00 [kworker/28:0H-events_highpri] 188 ?  S 0:00 
+    [cpuhp/29] 189 ?  S 0:00 [idle_inject/29] 190 ?  S 0:03 [migration/29] 191 ?  S 0:00 [ksoftirqd/29] 193 ?  I< 0:00 
+    [kworker/29:0H-events_highpri] 194 ?  S 0:00 [cpuhp/30] 195 ?  S 0:00 [idle_inject/30] 196 ?  S 0:03 [migration/30] 197 ?  S 0:00 
+    [ksoftirqd/30] 199 ?  I< 0:00 [kworker/30:0H-events_highpri] 200 ?  S 0:00 [cpuhp/31] 201 ?  S 0:00 [idle_inject/31] 202 ?  S 0:03 
+    [migration/31] 203 ?  S 0:00 [ksoftirqd/31] 205 ?  I< 0:00 [kworker/31:0H-events_highpri] 206 ?  S 0:00 [kdevtmpfs] 207 ?  I< 0:00 
+    [inet_frag_wq] 208 ?  S 0:00 [kauditd] 212 ?  S 0:01 [khungtaskd] 213 ?  S 0:00 [oom_reaper] 214 ?  I< 0:00 [writeback] 215 ?  S 1:23 
+    [kcompactd0] 216 ?  SN 0:00 [ksmd] 217 ?  SN 0:01 [khugepaged] 218 ?  I< 0:00 [kintegrityd] 219 ?  I< 0:00 [kblockd] 220 ?  I< 0:00 
+    [blkcg_punt_bio] 221 ?  I< 0:00 [tpm_dev_wq] 222 ?  I< 0:00 [ata_sff] 223 ?  I< 0:00 [md] 224 ?  I< 0:00 [edac-poller] 225 ?  I< 0:00 
+    [devfreq_wq] 226 ?  S 0:00 [watchdogd] 228 ?  S 0:00 [irq/26-AMD-Vi] 229 ?  S 1:29 [kswapd0] 230 ?  S 0:00 [ecryptfs-kthread] 237 ?  I< 
+    0:00 [kthrotld] 243 ?  S 0:00 [irq/28-aerdrv] 244 ?  S 0:00 [irq/29-aerdrv] 245 ?  S 0:00 [irq/30-aerdrv] 246 ?  S 0:00 [irq/32-aerdrv] 
+    247 ?  S 0:00 [irq/33-aerdrv] 278 ?  I< 0:00 [acpi_thermal_pm] 279 ?  I< 0:00 [vfio-irqfd-clea] 280 ?  I< 0:00 [mld] 281 ?  I< 0:00 
+    [ipv6_addrconf] 286 ?  I< 0:00 [kstrp] 292 ?  I< 0:00 [zswap-shrink] 293 ?  I< 0:00 [kworker/u65:0-hci0] 295 ?  I< 0:04 
+    [kworker/16:1H-kblockd] 342 ?  I< 0:00 [charger_manager] 343 ?  S 0:00 [irq/27-ACPI:Event] 376 ?  I< 0:03 [kworker/8:1H-kblockd] 384 ?  I< 
+    0:03 [kworker/27:1H-kblockd] 391 ?  I< 0:00 [nvme-wq] 392 ?  I< 0:00 [nvme-reset-wq] 394 ?  I< 0:00 [nvme-delete-wq] 395 ?  I< 0:17 
+    [kworker/17:1H-events_highpri] 396 ?  S 0:00 [scsi_eh_0] 397 ?  I< 0:00 [scsi_tmf_0] 398 ?  S 0:00 [scsi_eh_1] 399 ?  I< 0:00 [scsi_tmf_1] 
+    405 ?  I< 0:04 [kworker/20:1H-kblockd] 412 ?  I< 0:00 [cryptd] 416 ?  I< 0:03 [kworker/28:1H-kblockd] 458 ?  I< 0:04 
+    [kworker/4:1H-kblockd] 459 ?  I< 0:04 [kworker/5:1H-kblockd] 461 ?  I< 0:03 [kworker/25:1H-kblockd] 462 ?  I< 0:03 
+    [kworker/11:1H-events_highpri] 466 ?  I< 0:04 [kworker/18:1H-kblockd] 467 ?  I< 0:03 [kworker/3:1H-kblockd] 468 ?  I< 0:03 
+    [kworker/30:1H-kblockd] 500 ?  I< 0:00 [raid5wq] 534 ?  I< 0:06 [kworker/6:1H-events_highpri] 543 ?  I< 0:03 [kworker/29:1H-kblockd] 544 ?  
+    I< 0:10 [kworker/15:1H-events_highpri] 740 ?  I< 0:03 [kworker/7:1H-kblockd] 943 ?  I< 0:04 [kworker/1:1H-kblockd] 944 ?  I< 0:00 
+    [kdmflush/253:0] 947 ?  I< 0:03 [kworker/26:1H-kblockd] 951 ?  I< 0:00 [kcryptd_io/253:] 952 ?  I< 0:00 [kcryptd/253:0] 953 ?  S 1:23 
+    [dmcrypt_write/253:0] 957 ?  I< 0:00 [kdmflush/253:1] 967 ?  I< 0:03 [kworker/9:1H-kblockd] 986 ?  I< 0:03 [kworker/10:1H-events_highpri] 
+    990 ?  S 0:46 [jbd2/dm-1-8] 991 ?  I< 0:00 [ext4-rsv-conver]
+   1005 ?  I< 0:04 [kworker/19:1H-kblockd] 1021 ?  I< 0:04 [kworker/21:1H-kblockd] 1023 ?  I< 0:03 [kworker/24:1H-kblockd] 1040 ?  I< 0:03 
+   [kworker/31:1H-kblockd] 1043 ?  I< 0:04 [kworker/22:1H-kblockd] 1050 ?  I< 0:03 [kworker/2:1H-kblockd] 1057 ?  SNs 4:08 
+   /lib/systemd/systemd-journald 1079 ?  I< 0:16 [kworker/13:1H-events_highpri] 1093 ?  I< 0:00 [ipmi-msghandler] 1095 ?  SNs 0:01 
+   /lib/systemd/systemd-udevd 1131 ?  I< 0:09 [kworker/14:1H-events_highpri] 1142 ?  I< 0:40 [kworker/12:1H-events_highpri] 1211 ?  I< 0:04 
+   [kworker/23:1H-kblockd] 1268 ?  I< 0:00 [led_workqueue] 1285 ?  I< 0:00 [cfg80211] 1313 ?  SNs 0:00 /usr/bin/dbus-broker-launch --scope 
+   system --audit 1314 ?  SNs 0:42 /lib/systemd/systemd-resolved 1320 ?  SN 0:06 dbus-broker --log 4 --controller 9 --machine-id 
+   1dd45cd28185a0816dfc3de662d1e9c8 --max-bytes 536870912 --max-fds 4096 --max-matches 131072 --audit 1361 ?  S 0:00 [nv_queue] 1362 ?  S 0:00 
+   [nv_queue] 1389 ?  I< 0:00 [kworker/u65:1-hci0] 1434 ?  SNsl 1:28 /usr/bin/pop-system-updater 1478 ?  S 0:00 [nvidia-modeset/kthread_q] 
+   1479 ?  S 0:00 [nvidia-modeset/deferred_close_kthread_q] 1481 ?  S 1:35 [irq/142-nvidia] 1482 ?  S 0:00 [nvidia] 1483 ?  S 0:59 [nv_queue] 
+   1490 ?  I< 0:00 [cifsiod] 1491 ?  I< 0:00 [smb3decryptd] 1492 ?  I< 0:00 [cifsfileinfoput] 1493 ?  I< 0:00 [cifsoplockd] 1494 ?  I< 0:00 
+   [deferredclose] 1532 ?  S 0:00 [napi/phy0-8198] 1533 ?  S 0:00 [napi/phy0-8199] 1534 ?  S 0:00 [napi/phy0-8200] 1574 ?  S 0:00 [UVM global 
+   queue] 1575 ?  S 0:00 [UVM deferred release queue] 1576 ?  S 0:00 [UVM Tools Event Queue] 1615 ?  S 0:00 [mt76-tx phy0] 1669 ?  SNs 0:00 
+   ssh-agent 2081 ?  SNsl 23:08 /usr/sbin/NetworkManager --no-daemon 2082 ?  SNsl 0:33 /usr/lib/accountsservice/accounts-daemon 2084 ?  SNs 
+   0:00 /usr/sbin/acpid 2090 ?  SNs 0:06 avahi-daemon: running [gaia.local] 2092 ?  SNs 1:07 /usr/bin/python3 
+   /opt/google/chrome-remote-desktop/chrome-remote-desktop --child-process 
+   --config=/home/vonw/.config/chrome-remote-desktop/host#fa44835d0ed33e8aa3b6b8964ec77bfd.json --start 2095 ?  SNs 10:33 
+   /usr/bin/system76-power daemon 2096 ?  SNsl 12:39 /usr/bin/system76-scheduler daemon 2099 ?  SNs 0:01 /usr/sbin/cron -f -P 2106 ?  SNs 0:00 
+   /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers 2111 ?  SNsl 0:40 /usr/libexec/polkitd --no-debug 2122 ?  SNsl 1:35 
+   /usr/sbin/rsyslogd -n -iNONE 2148 ?  SNsl 0:00 /usr/libexec/switcheroo-control 2153 ?  SNs 0:00 /usr/bin/python3 
+   /usr/lib/system76-driver/system76-daemon 2157 ?  SNs 0:36 /usr/lib/system76-firmware/system76-firmware-daemon 2159 ?  SN 8:19 
+   /usr/bin/python3 /usr/sbin/execsnoop-bpfcc 2165 ?  SNs 0:01 /lib/systemd/systemd-logind 2176 ?  SNsl 0:00 /usr/bin/touchegg --daemon 2183 ?  
+   SNsl 0:01 /usr/libexec/udisks2/udisksd 2186 ?  SNs 0:03 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant 2200 ?  SNs 0:00 /usr/sbin/atd -f 
+   2202 ?  SNsl 9:40 /usr/bin/containerd 2210 ?  Ss 0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups 2217 ?  SN 0:00 avahi-daemon: 
+   chroot helper 2231 ?  SN 0:00 /usr/sbin/xrdp-sesman 2232 ?  SNsl 0:00 /usr/sbin/ModemManager 2244 ?  SNsl 0:00 /usr/libexec/upowerd 2329 ?  
+   Ss 0:00 /lib/systemd/systemd --user 2334 ?  S 0:00 (sd-pam) 2360 ?  SN 0:00 /usr/sbin/xrdp 2401 ?  SNsl 5:48 /usr/bin/dockerd -H fd:// 
+   --containerd=/run/containerd/containerd.sock 2415 ?  S<sl 0:00 /usr/bin/pipewire 2418 ?  S 0:00 (sd-pam) 2421 ?  S<sl 0:00 
+   /usr/bin/pipewire -c filter-chain.conf 2422 ?  S<sl 0:00 /usr/bin/pipewire-pulse 2446 ?  SNsl 0:00 /usr/sbin/gdm3 2457 ?  SNsl 0:10 
+   /usr/libexec/rtkit-daemon 2481 ?  SNl 0:00 gdm-session-worker [pam/gdm-launch-environment] 2498 ?  SNs 0:00 /usr/lib/bluetooth/bluetoothd 
+   2499 ?  Ss 0:00 /lib/systemd/systemd --user 2502 ?  S 0:00 (sd-pam) 2563 ?  S<sl 0:00 /usr/bin/pipewire 2566 ?  S<sl 1:41 
+   /usr/bin/wireplumber 2568 ?  S<sl 0:00 /usr/bin/pipewire -c filter-chain.conf 2570 tty1 SNsl+ 0:00 /usr/libexec/gdm-x-session 
+   dbus-run-session -- gnome-session --autostart /usr/share/gdm/greeter/autostart 2571 ?  S<sl 0:00 /usr/bin/pipewire-pulse 2572 ?  SNs 0:00 
+   /usr/bin/dbus-broker-launch --scope user 2575 tty1 S<l+ 0:02 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/111/gdm/Xauthority 
+   -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3 2576 ?  SN 0:00 dbus-broker --log 4 --controller 10 --machine-id 
+   1dd45cd28185a0816dfc3de662d1e9c8 --max-bytes 100000000000000 --max-fds 25000000000000 --max-matches 5000000000 2583 ?  SNsl 0:00 
+   /usr/libexec/gvfsd 2590 ?  SNl 0:00 /usr/libexec/gvfsd-fuse /run/user/111/gvfs -f 2672 ?  SNsl 0:01 /usr/libexec/tracker-miner-fs-3 2714 ?  
+   S< 0:00 [krfcommd] 2742 ?  SNsl 0:00 /usr/libexec/gvfs-udisks2-volume-monitor 2752 ?  SNsl 0:27 /usr/libexec/gvfs-afc-volume-monitor 2764 ?  
+   SNsl 0:00 /usr/libexec/gvfs-gphoto2-volume-monitor 2777 ?  SNsl 0:00 /usr/libexec/gvfs-mtp-volume-monitor 2787 ?  SNsl 0:00 
+   /usr/libexec/gvfs-goa-volume-monitor 2792 ?  SNsl 0:00 /usr/libexec/goa-daemon 2807 ?  SNsl 0:25 /usr/libexec/goa-identity-service 3417 ?  
+   SNs 0:02 /usr/lib/postfix/sbin/master -w 3422 ?  SN 0:00 qmgr -l -t unix -u 3829 tty1 SN+ 0:00 dbus-run-session -- gnome-session 
+   --autostart /usr/share/gdm/greeter/autostart 3830 tty1 SN+ 0:00 dbus-daemon --nofork --print-address 4 --session 3831 tty1 SNl+ 0:00 
+   /usr/libexec/gnome-session-binary --autostart /usr/share/gdm/greeter/autostart 3834 tty1 SNl+ 0:00 /usr/libexec/at-spi-bus-launcher 3839 
+   tty1 SN+ 0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 
+   --address=unix:path=/run/user/111/at-spi/bus_0 3846 tty1 S<l+ 2:38 /usr/bin/gnome-shell 3867 tty1 SNl+ 0:00 
+   /usr/libexec/xdg-permission-store 3898 ?  SNsl 0:10 /usr/libexec/packagekitd 3911 tty1 SNl+ 0:00 /usr/bin/gjs 
+   /usr/share/gnome-shell/org.gnome.Shell.Notifications 3914 tty1 SNl+ 0:00 /usr/libexec/at-spi2-registryd --use-gnome-session 3974 tty1 SNl+ 
+   0:00 /usr/libexec/gsd-sharing 3978 tty1 SNl+ 0:00 /usr/libexec/gsd-wacom 3983 tty1 SNl+ 0:02 /usr/libexec/gsd-color 3988 tty1 SNl+ 0:00 
+   /usr/libexec/gsd-keyboard 3995 tty1 SNl+ 0:00 /usr/libexec/gsd-print-notifications 4000 tty1 SNl+ 0:00 /usr/libexec/gsd-rfkill 4004 tty1 
+   SNl+ 0:00 /usr/libexec/gsd-smartcard 4005 tty1 SNl+ 0:00 /usr/libexec/gsd-datetime 4007 tty1 SNl+ 0:00 /usr/libexec/gsd-media-keys 4010 
+   tty1 SNl+ 0:00 /usr/libexec/gsd-screensaver-proxy 4015 tty1 SNl+ 0:00 /usr/libexec/gsd-sound 4017 tty1 SNl+ 0:00 
+   /usr/libexec/gsd-a11y-settings 4020 tty1 SNl+ 0:55 /usr/libexec/gsd-housekeeping 4022 tty1 SNl+ 0:00 /usr/libexec/gsd-power 4082 ?  SNsl 
+   0:00 /usr/libexec/colord 4088 tty1 SNl+ 0:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver 4130 tty1 SNl+ 0:00 
+   /usr/libexec/gsd-printer 4753 ?  SNs 0:00 /usr/bin/dbus-broker-launch --scope user 4754 ?  SN 0:38 dbus-broker --log 4 --controller 10 
+   --machine-id 1dd45cd28185a0816dfc3de662d1e9c8 --max-bytes 100000000000000 --max-fds 25000000000000 --max-matches 5000000000 4791 ?  S<sl 
+   1:41 /usr/bin/wireplumber 4802 ?  SN 2:57 Xvfb :20 -auth /home/vonw/.Xauthority -nolisten tcp -noreset -screen 0 3840x2560x24 4818 ?  SNl 
+   0:00 /usr/libexec/gnome-session-binary --session=cinnamon 4873 ?  SNsl 0:00 /usr/libexec/at-spi-bus-launcher 4883 ?  SN 0:00 
+   /usr/bin/dbus-broker-launch --config-file=/usr/share/defaults/at-spi2/accessibility.conf --scope user 4885 ?  SN 0:44 dbus-broker --log 4 
+   --controller 9 --machine-id 1dd45cd28185a0816dfc3de662d1e9c8 --max-bytes 100000000000000 --max-fds 6400000 --max-matches 5000000000 4912 ?  
+   SNsl 0:34 /usr/libexec/at-spi2-registryd --use-gnome-session 4919 ?  SNsl 0:00 /usr/bin/ibus-daemon --daemonize --xim 4925 ?  SNsl 0:29 
+   /usr/libexec/gvfsd 4931 ?  SNl 0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f 4933 ?  SNl 0:00 /usr/libexec/ibus-memconf 4935 ?  SNl 
+   0:07 /usr/libexec/ibus-ui-gtk3 4936 ?  SNl 0:07 /usr/libexec/ibus-extension-gtk3 4942 ?  SNl 0:07 /usr/libexec/ibus-x11 --kill-daemon 4948 
+   ?  SNsl 0:31 /usr/libexec/ibus-portal 4960 ?  SNsl 1:11 /usr/libexec/xdg-desktop-portal 4964 ?  SNsl 0:37 /usr/libexec/xdg-document-portal 
+   4999 ?  SNsl 0:00 /usr/libexec/xdg-permission-store 5006 ?  SNs 0:00 fusermount3 -o 
+   rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc 5010 ?  SNsl 0:16 /usr/libexec/xdg-desktop-portal-gnome 
+   5020 ?  SNl 0:00 /usr/libexec/ibus-engine-simple 5068 ?  SNsl 0:00 /usr/libexec/gnome-remote-desktop-daemon 5069 ?  SNsl 0:00 
+   /usr/libexec/gnome-session-ctl --monitor 5120 ?  SNsl 0:00 /usr/libexec/gnome-session-binary --systemd-service --session=cinnamon 5126 ?  
+   SNl 0:07 /usr/libexec/gnome-session-failed --allow-logout 5129 ?  SNsl 0:09 /usr/libexec/gsd-xsettings 5148 ?  SNsl 0:09 
+   /usr/libexec/xdg-desktop-portal-gtk 5159 ?  DNsl 0:08 /usr/libexec/tracker-miner-fs-3 5188 ?  SNsl 0:00 
+   /usr/libexec/gvfs-udisks2-volume-monitor 5201 ?  SNsl 0:27 /usr/libexec/gvfs-afc-volume-monitor 5208 ?  SNsl 0:00 
+   /usr/libexec/gvfs-gphoto2-volume-monitor 5214 ?  SNsl 0:00 /usr/libexec/gvfs-mtp-volume-monitor 5218 ?  SNsl 0:00 
+   /usr/libexec/gvfs-goa-volume-monitor 5221 ?  SNsl 0:00 /usr/libexec/goa-daemon 5228 ?  SNsl 0:33 /usr/bin/gnome-keyring-daemon --start 
+   --foreground --components=secrets 5241 ?  SNsl 0:24 /usr/libexec/goa-identity-service 6594 ?  SNs 0:00 ssh-agent 6709 ?  SNs 0:00 
+   /usr/bin/perl /usr/bin/vncserver :1 -geometry 3024x1620 6710 ?  SNs 4:08 /usr/bin/Xtigervnc :1 -localhost=1 -desktop gaia:1 (vonw) -rfbport 
+   5901 -PasswordFile /home/vonw/.vnc/passwd -SecurityTypes VncAuth -auth /home/vonw/.Xauthority -geometry 3024x1620 -depth 24 6713 ?  SNs 
+   0:00 /bin/sh /home/vonw/.vnc/xstartup 6715 ?  SNl 0:00 /usr/libexec/gnome-session-binary 6718 ?  SN 0:00 dbus-launch --exit-with-session 
+   gnome-session 6719 ?  SNs 0:00 /usr/bin/dbus-daemon --syslog --fork --print-pid 5 --print-address 7 --session 6724 ?  SNl 0:00 
+   /usr/libexec/at-spi-bus-launcher 6729 ?  SN 0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork 
+   --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_1 6848 ?  SNl 0:00 /usr/libexec/gvfsd 6867 ?  SNl 0:00 
+   /usr/libexec/xdg-permission-store 6879 ?  SNl 0:00 /usr/libexec/evolution-source-registry 6887 ?  SNl 0:00 /usr/libexec/goa-daemon 6892 ?  
+   SNl 0:00 /usr/libexec/evolution-calendar-factory 6900 ?  SNl 0:23 /usr/libexec/goa-identity-service 6912 ?  SNl 0:00 
+   /usr/libexec/dconf-service 6919 ?  SNl 0:00 /usr/libexec/evolution-addressbook-factory 6931 ?  SNl 0:00 
+   /usr/libexec/gvfs-udisks2-volume-monitor 6937 ?  SNl 0:26 /usr/libexec/gvfs-afc-volume-monitor 6943 ?  SNl 0:00 
+   /usr/libexec/gvfs-gphoto2-volume-monitor 6954 ?  SNl 0:00 /usr/libexec/gvfs-mtp-volume-monitor 6959 ?  SNl 0:00 
+   /usr/libexec/gvfs-goa-volume-monitor 6982 ?  SNl 0:00 /usr/libexec/at-spi2-registryd --use-gnome-session 6988 ?  SNl 0:00 
+   /usr/libexec/gsd-wacom 6990 ?  SNl 0:00 /usr/libexec/gsd-media-keys 6992 ?  SNl 0:00 /usr/libexec/gsd-rfkill 6993 ?  SNl 0:00 
+   /usr/libexec/gsd-a11y-settings 6995 ?  SNl 0:00 /usr/libexec/gsd-xsettings 6998 ?  SNl 0:00 /usr/libexec/gsd-power 7001 ?  SNl 0:00 
+   /usr/libexec/gsd-screensaver-proxy 7002 ?  SNl 0:02 /usr/libexec/gsd-color 7007 ?  SNl 0:00 /usr/libexec/gsd-print-notifications 7008 ?  
+   SNl 0:00 /usr/libexec/gsd-sharing 7016 ?  SNl 0:00 /usr/libexec/gsd-datetime 7019 ?  SNl 0:00 /usr/libexec/gsd-usb-protection 7024 ?  SNl 
+   0:00 /usr/libexec/gsd-wwan 7027 ?  SNl 0:00 /usr/libexec/gsd-smartcard 7031 ?  SNl 0:55 /usr/libexec/gsd-housekeeping 7034 ?  SNl 0:00 
+   /usr/libexec/gsd-sound 7038 ?  SNl 0:00 /usr/libexec/gsd-keyboard 7111 ?  DNl 0:08 /usr/libexec/tracker-miner-fs-3 7115 ?  SNl 0:00 
+   /usr/libexec/gsd-printer 7123 ?  SNl 0:01 /usr/libexec/evolution-data-server/evolution-alarm-notify 7126 ?  SNl 0:00 touchegg 7131 ?  SNl 
+   0:00 /usr/libexec/gsd-disk-utility-notify 7135 ?  SN 0:00 /usr/bin/python3 /usr/lib/system76-driver/system76-user-daemon 7139 ?  SNl 0:00 
+   /usr/bin/python3 /usr/lib/hidpi-daemon/hidpi-daemon 7145 ?  SNl 0:33 io.elementary.appcenter -s 7152 ?  SNl 0:00 /usr/bin/python3 
+   /usr/lib/hidpi-daemon/hidpi-notification 7154 ?  SN 0:33 /usr/bin/com.system76.FirmwareManager.Notify 7249 ?  SNs 0:00 /usr/bin/python3 
+   /usr/lib/pop-transition/service.py 7280 ?  SNl 0:00 /usr/libexec/gvfsd-metadata 8880 ?  SNl 0:02 /usr/bin/gnome-calendar 
+   --gapplication-service 8882 ?  SNl 0:00 /usr/bin/seahorse --gapplication-service 8895 ?  SNl 0:00 /usr/libexec/gvfsd-trash --spawner :1.8 
+   /org/gtk/gvfs/exec_spaw/0 8924 ?  SNl 0:13 /usr/libexec/xdg-desktop-portal 8937 ?  SNl 0:01 /usr/libexec/xdg-desktop-portal-gnome 8986 ?  
+   SNl 0:00 /usr/libexec/xdg-desktop-portal-gtk 9008 ?  SN 0:00 /bin/bash /usr/local/bin/QNAP/QfinderPro/QfinderPro.sh 9014 ?  SNl 34:51 
+   /usr/local/bin/QNAP/QfinderPro/QfinderPro 9442 ?  S 1:34 [cifsd] 9459 ?  S 0:05 [cifsd] 9469 ?  SNsl 0:10 curlftpfs 
+   anonymous@ftp1.esrl.noaa.gov:/psd3/arctic/summit /mnt/NOAA_ESRL -o rw,nonempty,allow_other,uid=1000,gid=1000,umask=0022,dev,suid
+  13361 ?  S 0:02 [jbd2/nvme0n1-8] 13362 ?  I< 0:00 [ext4-rsv-conver] 484301 ?  SNs 0:00 ssh-agent 733353 ?  I 0:00 [kworker/16:1-rcu_gp] 
+ 733448 ?  SNl 0:00 /usr/libexec/tracker-extract-3 747736 ?  SNs 0:00 /usr/sbin/cupsd -l 747737 ?  SNsl 0:00 /usr/sbin/cups-browsed 830024 ?  
+ I 0:00 [kworker/21:0-rcu_gp] 830028 ?  I 0:00 [kworker/19:0-rcu_gp] 830831 ?  I 0:00 [kworker/20:0-mm_percpu_wq] 845537 ?  Ss 0:00 
+ /lib/systemd/systemd --user 845538 ?  S 0:00 (sd-pam) 845548 ?  S<sl 0:00 /usr/bin/pipewire 845553 ?  S<sl 0:06 /usr/bin/wireplumber 845554 ?  
+ S<sl 0:00 /usr/bin/pipewire -c filter-chain.conf 845556 ?  S<sl 0:00 /usr/bin/pipewire-pulse 845566 ?  SNs 0:00 /usr/bin/dbus-broker-launch 
+ --scope user 845569 ?  SN 0:00 dbus-broker --log 4 --controller 10 --machine-id 1dd45cd28185a0816dfc3de662d1e9c8 --max-bytes 100000000000000 
+ --max-fds 25000000000000 --max-matches 5000000000 845571 ?  SNsl 0:00 /usr/libexec/gvfsd 845576 ?  SNl 0:00 /usr/libexec/gvfsd-fuse 
+ /run/user/1001/gvfs -f 845586 ?  SNsl 0:00 /usr/libexec/tracker-miner-fs-3 845592 ?  SNsl 0:00 /usr/libexec/gvfs-udisks2-volume-monitor 
+ 845598 ?  SNsl 0:01 /usr/libexec/gvfs-afc-volume-monitor 845603 ?  SNsl 0:00 /usr/libexec/gvfs-gphoto2-volume-monitor 845609 ?  SNsl 0:00 
+ /usr/libexec/gvfs-mtp-volume-monitor 845617 ?  SNsl 0:00 /usr/libexec/gvfs-goa-volume-monitor 845622 ?  SNsl 0:00 /usr/libexec/goa-daemon 
+ 845628 ?  SNsl 0:04 /usr/libexec/goa-identity-service 845694 ?  SN 0:00 sh 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/bin/code-server --start-server --host=127.0.0.1 
+ --accept-server-license-terms --enable-remote-auto-shutdown --port=0 --telemetry-level all --connection-token-file 
+ /home/anacarla/.vscode-server/.e8a3071ea4344d9d48ef8a4df2c097372b0c5161.token 845704 ?  SNl 0:17 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/out/server-main.js --start-server --host=127.0.0.1 
+ --accept-server-license-terms --enable-remote-auto-shutdown --port=0 --telemetry-level all --connection-token-file 
+ /home/anacarla/.vscode-server/.e8a3071ea4344d9d48ef8a4df2c097372b0c5161.token 845734 ?  SNl 0:23 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/out/bootstrap-fork --type=ptyHost --logsPath 
+ /home/anacarla/.vscode-server/data/logs/20230111T093852 846026 pts/4 SNs+ 0:00 /bin/sh 847446 ?  I 0:00 [kworker/20:2-events] 856139 ?  S<l 
+ 0:07 /usr/libexec/gnome-terminal-server 856167 pts/6 S<s+ 0:00 zsh 857145 ?  SNl 0:00 /usr/bin/dolphin --daemon 857209 ?  S<l 49:39 
+ /usr/bin/gnome-shell 857262 ?  SNl 0:00 /usr/libexec/gnome-shell-calendar-server 857289 ?  SNl 0:00 /usr/bin/gjs 
+ /usr/share/gnome-shell/org.gnome.Shell.Notifications 857487 ?  SNl 3:45 /usr/bin/nautilus --gapplication-service 863657 ?  Ss 0:00 sshd: 
+ anacarla [priv] 863697 ?  S 0:01 sshd: anacarla@notty 863698 ?  SNs 0:00 -bash 863711 ?  SN 0:00 bash 863763 ?  SNl 0:15 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/out/bootstrap-fork --type=extensionHost --transformURIs 
+ --useHostProxy=false 863838 ?  SNl 0:04 /home/anacarla/.conda/envs/work/bin/python3.10 
+ /home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/run-jedi-language-server.py 863839 ?  SNl 0:00 
+ /home/anacarla/.conda/envs/work/bin/python3.10 /home/anacarla/.vscode-server/extensions/ms-python.isort-2022.8.0/bundled/tool/server.py 
+ 870898 ?  SNl 0:05 /home/anacarla/.conda/envs/work/bin/python3.10 -m ipykernel_launcher --ip=127.0.0.1 --stdin=9003 --control=9001 --hb=9000 
+ --Session.signature_scheme="hmac-sha256" --Session.key=b"89faefdf-2b8a-44ec-9c4f-7403bb061721" --shell=9002 --transport="tcp" --iopub=9004 
+ --f=/home/anacarla/.local/share/jupyter/runtime/kernel-v2-863763HRuNtk6VtvWE.json 870905 ?  SNl 0:00 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node 
+ /home/anacarla/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/extensions/markdown-language-features/server/dist/node/main 
+ --node-ipc --clientProcessId=863763 871715 ?  SN 0:00 /opt/anaconda3/bin/python 
+ /home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/lib/jedilsp/jedi/inference/compiled/subprocess/__main__.py 
+ /home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/lib/jedilsp 3.10.5 872330 ?  I 0:00 [kworker/6:1-rcu_gp]
+1480044 ?  SN 0:00 /opt/anaconda3/bin/python 
+/home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/lib/jedilsp/jedi/inference/compiled/subprocess/__main__.py 
+/home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/lib/jedilsp 3.10.5 1684916 ?  I 0:00 [kworker/19:2-events] 
+1685062 ?  I 0:00 [kworker/23:2-events] 1685970 ?  SN 0:00 /opt/anaconda3/bin/python 
+/home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/lib/jedilsp/jedi/inference/compiled/subprocess/__main__.py 
+/home/anacarla/.vscode-server/extensions/ms-python.python-2022.20.1/pythonFiles/lib/jedilsp 3.10.5 1702120 ?  I 0:00 [kworker/8:3-rcu_gp] 
+1811833 ?  I 0:00 [kworker/24:2-events] 1811834 ?  I 0:00 [kworker/25:0-rcu_gp] 1811994 ?  I 0:00 [kworker/1:2-rcu_par_gp] 1812027 ?  I 0:00 
+[kworker/3:2-rcu_gp] 1917344 ?  I 0:00 [kworker/31:0-rcu_gp] 1917346 ?  I 0:00 [kworker/22:0-mm_percpu_wq] 1920473 ?  I 0:00 
+[kworker/9:3-mm_percpu_wq] 1937888 ?  SNsl 0:01 /usr/bin/pop-upgrade daemon 1939390 ?  I 0:00 [kworker/16:2-events] 1939395 ?  I 0:00 
+[kworker/5:2-rcu_gp] 1941777 ?  Ss 0:00 sshd: vonw [priv] 1941792 ?  S 0:02 sshd: vonw@pts/5 1941793 pts/5 SNs 0:00 -zsh 1942520 ?  I 0:00 
+[kworker/1:1-rcu_par_gp] 2121776 ?  I 0:00 [kworker/29:1-rcu_gp] 2121789 ?  I 0:00 [kworker/27:1-rcu_gp] 2154893 ?  I 0:00 
+[kworker/6:0-events] 2154896 ?  I 0:00 [kworker/7:1-rcu_gp] 2154897 ?  I 0:00 [kworker/30:0-rcu_gp] 2155161 ?  I 0:00 [kworker/13:3-events] 
+2371941 ?  I 0:00 [kworker/26:1-events] 2371943 ?  I 0:00 [kworker/31:1-events] 2371944 ?  I 0:00 [kworker/21:2-mm_percpu_wq] 2371946 ?  I 
+0:00 [kworker/8:0-events] 2372128 ?  I 0:00 [kworker/0:0-events] 2372129 ?  I 0:00 [kworker/28:1-rcu_gp] 2372131 ?  I 0:00 
+[kworker/4:2-events_freezable] 2372132 ?  I 0:00 [kworker/5:1-events] 2372959 ?  I 0:00 [kworker/9:0-events] 2373454 ?  I 0:00 
+[kworker/14:0-events] 2373890 ?  I 0:00 [kworker/27:0-events] 2373891 ?  I 0:00 [kworker/17:1-rcu_gp] 2373893 ?  I 0:00 [kworker/18:0-rcu_gp] 
+2373895 ?  I 0:00 [kworker/26:2-events] 2374449 ?  I 0:00 [kworker/12:1-events] 2374697 ?  I 0:00 [kworker/7:2-events] 2586454 ?  I 0:00 
+[kworker/15:2-events] 2586456 ?  I 0:00 [kworker/25:2-events] 2586457 ?  I 0:00 [kworker/2:0-rcu_par_gp] 2586472 ?  I 0:00 
+[kworker/18:1-mm_percpu_wq] 2587767 ?  I 0:00 [kworker/29:2-mm_percpu_wq] 2587772 ?  I 0:01 [kworker/11:4-events] 2587773 ?  I 0:00 
+[kworker/30:1-rcu_par_gp] 2588194 ?  I 0:00 [kworker/u64:3-kcryptd/253:0] 2588471 ?  I 0:00 [kworker/24:0] 2595459 ?  I 0:00 
+[kworker/10:1-mm_percpu_wq] 2595575 ?  Ss 0:00 sshd: vonw [priv] 2595590 ?  S 0:00 sshd: vonw@pts/8 2595591 pts/8 SNs 0:00 -zsh 2595772 pts/8 
+SN+ 0:00 nano cmaqv5.3.3_ubuntu22.04.def 2597946 ?  I 0:00 [kworker/0:2] 2598403 ?  I 0:00 [kworker/u64:5-kcryptd/253:0] 2598601 ?  I 0:00 
+[kworker/10:3-events] 2600510 ?  I 0:00 [kworker/11:1-events] 2601854 ?  I 0:00 [kworker/u64:0-kcryptd/253:0] 2602221 ?  I 0:00 [kworker/13:1] 
+2602249 ?  I 0:00 [kworker/u64:1-kcryptd/253:0] 2607455 ?  I 0:00 [kworker/u64:2-kcryptd/253:0] 2607764 ?  I 0:00 [kworker/14:2] 2607963 ?  I 
+0:00 [kworker/u64:9-kcryptd/253:0] 2609956 ?  I 0:00 [kworker/u64:10-kcryptd/253:0] 2611724 ?  SN 0:00 pickup -l -t unix -u -c 2612062 ?  I 
+0:00 [kworker/u64:13-kcryptd/253:0] 2612232 ?  I 0:00 [kworker/u64:14-kcryptd/253:0] 2613564 ?  I 0:00 [kworker/12:0-cifsiod] 2613987 ?  I 
+0:00 [kworker/u64:8-kcryptd/253:0] 2613989 ?  I 0:00 [kworker/u64:17-kcryptd/253:0] 2613990 ?  I 0:00 [kworker/u64:18-kcryptd/253:0] 2614194 ?  
+I 0:00 [kworker/17:2-events] 2614195 ?  I 0:00 [kworker/28:0-events] 2614196 ?  SNsl 0:00 /usr/lib/cockpit/cockpit-tls 2614197 ?  I 0:00 
+[kworker/2:2-events] 2614198 ?  I 0:00 [kworker/3:1-mm_percpu_wq] 2614433 ?  I 0:00 [kworker/15:0-events] 2615078 ?  I 0:00 
+[kworker/u64:4-kcryptd/253:0] 2615249 ?  I 0:00 [kworker/12:2] 2615304 ?  I 0:00 [kworker/u64:6-kcryptd/253:0] 2615441 ?  I 0:00 
+[kworker/1:0-events] 2615444 ?  I 0:00 [kworker/30:2-mm_percpu_wq] 2615792 ?  SNl 0:00 
+/opt/google/chrome-remote-desktop/chrome-remote-desktop-host --host-config=- 
+--audio-pipe-name=/home/vonw/.config/chrome-remote-desktop/pulseaudio#fa44835d0e/fifo_output --server-supports-exact-resize 
+--ssh-auth-sockname=/tmp/chromoting.vonw.ssh_auth_sock --signal-parent 2615814 pts/5 RN+ 0:00 ps ax 2615815 pts/5 RN+ 0:00 nano 2629341 ?  I 
+0:01 [kworker/22:1-rcu_gp] 3613424 ?  SNs 0:00 ssh-agent -s 3659213 ?  SNl 0:00 /usr/libexec/gvfsd-network --spawner :1.8 
+/org/gtk/gvfs/exec_spaw/1 3659230 ?  SNl 0:00 /usr/libexec/gvfsd-dnssd --spawner :1.8 /org/gtk/gvfs/exec_spaw/3 4100200 ?  I 0:00 
+[kworker/23:0-rcu_gp] 4102914 ?  I 0:01 [kworker/4:1-rcu_par_gp] 4103971 ?  SNsl 0:00 /usr/libexec/gvfsd-metadata

@@ -1,0 +1,106 @@
+Bootstrap: docker
+From: ubuntu
+
+%post
+  # ....Install compilers and utilities
+  apt -y update
+  apt -y install build-essential
+  apt -y install curl
+  apt -y install gfortran
+  apt -y install m4
+  apt -y install nano
+  apt -y install tcsh
+  apt -y install wget
+  apt -y install zlib1g zlib1g-dev
+  apt -y install libdispatch-dev
+  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+  #     For openmpi
+  apt -y install git
+  apt -y install autoconf
+  apt -y install automake
+  apt -y install libtool
+  apt -y install flex
+  apt -y install pandoc
+
+  # ....Install OpenMPI
+  mkdir -p /opt/share
+  cd /opt/share
+  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
+  tar xvfz openmpi-4.1.4.tar.gz
+  cd openmpi-4.1.4
+  ./configure --prefix=/usr/local
+  make all install
+  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+  # ....Install the netCDF libraries
+  #     netcdf-c
+  export CC=mpicc
+  export FC=mpifort
+  export NCDIR=/usr/local
+  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
+  cd /opt/share
+  #       Version used by CMAS
+  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+  tar xvf v4.8.1.tar.gz
+  cd netcdf-c-4.8.1
+  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr
+  make check 
+  make install
+  #     netcdf-fortran
+  cd /opt/share
+  #       Version used by CMAS
+  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
+  tar xvf v4.5.2.tar.gz
+  cd netcdf-fortran-4.5.2
+  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
+  export NFDIR=/usr/local
+  export CPPFLAGS='-I${NCDIR}/include'
+  export LDFLAGS='-L${NCDIR}/lib'
+  export OMPI_FCFLAGS='-fallow-argument-mismatch'
+  ./configure --prefix=${NFDIR} --disable-fortran-type-check
+  make check
+  make install
+  #     pnetcdf
+  cd /opt/share
+  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
+  tar xvf pnetcdf-1.12.3.tar.gz
+  cd pnetcdf-1.12.3
+  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
+  make
+  make install
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
+
+
+  # ....Compile ioapi-3.2
+  #     Now must switch to csh; grrrr
+#  /bin/tcsh
+#  setenv HOME /opt/share
+#  setenv INSTALL /opt/share/ioapi-3.2
+#  setenv BIN Linux2_x86_64gfortmpi
+#  setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
+#  cd /opt/share/
+#  git clone https://github.com/cjcoats/ioapi-3.2.git
+#  cd ioapi-3.2/ioapi
+#  cp Makefile.nocpl Makefile
+#  # Make manual edits to Makeinclude.Linux2_x86_64mpifort to update it for mpifort
+#  sed -i 's|-ffast-math -funroll-loops -m64|-ffast-math -funroll-loops -m64 -fallow-argument-mismatch|' Makeinclude.Linux2_x86_64gfortmpi
+#  make -f Makefile
+#  make install
+
+  # ....Compile m3tools
+#  cd /opt/share/ioapi-3.2/m3tools
+#  cp Makefile.nocpl Makefile
+#  make -f Makefile
+#  make install
+
+  # ....Compile mcip
+#  cd /opt/share
+#  git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
+#  mv CMAQ CMAQv5.3.3
+#  cd CMAQ-5.3.3/PREP/mcip/src
+#  # Edit Makefile to include correct directories.
+#  sed -i 's|NETCDF = /usr/local/apps/netcdf-4.6.3/intel-18.0|NETCDF = /usr/local|' Makefile
+#  sed -i 's|IOAPI_ROOT = /usr/local/apps/ioapi-3.2/intel-18.0|IOAPI_ROOT = /opt/share/ioapi-3.2|' Makefile
+#  make -f Makefile
+

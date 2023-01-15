@@ -1,0 +1,117 @@
+Bootstrap: library
+From: centos:7
+Include: yum
+
+%environment
+    export PATH=/usr/sbin:/usr/bin:/usr/local/bin
+    export LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib/gcc/x86_64-redhat-linux/
+    export BIN=Linux2_x86_64gfort_medium
+    export PATH=/opt/bin:/opt/ioapi-3.2/${BIN}:${PATH}:.
+    export MANPATH=/usr/share/man/mpich:/opt/share/man:/usr/share/man/openmpi3-x86_64:/usr/share/man/mvapich2-x86_64
+
+%post
+    # ....Important Linux packages
+    yum -y install epel-release
+    yum -y install bc
+    yum -y install bison
+    yum -y install bzip2
+    yum -y install curl
+    yum -y install cvs
+    yum -y install ddd
+    yum -y install dos2unix
+    yum -y install file
+    yum -y install flex
+    yum -y install gcc
+    yum -y install gcc-gfortran
+    yum -y install gcc-c++
+    yum -y install gd-devel
+    yum -y install git
+    yum -y install glibc-devel
+    yum -y install gnuplot
+    yum -y install hwloc hwloc-devel
+    yum -y install infiniband-diags-devel
+    yum -y install jre
+    yum -y install lzma lzma-devel
+    yum -y install make
+    yum -y install man
+    yum -y install motif
+    yum -y install mpich mpich-devel
+    yum -y install mvapich2 mvapich2-devel
+    yum -y install nano
+    yum -y install openmpi3 openmpi3-devel
+    yum -y install tcsh
+    yum -y install time
+    yum -y install unix2dos
+    yum -y install wget
+    yum -y install xlib-static
+    yum -y install zlib zlib-devel
+
+
+    # ....Extra packages for CMAQ compilation
+    yum -y install netcdf-4.3.3.1
+    yum -y install netcdf-devel-4.3.3.1
+    yum -y install netcdf-static-4.3.3.1
+    yum -y install netcdf-fortran-4.2
+    yum -y install netcdf-fortran-devel-4.2
+    yum -y install netcdf-fortran-static-4.2
+    yum -y install netcdf-cxx-4.2
+    yum -y install netcdf-cxx-devel-4.2
+    yum -y install netcdf-cxx-static-4.2
+    yum -y install netcdf4-python-1.2.7
+    yum -y install grads-2.0.2
+    yum -y install meld-3.16.4
+    yum -y install ncarg
+    yum -y install ncview-2.1.8
+    yum -y install nco-4.7.5
+
+#    rpm -i -vv http://www.city-fan.org/ftp/contrib/yum-repo/rhel7/x86_64/xxdiff-4.0.1-1.0.cf.rhel7.x86_64.rpm
+
+    # ....Create base directories for software installation
+    mkdir /opt/bin
+    mkdir /opt/share
+    mkdir /opt/share/nedit
+
+    # ....Install grib decoder for NCEP/NCAR reanalysis, etc. 
+    mkdir /opt/wgrib
+        cd /opt/wgrib
+        wget ftp://ftp.cpc.ncep.noaa.gov/wd51we/wgrib/wgrib.c
+        cc -o /opt/bin/wgrib wgrib.c
+
+    # ....Install and compile ioapi (for use by CMAQ)
+    export HOME="/opt"
+    export BIN="Linux2_x86_64gfort_medium"
+    cd /opt
+    git clone https://github.com/cjcoats/ioapi-3.2.git
+    cd /opt/ioapi-3.2
+    mkdir ${BIN}
+    mkdir ${BIN}dbg
+    cd /opt/ioapi-3.2/ioapi
+    make -f Makefile.nocpl
+    #make BIN=${BIN}dbg
+    cd /opt/ioapi-3.2/m3tools
+    make -f Makefile.nocpl
+    #make BIN=${BIN}dbg
+
+    # ....Install and compile CMAQ
+    cd /opt
+    git clone -b 5.3.2 https://github.com/USEPA/CMAQ.git
+    mv CMAQ CMAQv.5.3.2
+
+
+%runscript
+    echo "Container was created $NOW"
+    echo "Arguments received: $*"
+    exec echo "$@"
+
+%startscript
+    echo "Hello World!"
+
+%test
+    cat /etc/os-release
+
+%labels
+    Author Von P. Walden
+    Version v0.0.1
+
+%help
+    This is a demo container used for AIRPACT-6 development.

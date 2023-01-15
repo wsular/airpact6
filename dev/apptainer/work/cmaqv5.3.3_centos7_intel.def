@@ -1,0 +1,151 @@
+Bootstrap: docker
+From: centos:7
+Include: yum
+
+%environment
+    export PATH=/usr/sbin:/usr/bin:/usr/local/bin
+    export LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib/gcc/x86_64-redhat-linux/
+    export BIN=Linux2_x86_64gfort_medium
+    export PATH=/opt/bin:/opt/ioapi-3.2/${BIN}:${PATH}:.
+    export MANPATH=/usr/share/man/mpich:/opt/share/man:/usr/share/man/openmpi3-x86_64:/usr/share/man/mvapich2-x86_64
+
+%post
+    # ....Important Linux packages
+    yum -y install epel-release
+    yum -y install bc
+    yum -y install bison
+    yum -y install bzip2
+    yum -y install curl
+    yum -y install cvs
+    yum -y install ddd
+    yum -y install dos2unix
+    yum -y install file
+    yum -y install flex
+    yum -y install gcc
+    yum -y install gcc-gfortran
+    yum -y install gcc-c++
+    yum -y install gd-devel
+    yum -y install git
+    yum -y install glibc-devel
+    yum -y install gnuplot
+    yum -y install hwloc hwloc-devel
+    yum -y install infiniband-diags-devel
+    yum -y install jre
+    yum -y install lzma lzma-devel
+    yum -y install make
+    yum -y install man
+    yum -y install motif
+#    yum -y install mpich mpich-devel
+#    yum -y install mvapich2 mvapich2-devel
+    yum -y install nano
+#    yum -y install openmpi3 openmpi3-devel
+    yum -y install tcsh
+    yum -y install time
+    yum -y install unix2dos
+    yum -y install wget
+#    yum -y install zlib zlib-devel
+
+    # ....Install the Intel OneAPI compilers
+tee > /tmp/oneAPI.repo << EOF
+[oneAPI]
+name=Intel® oneAPI repository
+baseurl=https://yum.repos.intel.com/oneapi
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+EOF
+    mv /tmp/oneAPI.repo /etc/yum.repos.d
+
+    yum -y update
+    yum -y install intel-basekit
+    yum -y install intel-hpckit
+
+    yum -y update
+    yum -y install cmake pkgconfig
+    yum -y groupinstall "Development Tools"
+    bash -c 'source /opt/intel/oneapi/setvars.sh ; exec csh'
+
+    # ....Set up oneAPI modules
+    #source /usr/share/Modules/init/bash
+    /opt/intel/oneapi/modulefiles-setup.sh
+    module use /opt/intel/oneapi/modulefiles
+    module load mpi
+    module load icc
+
+    # ....Install the netcdf libraries
+    #     netcdf-c
+#    CC="mpiicc"
+#    FC="mpiifort"
+#    NCDIR="/usr/local"
+#    cd /opt
+#    mkdir share
+#    cd /opt/share
+#    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.3.3.1.tar.gz
+#    tar xvf v4.3.3.1.tar.gz
+#    cd netcdf-c-4.3.3.1
+#    ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap
+#    make check
+#    make install
+    #     netcdf-fortran
+#    cd /opt/share
+#    wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.2.tar.gz
+#    tar xvf v4.4.2.tar.gz
+#    cd netcdf-fortran-4.4.2
+#    LD_LIBRARY_PATH=${NCDIR}"/lib:"${LD_LIBRARY_PATH}
+#    NFDIR="/usr/local"
+#    CPPFLAGS="-I"${NCDIR}"/include"
+#    LDFLAGS="-L"${NCDIR}"/lib"
+#    ./configure --prefix=${NFDIR} --disable-fortran-type-check
+#    make check
+#    make install
+
+    # ....Compile ioapi-3.2
+#    PATH="/usr/lib64/mpich-3.2/bin:$PATH"
+#    LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+#    source /usr/share/Modules/init/bash
+#    sudo /opt/intel/oneapi/modulefiles-setup.sh
+#    module use /opt/intel/oneapi/modulefiles
+#    module load mpi
+#    module load icc
+#    cd /opt
+#    git clone https://github.com/cjcoats/ioapi-3.2.git
+#    cd /opt/ioapi-3.2/ioapi
+#    cp Makefile.nocpl Makefile
+#    # Make manual edits to Makefile and Makeinclude.Linux2_x86_64ifort
+#    sed -i 's|${HOME}|/opt|g' Makefile
+#    sed -i 's|${INSTALL}|/opt/ioapi-3.2|g' Makefile
+#    sed -i 's|${BIN}|Linux2_x86_64ifort|g' Makefile
+#    sed -i 's|OMPFLAGS  = -openmp|OMPFLAGS  = -qopenmp|' Makeinclude.Linux2_x86_64ifort
+#    sed -i 's|OMPLIBS   = -openmp|OMPLIBS   = -qopenmp|' Makeinclude.Linux2_x86_64ifort
+#    sed -i 's|-stack_temps -safe_cray_ptr|-stack-temps -safe-cray-ptr|' Makeinclude.Linux2_x86_64ifort
+#    make -f Makefile
+
+    # ....Compile m3tools
+#    cd /opt/ioapi-3.2/m3tools
+#    cp Makefile.nocpl Makefile
+#    make -f Makefile
+
+    # ....Compile mcip
+#    cd /opt
+#    git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
+#    mv CMAQ CMAQv5.3.3
+#    cd CMAQv5.3.3/PREP/mcip/src
+#    # Edit Makefile to include correct directories.
+#    sed -i 's|NETCDF = /usr/local/apps/netcdf-4.6.3/intel-18.0|NETCDF = /usr/local|' Makefile
+#    sed -i 's|IOAPI_ROOT = /usr/local/apps/ioapi-3.2/intel-18.0|IOAPI_ROOT = /opt/ioapi-3.2|' Makefile
+#    make -f Makefile
+
+%runscript
+
+%startscript
+    echo "CMAQ v5.3.2 singularity container"
+
+%test
+
+%labels
+    Author Von P. Walden
+    Version v0.0.1
+
+%help
+    This is a container for CMAQ v5.3.2, which is used for AIRPACT-6 development.

@@ -1,0 +1,90 @@
+Bootstrap: library
+From: ubuntu
+
+%post
+    apt-get update
+    # ....Important Linux packages
+    apt-get install -y cmake pkg-config build-essential
+    apt-get install -y gfortran
+    apt-get install -y git
+    apt-get install -y mpich
+    apt-get install -y nano
+    apt-get install -y python3
+    apt-get install -y wget
+
+    # ....Install the Intel OneAPI compilers
+         # use wget to fetch the Intel repository public key
+    wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+         # add to your apt sources keyring so that archives signed with this key will be trusted.
+    apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+         # remove the public key
+    rm GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+         echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.list.d/oneAPI.list
+         # Now install the packages
+    apt-get update
+    apt-get install -y intel-basekit
+    apt-get install -y intel-hpckit
+
+    # ....Extra packages for CMAQ compilation
+#    apt-get install -y libnetcdf-dev
+#    apt-get install -y libnetcdff-dev
+#    apt-get install -y libnetcdf-cxx-legacy-dev
+#    apt-get install -y libpnetcdf-dev
+#    apt-get install -y netcdf-bin
+#    apt-get install -y pnetcdf-bin
+#    apt-get install -y nco
+#    apt-get install -y ncview
+
+    # ....Install the Intel OneAPI compilers
+
+
+    # ....Create base directories for software installation
+    mkdir /opt/share
+
+    # ....Install and compile ioapi (for use by CMAQ)
+    source /opt/intel/oneapi/setvars.sh
+    export HOME="/opt"
+    export BIN="Linux2_x86_64ifort"
+    export INSTALL="/opt/ioapi-3.2"
+    cd /opt
+    git clone https://github.com/cjcoats/ioapi-3.2.git
+    cd /opt/ioapi-3.2
+    mkdir ${BIN}
+    cd /opt/ioapi-3.2/ioapi
+    # !!!! This required MANUAL changes to Makeinclude.Linux2_x86_64ifort !!!!
+    #      (Failed on -openmp flag; changed to -qopenmp!)
+    make -f Makefile.nocpl
+    cd /opt/ioapi-3.2/m3tools
+    # !!!! Also had to make MANUAL changes to Makefile.nocpl in m3tools
+    #      (Change LIBS= to use `nc-config --libs`)
+    make -f Makefile.nocpl
+
+    # ....Install and compile CMAQ
+    cd /opt
+    git clone -b 5.3.2 https://github.com/USEPA/CMAQ.git
+    mv CMAQ CMAQv5.3.2
+    cd CMAQv5.3.2/PREP/mcip/src
+    # !!!! Had to make MANUAL changes to Makefile
+    #      (Change NETCDF = and IOAPI_ROOT =)
+    make
+
+%environment
+    source /opt/intel/oneapi/setvars.sh
+
+%runscript
+    echo "Container was created $NOW"
+    echo "Arguments received: $*"
+    exec echo "$@"
+
+%startscript
+    echo "Hello World!"
+
+%test
+    cat /etc/os-release
+
+%labels
+    Author Von P. Walden
+    Version v0.0.1
+
+%help
+    This is a demo container used for AIRPACT-6 development.

@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AIRPACT6 Development Steps",
+    "section": "",
+    "text": "Install HDF5\nInstall netCDF"
+  },
+  {
+    "objectID": "hdf5.html",
+    "href": "hdf5.html",
+    "title": "Install HDF5 libraries",
+    "section": "",
+    "text": "The zlib1g package is apparently installed as part of Ubuntu 22.04, so I did not install zlib manually.\n\nzlib is needed by HDF5\n\n\n\n\n\n\nNavigate to the HDF Group site\nScroll down and choose Click here to obtain code for all platforms\nDownload the latest version of HDF5 by choosing on the tar.gz version.\n\nToday the latest version is hdf5-1.12.2.tar.gz\n\nMove this file to /opt and decompress it\ncd /home/vonw/Downloads\nsudo mv hdf5-1.12.2.tar.gz /opt/.\ncd /opt\nsudo tar xvfz hdf5-1.12.2.tar.gz\nMake HDF5 (instructions in INSTALL.md in hdf5-1.12.2/release_notes directory) - WITHOUT PARALLELIZATION !!\ncd /opt/hdf5-1.12.2\nsudo ./configure\nsudo make\nsudo make check\nsudo make install\n\nThis worked without error\nThe libraries were installed in /opt/hdf5-1.12.2/lib\nThe include files were installed in /opt/hdf5-1.12.2/include\n\nNote that I first tried to compile HDF% with parallelization using the mpicc compiler, but this did not work; see steps below.\n\n==Errors were encountered during ‘sudo make check’, but I decided to try ‘sudo make install’ and it worked without error. However, I encountered errors when trying to build the netcdf libraries==\n\nwhereis mpicc      # Output /usr/bin/mpicc\ncd /opt\nsudo CC=/usr/bin/mpicc ./configure --prefix=/usr/local\nsudo make\nsudo make check\nsudo make install\n\nThis installed HDF5 in /usr/local/hdf5-1.12.2\n\nThe libraries are in /usr/local/hdf5-1.12.2/lib"
+  }
+]

@@ -1,0 +1,145 @@
+sudo singularity build --sandbox /work/cmaq.sif library://library/default/centos:7
+
+sudo singularity shell -s /usr/bin/tcsh --writable  /work/cmaq.sif
+
+Then...
+
+    yum -y install epel-release
+    yum -y install bc
+    yum -y install bison
+    yum -y install bzip2
+    yum -y install curl
+    yum -y install cvs
+    yum -y install ddd
+    yum -y install dos2unix
+    yum -y install file
+    yum -y install flex
+    yum -y install gcc
+    yum -y install gcc-gfortran
+    yum -y install gcc-c++
+    yum -y install gd-devel
+    yum -y install git
+    yum -y install glibc-devel
+    yum -y install gnuplot
+    yum -y install hwloc hwloc-devel
+    yum -y install infiniband-diags-devel
+    yum -y install jre
+    yum -y install lzma lzma-devel
+    yum -y install make
+    yum -y install man
+    yum -y install motif
+    yum -y install mpich mpich-devel
+    yum -y install mvapich2 mvapich2-devel
+    yum -y install nano
+    yum -y install openmpi3 openmpi3-devel
+    yum -y install tcsh
+    yum -y install time
+    yum -y install unix2dos
+    yum -y install wget
+    yum -y install xlib-static
+    yum -y install zlib zlib-devel
+
+    # ....Install the Intel OneAPI compilers
+tee > /tmp/oneAPI.repo << EOF
+[oneAPI]
+name=Intel® oneAPI repository
+baseurl=https://yum.repos.intel.com/oneapi
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+EOF
+    mv /tmp/oneAPI.repo /etc/yum.repos.d
+
+    yum -y update
+    yum -y install intel-basekit
+    yum -y install intel-hpckit
+
+    yum -y update
+    yum -y install cmake pkgconfig
+    yum -y groupinstall "Development Tools"
+    bash -c 'source /opt/intel/oneapi/setvars.sh ; exec csh'
+    #source /opt/intel/oneapi/setvars.sh
+
+    #yum -y install grads
+    #yum -y install meld
+    #yum -y install ncarg
+    #yum -y install ncview
+    #yum -y install nco
+    #yum -y install netcdf
+    #yum -y install netcdf-devel
+    #yum -y install netcdf-static
+    #yum -y install netcdf-cxx
+    #yum -y install netcdf-cxx-devel
+    #yum -y install netcdf-cxx-static
+    #yum -y install netcdf-fortran
+    #yum -y install netcdf-fortran-devel
+    #yum -y install netcdf-fortran-static
+    #yum -y install netcdf4-python
+
+    # ....Install the netcdf libraries
+    #     netcdf-c
+    setenv CC icc
+    setenv FC ifort
+    setenv NCDIR /usr/local
+    cd /opt
+    mkdir share
+    cd /opt/share
+    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.3.3.1.tar.gz
+    tar xvf v4.3.3.1.tar.gz
+    cd netcdf-c-4.3.3.1
+#    autoreconf -if
+    ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap
+    make -i check
+    make -i install
+    #     netcdf-fortran
+    cd /opt/share
+    wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.2.tar.gz
+    tar xvf v4.4.2.tar.gz
+    cd netcdf-fortran-4.4.2
+    setenv LD_LIBRARY_PATH ${NCDIR}/lib:${LD_LIBRARY_PATH}
+    setenv NFDIR /usr/local
+    setenv CPPFLAGS -I${NCDIR}/include 
+    setenv LDFLAGS -L${NCDIR}/lib
+    ./configure --prefix=${NFDIR} --disable-fortran-type-check
+    make check
+    make install
+
+    # ....Compile ioapi-3.2
+    HOME="/opt"
+    INSTALL="/opt/ioapi-3.2"
+    BIN="Linux2_x86_64ifort"
+    cd /opt
+    git clone https://github.com/cjcoats/ioapi-3.2.git
+    cd /opt/ioapi-3.2/ioapi
+    cp Makefile.nocpl Makefile
+    # Make manual edits to Makeinclude.Linux2_x86_64ifort to update it for ifort
+    sed -i 's|OMPFLAGS  = -openmp|OMPFLAGS  = -qopenmp|' Makeinclude.Linux2_x86_64ifort
+    sed -i 's|OMPLIBS   = -openmp|OMPLIBS   = -qopenmp|' Makeinclude.Linux2_x86_64ifort
+    sed -i 's|-stack_temps -safe_cray_ptr|-stack-temps -safe-cray-ptr|' Makeinclude.Linux2_x86_64ifort
+    make -f Makefile
+
+    # ....Compile m3tools
+    cd /opt/ioapi-3.2/m3tools
+    cp Makefile.nocpl Makefile
+    make -f Makefile
+
+    # ....Compile mcip
+    cd /opt
+    git clone -b 5.3.2 https://github.com/USEPA/CMAQ.git
+    mv CMAQ CMAQv5.3.2
+    cd CMAQv5.3.2/PREP/mcip/src
+    # Edit Makefile to include correct directories.
+    sed -i 's|NETCDF = /usr/local/apps/netcdf-4.6.3/intel-18.0|NETCDF = /usr/local|' Makefile
+    sed -i 's|IOAPI_ROOT = /usr/local/apps/ioapi-3.2/intel-18.0|IOAPI_ROOT = /opt/ioapi-3.2|' Makefile
+    make -f Makefile
+
+%environment
+setenv PATH /usr/lib64/mpich-3.2/bin:$PATH
+
+source /usr/share/Modules/init/csh
+module use /opt/intel/oneapi/modulefiles
+module load mpi
+module load icc
+
+setenv LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH

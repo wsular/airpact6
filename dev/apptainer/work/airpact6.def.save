@@ -1,0 +1,121 @@
+Bootstrap: library
+From: ubuntu
+
+%environment
+#    export PATH=/usr/sbin:/usr/bin:/usr/local/bin
+#    export LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib/gcc/x86_64-redhat-linux/
+#    export BIN=Linux2_x86_64gfort_medium
+#    export PATH=/opt/bin:/opt/ioapi-3.2/${BIN}:${PATH}:.
+#    export MANPATH=/usr/share/man/mpich:/opt/share/man:/usr/share/man/openmpi3-x86_64:/usr/share/man/mvapich2-x86_64
+
+%post
+    apt-get update
+    # ....Important Linux packages
+    apt-get install -y build-essential
+    apt-get install -y gfortran
+#    apt-get install gcc-c++
+#    yum -y install gd-devel-2.0.35
+#    yum -y install gdb-7.6.1
+    apt-get install -y git
+#    yum -y install glibc-devel-2.17
+#    yum -y install gnuplot-4.6.2
+#    yum -y install hwloc-1.11.8 hwloc-devel-1.11.8
+#    yum -y install intel-basekit
+#    yum -y install ImageMagick
+#    yum -y install infiniband-diags-2.1.0
+#    yum -y install infiniband-diags-devel-2.1.0
+#    yum -y install jre
+#    yum -y install lzma lzma-devel
+#    yum -y install make
+#    yum -y install man
+#    yum -y install motif-2.3.4
+    apt-get install -y mpich
+#    yum -y install mvapich2-2.0 mvapich2-devel-2.0
+    apt-get install -y nano
+#    yum -y install nedit
+#    yum -y install openmpi3-3.1.3 openmpi3-devel-3.1.3
+    apt-get install -y python3
+#    yum -y install rcs
+#    yum -y install subversion
+#    yum -y install tcsh
+#    yum -y install time-1.7
+#    yum -y install unix2dos
+    apt-get install -y wget
+#    yum -y install xguest-1.0.10
+#    yum -y install zlib-1.2.7 zlib-devel-1.2.7
+
+    # ....Extra packages for CMAQ compilation
+
+#    apt-get install -y netcdf
+#    apt-get install -y netcdf-devel
+#    apt-get install -y netcdf-static
+#    apt-get install -y netcdf-fortran
+#    apt-get install -y netcdf-fortran-devel
+#    apt-get install -y netcdf-fortran-static
+#    apt-get install -y netcdf-cxx
+#    apt-get install -y netcdf-cxx-devel
+#    apt-get install -y netcdf-cxx-static
+#    apt-get install -y netcdf4-python
+#    apt-get install -y grads
+#    apt-get install -y ncarg
+#    apt-get install -y ncview
+#    apt-get install -y nco
+
+#    rpm -i -vv http://www.city-fan.org/ftp/contrib/yum-repo/rhel7/x86_64/xxdiff-4.0.1-1.0.cf.rhel7.x86_64.rpm
+
+    # ....Create base directories for software installation
+    mkdir /opt/bin
+    mkdir /opt/share
+
+    # ....Install the netcdf libraries manually...
+#    export NCDIR="/usr/local"
+#    cd /opt/share
+#    mkdir netcdf-c
+#    git clone http://github.com/Unidata/netcdf-c netcdf-c
+
+#    cd netcdf-c
+#    autoreconf -if
+#    ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap
+#    make check install
+
+    # ....Install grib decoder for NCEP/NCAR reanalysis, etc. 
+#    mkdir /opt/wgrib
+#        cd /opt/wgrib
+#        wget ftp://ftp.cpc.ncep.noaa.gov/wd51we/wgrib/wgrib.c
+#        gcc -o /opt/bin/wgrib wgrib.c
+
+    # ....Install and compile ioapi (for use by CMAQ)
+#    export HOME="/opt"
+#    export BIN="Linux2_x86_64gfort_medium"
+#    cd /opt
+#    git clone https://github.com/cjcoats/ioapi-3.2.git
+#    cd /opt/ioapi-3.2
+#    mkdir ${BIN}
+#    cd /opt/ioapi-3.2/ioapi
+#    make -f Makefile.nocpl
+#    cd /opt/ioapi-3.2/m3tools
+#    make -f Makefile.nocpl
+
+    # ....Install and compile CMAQ
+#    cd /opt
+#    git clone -b 5.3.2 https://github.com/USEPA/CMAQ.git
+#    mv CMAQ CMAQv.5.3.2
+
+
+%runscript
+    echo "Container was created $NOW"
+    echo "Arguments received: $*"
+    exec echo "$@"
+
+%startscript
+    echo "Hello World!"
+
+%test
+    cat /etc/os-release
+
+%labels
+    Author Von P. Walden
+    Version v0.0.1
+
+%help
+    This is a demo container used for AIRPACT-6 development.
