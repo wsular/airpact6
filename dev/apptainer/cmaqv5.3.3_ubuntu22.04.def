@@ -73,36 +73,33 @@ From: ubuntu
   ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
   ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
 
+  # ....Clone the airpact6 repo, which contains customized Makefiles
+  cd /opt/share
+  git clone https://github.com/wsular/airpact6.git
 
   # ....Compile ioapi-3.2
   #     Now must switch to csh; grrrr
-#  /bin/tcsh
-#  setenv HOME /opt/share
-#  setenv INSTALL /opt/share/ioapi-3.2
-#  setenv BIN Linux2_x86_64gfortmpi
-#  setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
-#  cd /opt/share/
-#  git clone https://github.com/cjcoats/ioapi-3.2.git
-#  cd ioapi-3.2/ioapi
-#  cp Makefile.nocpl Makefile
-#  # Make manual edits to Makeinclude.Linux2_x86_64mpifort to update it for mpifort
-#  sed -i 's|-ffast-math -funroll-loops -m64|-ffast-math -funroll-loops -m64 -fallow-argument-mismatch|' Makeinclude.Linux2_x86_64gfortmpi
-#  make -f Makefile
-#  make install
+  export HOME=/opt/share
+  export INSTALL=/opt/share/ioapi-3.2
+  export BIN=Linux2_x86_64gfortmpi
+  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
+  git clone https://github.com/cjcoats/ioapi-3.2.git
+  cd ioapi-3.2/ioapi
+  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.ioapi Makefile
+  make -f Makefile
+  make install
 
   # ....Compile m3tools
-#  cd /opt/share/ioapi-3.2/m3tools
-#  cp Makefile.nocpl Makefile
-#  make -f Makefile
-#  make install
+  cd /opt/share/ioapi-3.2/m3tools
+  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.m3tools Makefile
+  make -f Makefile
+  make install
 
   # ....Compile mcip
-#  cd /opt/share
-#  git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
-#  mv CMAQ CMAQv5.3.3
-#  cd CMAQ-5.3.3/PREP/mcip/src
-#  # Edit Makefile to include correct directories.
-#  sed -i 's|NETCDF = /usr/local/apps/netcdf-4.6.3/intel-18.0|NETCDF = /usr/local|' Makefile
-#  sed -i 's|IOAPI_ROOT = /usr/local/apps/ioapi-3.2/intel-18.0|IOAPI_ROOT = /opt/share/ioapi-3.2|' Makefile
-#  make -f Makefile
+  cd /opt/share
+  git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
+  mv CMAQ CMAQv5.3.3
+  cd CMAQ-5.3.3/PREP/mcip/src
+  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.mcip Makefile
+  make -f Makefile
 
