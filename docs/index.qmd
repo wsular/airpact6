@@ -1,4 +1,26 @@
-# Development Steps {.unnumbered}
+# The AIRPACT6 Container {.unnumbered}
 
-1. [Install HDF5](hdf5.qmd)
-2. [Install netCDF](netcdf.qmd)
+- The AIRPACT6 container is built using [apptainer](https://apptainer.org). The container is built by using the [definition file](../dev/apptainer/cmaqv5.3.3_ubuntu22.04.def) with the following command:
+
+```
+apptainer build cmaq-5.3.3_ubuntu-22.04.sif cmaq-5.3.3_ubuntu-22.04.def
+```
+
+---
+
+## Steps to build container
+
+1. [Install Ubuntu](ubuntu.qmd)
+2. [Install GNU compilers](gnu_compilers.qmd)
+3. [Install useful commands and libraries](useful.qmd)
+4. [Install OpenMPI](openmpi.qmd)
+5. [Install netCDF libraries](netcdf.qmd)
+6. [Install I/O API](ioapi.qmd)
+
+## Run the Container
+
+- Several different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):
+
+```
+apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33
+```

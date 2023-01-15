@@ -1,0 +1,16 @@
+# Install GNU compilers {.unnumbered}
+
+- This container uses the GNU compilers, [gcc, version 11.3.0](https://gcc.gnu.org/gcc-11/) and [gfortran, version 11.3.0](https://gcc.gnu.org/onlinedocs/gcc-11.3.0/gfortran.pdf).
+
+- gcc is installed along with build-essentials in the defintion file.
+
+```
+  apt -y update
+  apt -y install build-essential
+```
+
+- The gfortran compiler is installed separately in the defintion file.
+```
+  apt -y install gfortran
+```
+

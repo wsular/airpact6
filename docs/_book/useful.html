@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Von P. Walden">
-<meta name="dcterms.date" content="2023-01-14">
 
-<title>AIRPACT6 Container Development</title>
+<title>AIRPACT6 Container Development - Install useful commands and libraries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ubuntu.html" rel="next">
+<link href="./openmpi.html" rel="next">
+<link href="./gnu_compilers.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">AIRPACT6 Container Development</h1>
+      <h1 class="quarto-secondary-nav-title">Install useful commands and libraries</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -96,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">The AIRPACT6 Container</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Build the Container</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -111,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./useful.html" class="sidebar-item-text sidebar-link">Install useful commands and libraries</a>
+  <a href="./useful.html" class="sidebar-item-text sidebar-link active">Install useful commands and libraries</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -134,43 +133,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#the-airpact6-container" id="toc-the-airpact6-container" class="nav-link active" data-scroll-target="#the-airpact6-container">The AIRPACT6 Container</a>
-  <ul class="collapse">
-  <li><a href="#steps-to-build-container" id="toc-steps-to-build-container" class="nav-link" data-scroll-target="#steps-to-build-container">Steps to build container</a></li>
-  <li><a href="#run-the-container" id="toc-run-the-container" class="nav-link" data-scroll-target="#run-the-container">Run the Container</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">AIRPACT6 Container Development</h1>
+<h1 class="title d-none d-lg-block">Install useful commands and libraries</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Von P. Walden </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -178,34 +155,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="the-airpact6-container" class="level1 unnumbered">
-<h1 class="unnumbered">The AIRPACT6 Container</h1>
 <ul>
-<li>The AIRPACT6 container is built using <a href="https://apptainer.org">apptainer</a>. The container is built by using the <a href="../dev/apptainer/cmaqv5.3.3_ubuntu22.04.def">definition file</a> with the following command:</li>
+<li>Some useful commands and libraries are needed for subsequent installations of openMPI and the netCDF libraries. Here are the commands from the definition file to load useful stuff.</li>
 </ul>
-<pre><code>apptainer build cmaq-5.3.3_ubuntu-22.04.sif cmaq-5.3.3_ubuntu-22.04.def</code></pre>
-<hr>
-<section id="steps-to-build-container" class="level2">
-<h2 class="anchored" data-anchor-id="steps-to-build-container">Steps to build container</h2>
-<ol type="1">
-<li><a href="./ubuntu.html">Install Ubuntu</a></li>
-<li><a href="./gnu_compilers.html">Install GNU compilers</a></li>
-<li><a href="./useful.html">Install useful commands and libraries</a></li>
-<li><a href="./openmpi.html">Install OpenMPI</a></li>
-<li><a href="./netcdf.html">Install netCDF libraries</a></li>
-<li><a href="./ioapi.html">Install I/O API</a></li>
-</ol>
-</section>
-<section id="run-the-container" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-container">Run the Container</h2>
+<pre><code>  apt -y install curl
+  apt -y install m4
+  apt -y install nano
+  apt -y install tcsh
+  apt -y install wget
+  apt -y install zlib1g zlib1g-dev
+  apt -y install libdispatch-dev
+  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+  apt -y install git</code></pre>
 <ul>
-<li>Several different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):</li>
+<li>Note that libdispatch must be on the path, so /usr/lib is added to LD_LIBRARY_PATH.</li>
 </ul>
-<pre><code>apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33</code></pre>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -343,10 +309,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./gnu_compilers.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install GNU compilers</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ubuntu.html" class="pagination-link">
-        <span class="nav-page-text">Install Ubuntu</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./openmpi.html" class="pagination-link">
+        <span class="nav-page-text">Install openMPI</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

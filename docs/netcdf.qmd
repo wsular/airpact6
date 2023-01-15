@@ -1,75 +1,62 @@
 # Install netCDF libraries {.unnumbered}
 
-## 29 August 2022
+- The netCDF libraries for C and Fortran are needed. We chose to install [netcdf-c, version 4.8.1](https://github.com/Unidata/netcdf-c/releases/tag/v4.8.1) and [netcdf-fortran, version 4.5.2](https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.2) because both of these versions had been tested with CMAQ. In addition, we chose to install [parallel netCDF (pnetcdf), version 1.12.3](https://parallel-netcdf.github.io/wiki/Download.html) to allow parallel I/O. Here are the commands from the defintion file for loading all three libraries.
 
-### Install the netCDF libraries
-4. Navigate to the [UCAR downloads page](https://downloads.unidata.ucar.edu)
-5. Click on [NetCDF Libraries](https://downloads.unidata.ucar.edu/netcdf/)
-6. Download the latest version of netCDF-C as source files in tar.gzip format by clicking on the appropriate link.
-   - Today the latest version is 4.9.0
-7. Download the latest version of netCDF-FORTRAN as source files in tar.gzip format by clicking on the appropriate link.
-   - Today the latest version is 4.6.0
-8. Move these files to /opt
-   ```
-   cd /home/vonw/Downloads
-   sudo mv netcdf-c-4.9.0.tar.gz /opt/.
-   ## 29 August 2022
+---
 
-### zlib on Ubuntu 22.04
-- The zlib1g package is apparently installed as part of Ubuntu 22.04, so I did not install zlib manually.
-  - zlib is needed by HDF5
+## netcdf-c
 
-### Install the HDF5 library
-1. Navigate to the [HDF Group site](https://www.hdfgroup.org/downloads/hdf5/)
-2. Scroll down and choose [Click here to obtain code for all platforms](https://www.hdfgroup.org/downloads/hdf5/)
-3. Download the latest version of HDF5 by choosing on the tar.gz version.
-   - Today the latest version is hdf5-1.12.2.tar.gz
-4. Move this file to /opt and decompress it
-   ```
-   cd /home/vonw/Downloads
-   sudo mv hdf5-1.12.2.tar.gz /opt/.
-   cd /opt
-   sudo tar xvfz hdf5-1.12.2.tar.gz
-   ```
-5. Make HDF5 (instructions in INSTALL.md in hdf5-1.12.2/release_notes directory) - WITHOUT PARALLELIZATION !!
-   ```
-   cd /opt/hdf5-1.12.2
-   sudo ./configure
-   sudo make
-   sudo make check
-   sudo make install
-   ```
-   - This worked without error
-   - The libraries were installed in /opt/hdf5-1.12.2/lib
-   - The include files were installed in /opt/hdf5-1.12.2/include
-6. Note that I first tried to compile HDF% with parallelization using the mpicc compiler, but this did not work; see steps below.
-   - ==Errors were encountered during 'sudo make check', but I decided to try 'sudo make install' and it worked without error. However, I encountered errors when trying to build the netcdf libraries==
-   ```
-   whereis mpicc      # Output /usr/bin/mpicc
-   cd /opt
-   sudo CC=/usr/bin/mpicc ./configure --prefix=/usr/local
-   sudo make
-   sudo make check
-   sudo make install
-   ```
-   - This installed HDF5 in /usr/local/hdf5-1.12.2
-     - The libraries are in /usr/local/hdf5-1.12.2/lib
+```
+  #     netcdf-c
+  export CC=mpicc
+  export FC=mpifort
+  export NCDIR=/usr/local
+  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
+  cd /opt/share
+  #       Version used by CMAS
+  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+  tar xvf v4.8.1.tar.gz
+  cd netcdf-c-4.8.1
+  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr
+  make check 
+  make install
+```
 
-sudo mv netcdf-fortran-4.6.0.tar.gz /opt/.
-   ```
-9.  Navigate to the /opt directory
-   ```
-   cd /opt
-   ```
-11. Unzip and untar both files
-   ```
-   sudo tar xfvz netcdf-c-4.9.0.tar.gz
-   sudo tar xfvz netcdf-fortran-4.6.0.tar.gz
-   ```
-   - This creates two directories in /opt that contain the source code.
-11. Compile C libraries
-    ```
-    cd /opt/netcdf-c-4.9.0
-    sudo CPPFLAGS=-I/opt/hdf5-1.12.2/include LDFLAGS=-L/opt/hdf5-1.12.2/lib ./configure
+---
 
-12. 
+## netcdf-fortran
+
+```
+  cd /opt/share
+  #       Version used by CMAS
+  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
+  tar xvf v4.5.2.tar.gz
+  cd netcdf-fortran-4.5.2
+  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
+  export NFDIR=/usr/local
+  export CPPFLAGS='-I${NCDIR}/include'
+  export LDFLAGS='-L${NCDIR}/lib'
+  export OMPI_FCFLAGS='-fallow-argument-mismatch'
+  ./configure --prefix=${NFDIR} --disable-fortran-type-check
+  make check
+  make install
+```
+
+---
+
+## pnetcdf
+
+```
+  #     pnetcdf
+  cd /opt/share
+  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
+  tar xvf pnetcdf-1.12.3.tar.gz
+  cd pnetcdf-1.12.3
+  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
+  make
+  make install
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
+```
+
+  - Note that it was necessary to create symbolic links from the pnetcdf installation directory to /usr/local/lib, to ensure that the libraries were on the library path.

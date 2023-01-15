@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "AIRPACT6 Development Steps",
+    "title": "AIRPACT6 Container Development",
     "section": "",
-    "text": "Install HDF5\nInstall netCDF"
+    "text": "The AIRPACT6 Container"
   },
   {
     "objectID": "hdf5.html",
@@ -12,5 +12,82 @@
     "title": "Install HDF5 libraries",
     "section": "",
     "text": "The zlib1g package is apparently installed as part of Ubuntu 22.04, so I did not install zlib manually.\n\nzlib is needed by HDF5\n\n\n\n\n\n\nNavigate to the HDF Group site\nScroll down and choose Click here to obtain code for all platforms\nDownload the latest version of HDF5 by choosing on the tar.gz version.\n\nToday the latest version is hdf5-1.12.2.tar.gz\n\nMove this file to /opt and decompress it\ncd /home/vonw/Downloads\nsudo mv hdf5-1.12.2.tar.gz /opt/.\ncd /opt\nsudo tar xvfz hdf5-1.12.2.tar.gz\nMake HDF5 (instructions in INSTALL.md in hdf5-1.12.2/release_notes directory) - WITHOUT PARALLELIZATION !!\ncd /opt/hdf5-1.12.2\nsudo ./configure\nsudo make\nsudo make check\nsudo make install\n\nThis worked without error\nThe libraries were installed in /opt/hdf5-1.12.2/lib\nThe include files were installed in /opt/hdf5-1.12.2/include\n\nNote that I first tried to compile HDF% with parallelization using the mpicc compiler, but this did not work; see steps below.\n\n==Errors were encountered during ‘sudo make check’, but I decided to try ‘sudo make install’ and it worked without error. However, I encountered errors when trying to build the netcdf libraries==\n\nwhereis mpicc      # Output /usr/bin/mpicc\ncd /opt\nsudo CC=/usr/bin/mpicc ./configure --prefix=/usr/local\nsudo make\nsudo make check\nsudo make install\n\nThis installed HDF5 in /usr/local/hdf5-1.12.2\n\nThe libraries are in /usr/local/hdf5-1.12.2/lib"
+  },
+  {
+    "objectID": "index.html#steps-to-build-containter",
+    "href": "index.html#steps-to-build-containter",
+    "title": "AIRPACT6 Container Development",
+    "section": "Steps to build containter",
+    "text": "Steps to build containter\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nInstall I/O API"
+  },
+  {
+    "objectID": "ubuntu.html",
+    "href": "ubuntu.html",
+    "title": "Install Ubuntu",
+    "section": "",
+    "text": "This container uses Ubuntu 22.04 - Jammy Jellyfish.\nThe image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:\n\nBootstrap: docker\nFrom: ubuntu"
+  },
+  {
+    "objectID": "gnu_compilers.html",
+    "href": "gnu_compilers.html",
+    "title": "Install GNU compilers",
+    "section": "",
+    "text": "This container uses the GNU compilers, gcc, version 11.3.0 and gfortran, version 11.3.0.\ngcc is installed along with build-essentials in the defintion file.\n\n  apt -y update\n  apt -y install build-essential\n\nThe gfortran compiler is installed separately in the defintion file.\n\n  apt -y install gfortran"
+  },
+  {
+    "objectID": "useful.html",
+    "href": "useful.html",
+    "title": "Install useful commands and libraries",
+    "section": "",
+    "text": "Some useful commands and libraries are needed for subsequent installations of openMPI and the netCDF libraries. Here are the commands from the definition file to load useful stuff.\n\n  apt -y install curl\n  apt -y install m4\n  apt -y install nano\n  apt -y install tcsh\n  apt -y install wget\n  apt -y install zlib1g zlib1g-dev\n  apt -y install libdispatch-dev\n  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH\n  apt -y install git\n\nNote that libdispatch must be on the path, so /usr/lib is added to LD_LIBRARY_PATH."
+  },
+  {
+    "objectID": "openmpi.html",
+    "href": "openmpi.html",
+    "title": "Install openMPI",
+    "section": "",
+    "text": "CMAQ is a program that uses the Message Passing Interface (MPI). There are a few different libraries that can be used to add MPI functionality to this container. We have chosen openMPI. Here are the commands that install openMPI in the container.\n\n  #     Needed by openmpi\n  apt -y install autoconf\n  apt -y install automake\n  apt -y install libtool\n  apt -y install flex\n  apt -y install pandoc\n\n  # ....Install OpenMPI\n  mkdir -p /opt/share\n  cd /opt/share\n  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz\n  tar xvfz openmpi-4.1.4.tar.gz\n  cd openmpi-4.1.4\n  ./configure --prefix=/usr/local\n  make all install\n  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH\n\nThe openMPI libraries are installed by default into /usr/local/lib, so this directory is added to the library path."
+  },
+  {
+    "objectID": "netcdf.html#netcdf-c",
+    "href": "netcdf.html#netcdf-c",
+    "title": "Install netCDF libraries",
+    "section": "netcdf-c",
+    "text": "netcdf-c\n  #     netcdf-c\n  export CC=mpicc\n  export FC=mpifort\n  export NCDIR=/usr/local\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz\n  tar xvf v4.8.1.tar.gz\n  cd netcdf-c-4.8.1\n  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr\n  make check \n  make install"
+  },
+  {
+    "objectID": "netcdf.html#netcdf-fortran",
+    "href": "netcdf.html#netcdf-fortran",
+    "title": "Install netCDF libraries",
+    "section": "netcdf-fortran",
+    "text": "netcdf-fortran\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz\n  tar xvf v4.5.2.tar.gz\n  cd netcdf-fortran-4.5.2\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  export NFDIR=/usr/local\n  export CPPFLAGS='-I${NCDIR}/include'\n  export LDFLAGS='-L${NCDIR}/lib'\n  export OMPI_FCFLAGS='-fallow-argument-mismatch'\n  ./configure --prefix=${NFDIR} --disable-fortran-type-check\n  make check\n  make install"
+  },
+  {
+    "objectID": "netcdf.html#pnetcdf",
+    "href": "netcdf.html#pnetcdf",
+    "title": "Install netCDF libraries",
+    "section": "pnetcdf",
+    "text": "pnetcdf\n  #     pnetcdf\n  cd /opt/share\n  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz\n  tar xvf pnetcdf-1.12.3.tar.gz\n  cd pnetcdf-1.12.3\n  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90\n  make\n  make install\n  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.\n  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.\n\nNote that it was necessary to create symbolic links from the pnetcdf installation directory to /usr/local/lib, to ensure that the libraries were on the library path."
+  },
+  {
+    "objectID": "ioapi.html",
+    "href": "ioapi.html",
+    "title": "Install I/O API",
+    "section": "",
+    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. The following commands in the defintion file create the I/O API library.\n\n  # ....Compile ioapi-3.2\n  export HOME=/opt/share\n  export INSTALL=/opt/share/ioapi-3.2\n  export BIN=Linux2_x86_64gfortmpi\n  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH\n  cd /opt/share/\n  git clone https://github.com/cjcoats/ioapi-3.2.git\n  cd ioapi-3.2/ioapi\n  cp Makefile.nocpl Makefile\n  make -f Makefile\n  make install\n\nNote that this installation requires a customized version of Makefile.nocpl."
+  },
+  {
+    "objectID": "index.html#steps-to-build-container",
+    "href": "index.html#steps-to-build-container",
+    "title": "AIRPACT6 Container Development",
+    "section": "Steps to build container",
+    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nInstall I/O API"
+  },
+  {
+    "objectID": "index.html#run-the-container",
+    "href": "index.html#run-the-container",
+    "title": "AIRPACT6 Container Development",
+    "section": "Run the Container",
+    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33"
   }
 ]

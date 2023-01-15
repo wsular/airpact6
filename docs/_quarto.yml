@@ -1,16 +1,18 @@
 project:
-  type: website
-  output-dir: docs
+  type: book
 
 book:
-  title: "AIRPACT6 Development Steps"
+  title: "AIRPACT6 Container Development"
   author: "Von P. Walden"
   date: last-modified
   chapters:
     - index.qmd
-    - hdf5.qmd
+    - ubuntu.qmd
+    - gnu_compilers.qmd
+    - useful.qmd
+    - openmpi.qmd
     - netcdf.qmd
-#    - ioapi.qmd
+    - ioapi.qmd
 #    - mcip.qmd
 
 format:

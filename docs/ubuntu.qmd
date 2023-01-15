@@ -1,0 +1,11 @@
+# Install Ubuntu {.unnumbered}
+
+- This container uses [Ubuntu 22.04 - Jammy Jellyfish](https://releases.ubuntu.com/22.04/).
+
+- The image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:
+
+```
+Bootstrap: docker
+From: ubuntu
+```
+

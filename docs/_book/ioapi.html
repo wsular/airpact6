@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.149">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AIRPACT6 Development Steps - Install HDF5 libraries</title>
+<title>AIRPACT6 Container Development - Install I/O API</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./netcdf.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./netcdf.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Install HDF5 libraries</h1>
+      <h1 class="quarto-secondary-nav-title">Install I/O API</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AIRPACT6 Development Steps</a> 
+      <a href="./">AIRPACT6 Container Development</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -95,12 +94,27 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Development Steps</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Build the Container</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hdf5.html" class="sidebar-item-text sidebar-link active">Install HDF5 libraries</a>
+  <a href="./ubuntu.html" class="sidebar-item-text sidebar-link">Install Ubuntu</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gnu_compilers.html" class="sidebar-item-text sidebar-link">Install GNU compilers</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./useful.html" class="sidebar-item-text sidebar-link">Install useful commands and libraries</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./openmpi.html" class="sidebar-item-text sidebar-link">Install openMPI</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -108,29 +122,24 @@ ul.task-list li input[type="checkbox"] {
   <a href="./netcdf.html" class="sidebar-item-text sidebar-link">Install netCDF libraries</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ioapi.html" class="sidebar-item-text sidebar-link active">Install I/O API</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#august-2022" id="toc-august-2022" class="nav-link active" data-scroll-target="#august-2022">29 August 2022</a>
-  <ul class="collapse">
-  <li><a href="#zlib-on-ubuntu-22.04" id="toc-zlib-on-ubuntu-22.04" class="nav-link" data-scroll-target="#zlib-on-ubuntu-22.04">zlib on Ubuntu 22.04</a></li>
-  <li><a href="#install-the-hdf5-library" id="toc-install-the-hdf5-library" class="nav-link" data-scroll-target="#install-the-hdf5-library">Install the HDF5 library</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Install HDF5 libraries</h1>
+<h1 class="title d-none d-lg-block">Install I/O API</h1>
 </div>
 
 
@@ -138,69 +147,32 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
-<section id="august-2022" class="level2">
-<h2 class="anchored" data-anchor-id="august-2022">29 August 2022</h2>
-<section id="zlib-on-ubuntu-22.04" class="level3">
-<h3 class="anchored" data-anchor-id="zlib-on-ubuntu-22.04">zlib on Ubuntu 22.04</h3>
 <ul>
-<li>The zlib1g package is apparently installed as part of Ubuntu 22.04, so I did not install zlib manually.
-<ul>
-<li>zlib is needed by HDF5</li>
-</ul></li>
+<li><a href="https://www.cmascenter.org/ioapi/">I/O API</a> is a library that facilitates input and output of netCDF files for CMAQ. The following commands in the defintion file create the I/O API library.</li>
 </ul>
-</section>
-<section id="install-the-hdf5-library" class="level3">
-<h3 class="anchored" data-anchor-id="install-the-hdf5-library">Install the HDF5 library</h3>
-<ol type="1">
-<li><p>Navigate to the <a href="https://www.hdfgroup.org/downloads/hdf5/">HDF Group site</a></p></li>
-<li><p>Scroll down and choose <a href="https://www.hdfgroup.org/downloads/hdf5/">Click here to obtain code for all platforms</a></p></li>
-<li><p>Download the latest version of HDF5 by choosing on the tar.gz version.</p>
+<pre><code>  # ....Compile ioapi-3.2
+  export HOME=/opt/share
+  export INSTALL=/opt/share/ioapi-3.2
+  export BIN=Linux2_x86_64gfortmpi
+  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
+  cd /opt/share/
+  git clone https://github.com/cjcoats/ioapi-3.2.git
+  cd ioapi-3.2/ioapi
+  cp Makefile.nocpl Makefile
+  make -f Makefile
+  make install</code></pre>
 <ul>
-<li>Today the latest version is hdf5-1.12.2.tar.gz</li>
-</ul></li>
-<li><p>Move this file to /opt and decompress it</p>
-<pre><code>cd /home/vonw/Downloads
-sudo mv hdf5-1.12.2.tar.gz /opt/.
-cd /opt
-sudo tar xvfz hdf5-1.12.2.tar.gz</code></pre></li>
-<li><p>Make HDF5 (instructions in INSTALL.md in hdf5-1.12.2/release_notes directory) - WITHOUT PARALLELIZATION !!</p>
-<pre><code>cd /opt/hdf5-1.12.2
-sudo ./configure
-sudo make
-sudo make check
-sudo make install</code></pre>
-<ul>
-<li>This worked without error</li>
-<li>The libraries were installed in /opt/hdf5-1.12.2/lib</li>
-<li>The include files were installed in /opt/hdf5-1.12.2/include</li>
-</ul></li>
-<li><p>Note that I first tried to compile HDF% with parallelization using the mpicc compiler, but this did not work; see steps below.</p>
-<ul>
-<li>==Errors were encountered during ‘sudo make check’, but I decided to try ‘sudo make install’ and it worked without error. However, I encountered errors when trying to build the netcdf libraries==</li>
+<li>Note that this installation requires a customized version of Makefile.nocpl.</li>
 </ul>
-<pre><code>whereis mpicc      # Output /usr/bin/mpicc
-cd /opt
-sudo CC=/usr/bin/mpicc ./configure --prefix=/usr/local
-sudo make
-sudo make check
-sudo make install</code></pre>
-<ul>
-<li>This installed HDF5 in /usr/local/hdf5-1.12.2
-<ul>
-<li>The libraries are in /usr/local/hdf5-1.12.2/lib</li>
-</ul></li>
-</ul></li>
-</ol>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -244,7 +216,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -280,37 +269,52 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Development Steps</span>
+      <a href="./netcdf.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install netCDF libraries</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./netcdf.html" class="pagination-link">
-        <span class="nav-page-text">Install netCDF libraries</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
