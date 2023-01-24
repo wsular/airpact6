@@ -1,7 +1,7 @@
   !#/bin/bash
 
   # ....Compile ioapi-3.2
-  #     Now must switch to csh; grrrr
+  echo "Compiling IOAPI..."
   export HOME=/opt/share
   export INSTALL=/opt/share/ioapi-3.2
   export BIN=Linux2_x86_64gfortmpi
@@ -12,11 +12,13 @@
   make -f Makefile
 
   # ....Compile m3tools
+  echo "Compiling M3TOOLS..."
   cd /opt/share/ioapi-3.2/m3tools
   cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.m3tools Makefile
   make -f Makefile
 
   # ....Compile mcip
+  echo "Compiling MCIP..."
   cd /opt/share
   mv CMAQ CMAQ-5.3.3
   cd CMAQ-5.3.3/PREP/mcip/src
@@ -24,6 +26,7 @@
   make -f Makefile
 
   # ....Build-it for CMAQ routines (https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md)
+  echo "Building CMAQ..."
   cd /opt/share/CMAQ-5.3.3
   cp /opt/share/airpact6/dev/apptainer/scripts/bldit_project.csh bldit_project.csh
   cp /opt/share/airpact6/dev/apptainer/scripts/config_cmaq.csh config_cmaq.csh
@@ -33,17 +36,21 @@
   ./config_cmaq.csh gcc
 
   # ....Compile icon
+  echo "Compiling ICON..."
   cd $CMAQ_HOME/PREP/icon/scripts
-  ./bldit_icon.csh gcc 533 |& tee build_icon.log
+  ./bldit_icon.csh gcc 533 > build_icon.log
 
   # ....Compile bcon
+  echo "Compiling BCON..."
   cd $CMAQ_HOME/PREP/bcon/scripts
-  ./bldit_bcon.csh gcc 533 |& tee build_bcon.log
+  ./bldit_bcon.csh gcc 533 > build_bcon.log
 
   # ....Compile jproc
+  echo "Compiling JPROC..."
   cd $CMAQ_HOME/UTIL/jproc/scripts
-  ./bldit_jproc.csh gcc 533 |& tee build_jproc.log
+  ./bldit_jproc.csh gcc 533 > build_jproc.log
 
   # ....Compile cctm
+  echo "Compiling CCTM..."
   cd $CMAQ_HOME/CCTM/scripts
-  ./bldit_cctm.csh gcc 533 |& tee build_cctm.log
+  ./bldit_cctm.csh gcc 533 > build_cctm.log

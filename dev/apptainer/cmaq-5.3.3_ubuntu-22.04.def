@@ -84,4 +84,5 @@ From: ubuntu
 
   # ....Run bash script to compile software
   cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.sh .
-  ./cmaq-5.3.3.sh
+  chmod ugo+x cmaq-5.3.3.sh
+  ./cmaq-5.3.3.sh > cmaq-5.3.3.log
