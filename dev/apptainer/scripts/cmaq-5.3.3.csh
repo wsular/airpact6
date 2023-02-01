@@ -1,4 +1,4 @@
-  !#/bin/tcsh
+ #!/bin/csh
 
   # ....Compile ioapi-3.2
   echo "Compiling IOAPI..."
