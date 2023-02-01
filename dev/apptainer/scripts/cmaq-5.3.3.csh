@@ -1,11 +1,11 @@
-  !#/bin/bash
+  !#/bin/tcsh
 
   # ....Compile ioapi-3.2
   echo "Compiling IOAPI..."
-  export HOME=/opt/share
-  export INSTALL=/opt/share/ioapi-3.2
-  export BIN=Linux2_x86_64gfortmpi
-  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
+  setenv HOME /opt/share
+  setenv INSTALL /opt/share/ioapi-3.2
+  setenv BIN Linux2_x86_64gfortmpi
+  setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
   cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.ioapi Makefile
   cp /opt/share/airpact6/dev/apptainer/scripts/Makeinclude.Linux2_x86_64gfortmpi Makeinclude.Linux2_x86_64gfortmpi
@@ -30,7 +30,7 @@
   cd /opt/share/CMAQ-5.3.3
   cp /opt/share/airpact6/dev/apptainer/scripts/bldit_project.csh bldit_project.csh
   cp /opt/share/airpact6/dev/apptainer/scripts/config_cmaq.csh config_cmaq.csh
-  export CMAQ_HOME=/opt/share/CMAQ-5.3.3
+  setenv CMAQ_HOME /opt/share/CMAQ-5.3.3
   chmod ugo+x bldit_project.csh
   ./bldit_project.csh
   ./config_cmaq.csh gcc
@@ -38,19 +38,19 @@
   # ....Compile icon
   echo "Compiling ICON..."
   cd $CMAQ_HOME/PREP/icon/scripts
-  ./bldit_icon.csh gcc 533 > build_icon.log
+  ./bldit_icon.csh gcc 11.3.0 > build_icon.log
 
   # ....Compile bcon
   echo "Compiling BCON..."
   cd $CMAQ_HOME/PREP/bcon/scripts
-  ./bldit_bcon.csh gcc 533 > build_bcon.log
+  ./bldit_bcon.csh gcc 11.3.0 > build_bcon.log
 
   # ....Compile jproc
   echo "Compiling JPROC..."
   cd $CMAQ_HOME/UTIL/jproc/scripts
-  ./bldit_jproc.csh gcc 533 > build_jproc.log
+  ./bldit_jproc.csh gcc 11.3.0 > build_jproc.log
 
   # ....Compile cctm
   echo "Compiling CCTM..."
   cd $CMAQ_HOME/CCTM/scripts
-  ./bldit_cctm.csh gcc 533 > build_cctm.log
+  ./bldit_cctm.csh gcc 11.3.0 > build_cctm.log
