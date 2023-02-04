@@ -1,4 +1,4 @@
- #!/bin/csh
+#!/bin/csh -f
 
   # ....Compile ioapi-3.2
   echo "Compiling IOAPI..."

@@ -64,15 +64,15 @@ From: ubuntu
   make check
   make install
   #     pnetcdf
-  cd /opt/share
-  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-  tar xvf pnetcdf-1.12.3.tar.gz
-  cd pnetcdf-1.12.3
-  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
-  make
-  make install
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
+#  cd /opt/share
+#  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
+#  tar xvf pnetcdf-1.12.3.tar.gz
+#  cd pnetcdf-1.12.3
+#  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
+#  make
+#  make install
+#  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
+#  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
 
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
@@ -83,6 +83,6 @@ From: ubuntu
   git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
 
   # ....Run bash script to compile software
-  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .
-  chmod ugo+x cmaq-5.3.3.csh
-  ./cmaq-5.3.3.csh > cmaq-5.3.3.log
+#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .
+#  chmod ugo+x cmaq-5.3.3.csh
+#  ./cmaq-5.3.3.csh > cmaq-5.3.3.log
