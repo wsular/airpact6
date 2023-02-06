@@ -64,15 +64,15 @@ From: ubuntu
   make check
   make install
   #     pnetcdf
-#  cd /opt/share
-#  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-#  tar xvf pnetcdf-1.12.3.tar.gz
-#  cd pnetcdf-1.12.3
-#  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
-#  make
-#  make install
-#  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
-#  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
+  cd /opt/share
+  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
+  tar xvf pnetcdf-1.12.3.tar.gz
+  cd pnetcdf-1.12.3
+  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
+  make
+  make install
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
 
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
