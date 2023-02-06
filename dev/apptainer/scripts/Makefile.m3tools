@@ -62,8 +62,8 @@ LDFLAGS = -I$(IODIR) $(DEFINEFLAGS) $(ARCHFLAGS)
 #
 #  Cygwin libraries need "-lnetcdff.dll -lnetcdf.dll" below
 #
- LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
-#LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf -lpnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
+# LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
+LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf -lpnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
 #LIBS = -L${OBJDIR} -lioapi -lnetcdf  $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
 #LIBS = -L${OBJDIR} -lioapi `nf-config --libs` `nc-config --libs` $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
 
