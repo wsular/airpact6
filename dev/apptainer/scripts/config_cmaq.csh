@@ -208,7 +208,7 @@
 #===============================================================================
  
 #> I/O API, netCDF, and MPI libraries
- setenv netcdf_lib "-lnetcdff -lnetcdf -lpnetcdf"  #> -lnetcdff -lnetcdf for netCDF v4.2.0 and later
+ setenv netcdf_lib "-lnetcdff -lnetcdf"  #> -lnetcdff -lnetcdf for netCDF v4.2.0 and later
  setenv netcdff_lib "-lnetcdff"
  setenv ioapi_lib "-lioapi"
  setenv pnetcdf_lib "-lpnetcdf"
