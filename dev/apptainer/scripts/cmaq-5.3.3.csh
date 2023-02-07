@@ -33,7 +33,7 @@
   setenv CMAQ_HOME /opt/share/CMAQ-5.3.3
   chmod ugo+x bldit_project.csh
   ./bldit_project.csh
-  ./config_cmaq.csh gcc
+  ./config_cmaq.csh gcc 11.3.0
 
   # ....Compile icon
   echo "Compiling ICON..."
