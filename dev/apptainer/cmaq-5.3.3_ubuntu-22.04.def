@@ -83,6 +83,6 @@ From: ubuntu
   git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
 
   # ....Run bash script to compile software
-#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .
-#  chmod ugo+x cmaq-5.3.3.csh
-#  ./cmaq-5.3.3.csh > cmaq-5.3.3.log
+  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .
+  chmod ugo+x cmaq-5.3.3.csh
+  ./cmaq-5.3.3.csh > cmaq-5.3.3.log
