@@ -21,11 +21,11 @@ class AIRPACT6:
         self.datestr = self.datenum.strftime('%Y%m%d')
         
         # ....Local Computer settings
-        self.AIRHOME = '/home/airpact/AIRHOME/'
-        self.AIRRUN  = '/home/airpact/AIRRUN/'
-        self.AIRLOG  = '/home/airpact/AIRRUN/logs/'
-        self.WRF     = '/home/airpact/AIRRUN/input/UW_WRF/'
-        self.domain  = '/home/airpact/AIRRUN/input/domain/'
+        self.AIRHOME = '/home/airpact/airpact6/AIRHOME/'
+        self.AIRRUN  = '/home/airpact/airpact6/AIRRUN/'
+        self.AIRLOG  = '/home/airpact/airpact6/AIRRUN/logs/'
+        self.WRF     = '/home/airpact/airpact6/AIRRUN/input/UW_WRF/'
+        self.domain  = '/home/airpact/airpact6/AIRRUN/input/domain/'
         
         # ....UW WRF settings
         self.wrf_user = 'empact'
