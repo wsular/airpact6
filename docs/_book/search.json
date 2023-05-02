@@ -88,6 +88,6 @@
     "href": "index.html#run-the-container",
     "title": "AIRPACT6 Container Development",
     "section": "Run the Container",
-    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33"
+    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file /home/airpact/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33"
   }
 ]
