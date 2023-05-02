@@ -1,0 +1,75 @@
+#! /bin/csh -f
+
+# Commands necessary for singularity container
+setenv PATH /usr/lib64/mpich-3.2/bin:$PATH
+source /usr/share/Modules/init/csh
+module use /opt/intel/oneapi/modulefiles
+module load mpi
+module load icc
+setenv LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
+
+# This script sets up common environment variables used by AIRPACT5 processes
+#
+#  April 29, 2015     JKV modified for running for AIRPACT5
+#  February 14, 2013  JKV modified for running a second 24-hr MCIP 
+#  December 24, 2008  JKV modified for 4-km nested airpact mcip 
+#  April 09 2008   JKV modified for clearsky use.
+#  Jan  2007  Joe Vaughan modified for testing on replacement rainier system
+#  Created by Jack Chen 11/04
+#
+
+# Initialize exit status
+set exitstat = 0
+
+# Set common variables
+setenv AIRTOOL      /opt/ioapi-3.2/Linux2_x86_64ifort
+setenv AIRRUN	    /home/airpact/AIRRUN/output/day1
+# set and check $RUNROOT DIR
+setenv RUNROOT $AIRRUN/${SRTYR}${SRTMN}${SRTDT}${SRTHR}
+if ( ! -d $RUNROOT ) then
+  echo "Directory: $RUNROOT does not exist, create new."
+  mkdir -p $RUNROOT
+endif
+
+# set runtime directories
+setenv LOGDIR $RUNROOT/LOGS
+if ( ! -d $LOGDIR ) mkdir -p $LOGDIR
+
+# set run time variables
+setenv SDATE `$AIRTOOL/juldate $SRTMN $SRTDT $SRTYR`   # Start J-date YYYYDDD
+setenv EDATE `$AIRTOOL/nextime $SDATE $STIME $RNLEN | cut -c1-7` # end j-date
+setenv ETIME `$AIRTOOL/nextime $SDATE $STIME $RNLEN | cut -c9-14` # end time
+setenv ENDYR `echo $EDATE | cut -c1-4` # end YYYY
+setenv ENDMN `$AIRTOOL/gregdate $EDATE | cut -c1-2` # end month MM
+setenv ENDDT `$AIRTOOL/gregdate $EDATE | cut -c4-5` # end date DD
+echo "start date / time: $SDATE / $STIME : $SRTMN $SRTDT "
+echo "  end date / time: $EDATE / $ETIME : $ENDMN $ENDDT "
+
+# This is so that whether running 24 or 64 hrs, the icon for the next day is +24 hrs th (HHMMSS)
+setenv NXDATE `$AIRTOOL/nextime $SDATE $STIME 240000 | cut -c1-7` # end j-date
+setenv NXTIME `$AIRTOOL/nextime $SDATE $STIME 240000 | cut -c9-14` # end time
+setenv NXNDYR `echo $NXDATE | cut -c1-4` # end YYYY
+setenv NXNDMN `$AIRTOOL/gregdate $NXDATE | cut -c1-2` # end month MM
+setenv NXNDDT `$AIRTOOL/gregdate $NXDATE | cut -c4-5` # end date DD
+echo " next date / time: $NXDATE / $NXTIME : $NXNDMN $NXNDDT "
+
+# Modification for running a second 24-hr MCIP from the same set of input WRF files 021413 JKV
+# Need a new ending date, year, month, day for the new ending time. 
+setenv EDATE2 `$AIRTOOL/nextime $EDATE $ETIME 240000 | cut -c1-7` # end j-date
+setenv ETIME2 `$AIRTOOL/nextime $EDATE $ETIME 240000 | cut -c9-14` # end time
+setenv ENDYR2 `echo $EDATE2 | cut -c1-4` # end YYYY
+setenv ENDMN2 `$AIRTOOL/gregdate $EDATE2 | cut -c1-2` # end month MM
+setenv ENDDT2 `$AIRTOOL/gregdate $EDATE2 | cut -c4-5` # end date DD
+echo " next-next date / time: $EDATE2 / $ETIME2 : $ENDMN2 $ENDDT2 "
+
+# Modification for identifying previous day date.  032613 JKV
+setenv PDATE `$AIRTOOL/nextime $SDATE $STIME -240000 | cut -c1-7`  # Previous J-date YYYYDDD
+setenv PTIME `$AIRTOOL/nextime $SDATE $STIME -240000 | cut -c9-14` # Previous J-time YYYYDDD
+echo previous julian day PDATE: PTIME  $PDATE : $PTIME
+setenv PRVYR `echo $PDATE | cut -c1-4` # end YYYY
+setenv PRVMN `$AIRTOOL/gregdate $PDATE | cut -c1-2` # end month MM
+setenv PRVDT `$AIRTOOL/gregdate $PDATE | cut -c4-5` # end date DD
+setenv PGDATE ${PRVYR}${PRVMN}${PRVDT}00
+echo "  previous gregorian day PGDATE: PTIME $PGDATE : $PTIME "
+exit ( $exitstat )
+

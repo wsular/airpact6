@@ -1,0 +1,10 @@
+# Top-level directories (!! based on host computers HOME directory)
+AIRHOME=$HOME/AIRHOME
+AIRRUN=$HOME/AIRRUN
+
+# Input directories
+InMetDir=$AIRRUN/input/UW_WRF
+InTerDir=$AIRRUN/input/domain
+
+# Output directories
+AIROUT=$AIRRUN/output
