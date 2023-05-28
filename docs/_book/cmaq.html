@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AIRPACT6 Container Development - Install useful commands and libraries</title>
+<title>AIRPACT6 Container Development - Clone CMAQ repository</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./openmpi.html" rel="next">
-<link href="./gnu_compilers.html" rel="prev">
+<link href="./build_cmaq.html" rel="next">
+<link href="./ioapi.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./useful.html">Install useful commands and libraries</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cmaq.html">Clone CMAQ repository</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Steps to build container</span></span></a>
+ <span class="menu-text">The AIRPACT6 Container</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./useful.html" class="sidebar-item-text sidebar-link active">
+  <a href="./useful.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install useful commands and libraries</span></a>
   </div>
 </li>
@@ -137,8 +137,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./airpact6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clone the AIRPACT6 repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./ioapi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install I/O API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cmaq.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Clone CMAQ repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./build_cmaq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Building CMAQ</span></span></a>
   </div>
 </li>
     </ul>
@@ -154,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Install useful commands and libraries</h1>
+<h1 class="title">Clone CMAQ repository</h1>
 </div>
 
 
@@ -170,20 +188,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <ul>
-<li>Some useful commands and libraries are needed for subsequent installations of openMPI and the netCDF libraries. Here are the commands from the definition file to load useful stuff.</li>
+<li>The <a href="https://github.com/USEPA/CMAQ.git">Community Multiscale Air Quality (CMAQ) model</a> is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6. The</li>
 </ul>
-<pre><code>  apt -y install curl
-  apt -y install m4
-  apt -y install nano
-  apt -y install tcsh
-  apt -y install wget
-  apt -y install zlib1g zlib1g-dev
-  apt -y install libdispatch-dev
-  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
-  apt -y install git</code></pre>
-<ul>
-<li>Note that libdispatch must be on the path, so /usr/lib is added to LD_LIBRARY_PATH.</li>
-</ul>
+<pre><code>git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that AIRPACT6 is currently based on CMAQ version 5.3.3 (not 5.4).</p>
+</div>
+</div>
 
 
 
@@ -423,13 +443,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./gnu_compilers.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install GNU compilers</span>
+      <a href="./ioapi.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install I/O API</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./openmpi.html" class="pagination-link">
-        <span class="nav-page-text">Install openMPI</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./build_cmaq.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Building CMAQ</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

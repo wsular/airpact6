@@ -74,14 +74,14 @@
     "href": "ioapi.html",
     "title": "Install I/O API",
     "section": "",
-    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. The following commands in the defintion file create the I/O API library.\n\n  # ....Compile ioapi-3.2\n  export HOME=/opt/share\n  export INSTALL=/opt/share/ioapi-3.2\n  export BIN=Linux2_x86_64gfortmpi\n  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH\n  cd /opt/share/\n  git clone https://github.com/cjcoats/ioapi-3.2.git\n  cd ioapi-3.2/ioapi\n  cp Makefile.nocpl Makefile\n  make -f Makefile\n  make install\n\nNote that this installation requires a customized version of Makefile.nocpl."
+    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.\n\ngit clone https://github.com/cjcoats/ioapi-3.2.git\n\n\n\n\n\n\nImportant\n\n\n\nInstallation of I/O API requires a customized version of Makefile.nocpl.\n\n\n\n\n\n\n\n\nNote\n\n\n\nHere are some commands from early work on compiling I/O API.\n\n\n  # ....Compile ioapi-3.2\n  export HOME=/opt/share\n  export INSTALL=/opt/share/ioapi-3.2\n  export BIN=Linux2_x86_64gfortmpi\n  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH\n  cd /opt/share/\n  git clone https://github.com/cjcoats/ioapi-3.2.git\n  cd ioapi-3.2/ioapi\n  cp Makefile.nocpl Makefile\n  make -f Makefile\n  make install"
   },
   {
     "objectID": "index.html#steps-to-build-container",
     "href": "index.html#steps-to-build-container",
     "title": "AIRPACT6 Container Development",
     "section": "Steps to build container",
-    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nInstall I/O API"
+    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nClone AIRPACT6 repo\nClone I/O API repo\nClone CMAQ repo\nBuild CMAQ"
   },
   {
     "objectID": "index.html#run-the-container",
@@ -89,5 +89,26 @@
     "title": "AIRPACT6 Container Development",
     "section": "Run the Container",
     "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file /home/airpact/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33"
+  },
+  {
+    "objectID": "airpact6.html",
+    "href": "airpact6.html",
+    "title": "Clone the AIRPACT6 repository",
+    "section": "",
+    "text": "To properly install CMAQ in the container, it is necessary to use customized installation scripts. These scripts are stored in a GitHub repository for AIRPACT6. To proceed, this repo is cloned into the container.\n\n# ....Clone the airpact6 repo, which contains customized Makefiles\ncd /opt/share\ngit clone https://github.com/wsular/airpact6.git"
+  },
+  {
+    "objectID": "cmaq.html",
+    "href": "cmaq.html",
+    "title": "Clone CMAQ repository",
+    "section": "",
+    "text": "The Community Multiscale Air Quality (CMAQ) model is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6. The\n\ngit clone -b 5.3.3 https://github.com/USEPA/CMAQ.git\n\n\n\n\n\n\nImportant\n\n\n\nNote that AIRPACT6 is currently based on CMAQ version 5.3.3 (not 5.4)."
+  },
+  {
+    "objectID": "build_cmaq.html",
+    "href": "build_cmaq.html",
+    "title": "1  Building CMAQ",
+    "section": "",
+    "text": "To build CMAQ within the container, a customized script is used from the AIRPACT6 repo. This script is copied to the working directory, then CMAQ is built on the container by executing the script.\n\n# ....Run script to compile CMAQ software\ncp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .\nchmod ugo+x cmaq-5.3.3.csh\n./cmaq-5.3.3.csh &gt; cmaq-5.3.3.log"
   }
 ]

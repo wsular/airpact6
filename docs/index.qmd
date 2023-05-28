@@ -15,7 +15,10 @@ apptainer build cmaq-5.3.3_ubuntu-22.04.sif cmaq-5.3.3_ubuntu-22.04.def
 3. [Install useful commands and libraries](useful.qmd)
 4. [Install OpenMPI](openmpi.qmd)
 5. [Install netCDF libraries](netcdf.qmd)
-6. [Install I/O API](ioapi.qmd)
+6. [Clone AIRPACT6 repo](airpact6.qmd)
+7. [Clone I/O API repo](ioapi.qmd)
+8. [Clone CMAQ repo](cmaq.qmd)
+9. [Build CMAQ](build_cmaq.qmd)
 
 ## Run the Container
 

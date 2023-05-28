@@ -1,6 +1,18 @@
 # Install I/O API {.unnumbered}
 
-- [I/O API](https://www.cmascenter.org/ioapi/) is a library that facilitates input and output of netCDF files for CMAQ. The following commands in the defintion file create the I/O API library.
+- [I/O API](https://www.cmascenter.org/ioapi/) is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.
+
+```
+git clone https://github.com/cjcoats/ioapi-3.2.git
+```
+
+::: {.callout-important}
+Installation of I/O API requires a customized version of Makefile.nocpl.
+:::
+
+::: {.callout-note}
+Here are some commands from early work on compiling I/O API.
+:::
 
 ```
   # ....Compile ioapi-3.2
@@ -15,5 +27,3 @@
   make -f Makefile
   make install
 ```
-
-  - Note that this installation requires a customized version of Makefile.nocpl.

@@ -1,0 +1,9 @@
+# Clone the AIRPACT6 repository {.unnumbered}
+
+- To properly install CMAQ in the container, it is necessary to use customized installation scripts. These scripts are stored in a GitHub repository for AIRPACT6. To proceed, this repo is cloned into the container.
+
+```
+# ....Clone the airpact6 repo, which contains customized Makefiles
+cd /opt/share
+git clone https://github.com/wsular/airpact6.git
+```

@@ -1,0 +1,11 @@
+# Clone CMAQ repository {.unnumbered}
+
+- The [Community Multiscale Air Quality (CMAQ) model](https://github.com/USEPA/CMAQ.git) is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6. The
+
+```
+git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
+```
+
+::: {.callout_important}
+Note that AIRPACT6 is currently based on CMAQ version 5.3.3 (not 5.4).
+:::
