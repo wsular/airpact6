@@ -107,7 +107,7 @@
   {
     "objectID": "build_cmaq.html",
     "href": "build_cmaq.html",
-    "title": "1  Building CMAQ",
+    "title": "Building CMAQ",
     "section": "",
     "text": "To build CMAQ within the container, a customized script is used from the AIRPACT6 repo. This script is copied to the working directory, then CMAQ is built on the container by executing the script.\n\n# ....Run script to compile CMAQ software\ncp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .\nchmod ugo+x cmaq-5.3.3.csh\n./cmaq-5.3.3.csh &gt; cmaq-5.3.3.log"
   }
