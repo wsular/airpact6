@@ -15,8 +15,11 @@ airpact.icon()
 #%%
 airpact.jproc()
 
+#%%
 # EMISSIONS
+airpact.bluesky()
 
+#%%
 # CCTM
 #%%
 airpact.cctm()

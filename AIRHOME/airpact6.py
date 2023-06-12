@@ -89,7 +89,7 @@ class AIRPACT6:
             wrfEnd  = ((forecastDay * self.wrf_fcstlen) + self.wrf_fcsthour + self.wrf_fcstlen + 1) - offset
             
             # Run MCIP in the apptainer
-            runMCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /work/cmaq.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcipStart} {mcipEnd} {wrfStart} {wrfEnd}'
+            runMCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcipStart} {mcipEnd} {wrfStart} {wrfEnd}'
             os.system(runMCIP)
             logging.info(f'UW WRF files for {mcipStart} to {mcipEnd} have been converted to MCIP files.')
 
@@ -140,7 +140,7 @@ class AIRPACT6:
     def bluesky(self):
         logging.info('Start')
         yesterday = (self.datenum - timedelta(days=1)).strftime('%Y-%m-%d')
-        runBlueSky = """apptainer exec """ + self.AIRHOME + """emis/fire/bluesky/bluesky_v4.3.56.sif bsp -n -J load.sources='[{"name": "firespider", "format": "JSON","type": "API", "endpoint":  "https://airfire-data-exports.s3-us-west-2.amazonaws.com/fire-spider/v3/fireinfosystem-v4-dropouts-persisted-mean-area/""" + yesterday + """.json"}]' -B skip_failed_fires=true -B fuelbeds.skip_failures=true -o """ + self.AIRHOME + """emis/fire/bluesky/output.json -C extrafiles.dest_dir=""" + self.AIRHOME + """emis/fire/bluesky/ -J extrafiles.sets='["firescsvs"]' load fuelbeds extrafiles"""
+        runBlueSky = """apptainer exec /apptainer/bluesky/bluesky_v4.3.56.sif bsp -n -J load.sources='[{"name": "firespider", "format": "JSON","type": "API", "endpoint":  "https://airfire-data-exports.s3-us-west-2.amazonaws.com/fire-spider/v3/fireinfosystem-v4-dropouts-persisted-mean-area/""" + yesterday + """.json"}]' -B skip_failed_fires=true -B fuelbeds.skip_failures=true -o """ + self.AIRHOME + """emis/fire/bluesky/output.json -C extrafiles.dest_dir=""" + self.AIRHOME + """emis/fire/bluesky/ -J extrafiles.sets='["firescsvs"]' load fuelbeds extrafiles"""
         os.system(runBlueSky)
         
         '''
