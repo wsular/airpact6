@@ -17,6 +17,8 @@ airpact.jproc()
 
 #%%
 # EMISSIONS
+
+## Fires
 airpact.bluesky()
 
 #%%

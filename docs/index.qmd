@@ -20,10 +20,12 @@ apptainer build /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif cmaq-5.3.3_ubuntu-22
 8. [Clone CMAQ repo](cmaq.qmd)
 9. [Build CMAQ](build_cmaq.qmd)
 
+---
+
 ## Run the Container
 
 - Several different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):
 
 ```
-apptainer exec --env-file /home/airpact/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33
+apptainer exec --env-file /home/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33
 ```

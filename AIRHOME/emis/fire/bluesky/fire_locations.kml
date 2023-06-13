@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://earth.google.com/kml/2.1'>
+<Document>
+<Style id="pilefire">
+<BalloonStyle>
+    <text>$[description]</text>
+</BalloonStyle>
+<IconStyle>
+   <scale>0.5</scale>
+   <Icon>
+      <href>http://www.clker.com/cliparts/u/q/Y/q/p/9/saddleyerhorse-hi.png</href>
+   </Icon>
+</IconStyle>
+</Style>
+<Style id="agfire">
+<BalloonStyle>
+    <text>$[description]</text>
+</BalloonStyle>
+<IconStyle>
+   <scale>0.5</scale>
+   <Icon>
+      <href>http://www.clker.com/cliparts/v/t/e/M/1/Q/green-fire-hi.png</href>
+   </Icon>
+</IconStyle>
+</Style>
+<Style id="airfire">
+<BalloonStyle>
+    <text>$[description]</text>
+</BalloonStyle>
+<IconStyle>
+   <scale>0.5</scale>
+   <Icon>
+      <href>http://satepsanone.nesdis.noaa.gov/pub/FIRE/HMS/png_logo/FireIcon.png</href>
+   </Icon>
+</IconStyle>
+</Style>
+<Style id="rxfire">
+<BalloonStyle>
+    <text>$[description]</text>
+</BalloonStyle>
+<IconStyle>
+   <scale>0.5</scale>
+   <Icon>
+      <href>http://www.clker.com/cliparts/u/T/e/i/e/G/blue-flame-hi.png</href>
+   </Icon>
+</IconStyle>
+</Style>
+<name>fire_locations.kml</name>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 1419-108956091<br><br>37 acres<br><br>Fuel: Idaho fescue - Bluebunch wheatgrass grassland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-122.5394,45.5788,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6499-278325779<br><br>80 acres<br><br>Fuel: Sagebrush shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.2578,45.59036,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6499-278325779<br><br>79 acres<br><br>Fuel: Sagebrush shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.2578,45.59037,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6500-278325780<br><br>118 acres<br><br>Fuel: Sagebrush shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.217,45.5556,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 5158-109045158<br><br>92 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.2184,46.2407,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 7946-109057946<br><br>133 acres<br><br>Fuel: Sagebrush shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1243,46.2006,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1663,46.21302,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1565,46.21457,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1674,46.2163,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1575,46.21784,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1685,46.21957,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1635,46.22034,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1586,46.22111,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1671,46.22253,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1621,46.2233,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>18 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1632,46.22657,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 8682-278367110<br><br>22 acres<br><br>Fuel: Salt-desert shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.1582,46.22734,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 5608-109085608<br><br>94 acres<br><br>Fuel: Sagebrush shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.2241,46.2097,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 0501-278366669<br><br>11 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-120.5792,41.43493,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6900-278366668<br><br>4 acres<br><br>Fuel: Black oak woodland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-123.2064,40.57189,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 4729-278357888<br><br>5 acres<br><br>Fuel: Douglas-fir - ponderosa pine forest</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-115.8367,48.4675,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 4729-278357888<br><br>5 acres<br><br>Fuel: Douglas-fir - ponderosa pine forest</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-115.8367,48.46838,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6655-278296655<br><br>75 acres<br><br>Fuel: Sagebrush shrubland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.197,45.5636,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 3696-278363696<br><br>11 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.9137,45.43117,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 4470-278366659<br><br>21 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.9599,46.95832,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 4470-278366659<br><br>21 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.9591,46.95961,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 4471-278364471<br><br>21 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-119.9617,46.96435,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6050-278366050<br><br>27 acres<br><br>Fuel: Bluebunch wheatgrass - Bluegrass grassland</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-109.6118,46.97065,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6672-278367103<br><br>4 acres<br><br>Fuel: Pacific ponderosa pine - Douglas-fir forest</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-121.383,43.70224,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6672-278367103<br><br>4 acres<br><br>Fuel: Pacific ponderosa pine - Douglas-fir forest</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-121.3763,43.70265,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 6672-278367103<br><br>4 acres<br><br>Fuel: Pacific ponderosa pine - Douglas-fir forest</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-121.3769,43.70742,</coordinates>
+       </Point>
+   </Placemark>
+   <Placemark>
+       <name>WF Event</name>
+           <description><![CDATA[<html lang="en"><b>Fire Assumptions:</b><br><br> 7096-278367096<br><br>27 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>]]></description>
+           <styleUrl>#airfire</styleUrl>
+       <Point>
+           <coordinates>-116.697,43.788,</coordinates>
+       </Point>
+   </Placemark>
+</Document>
+</kml>

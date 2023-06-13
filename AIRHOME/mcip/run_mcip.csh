@@ -2,10 +2,10 @@
 
 # Commands necessary for singularity container
 setenv PATH /usr/lib64/mpich-3.2/bin:$PATH
-source /usr/share/Modules/init/csh
-module use /opt/intel/oneapi/modulefiles
-module load mpi
-module load icc
+#source /usr/share/Modules/init/csh
+#module use /opt/intel/oneapi/modulefiles
+#module load mpi
+#module load icc
 setenv LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
 
 # mcip5.1_AP5_37_DAY1.csh    03/06/18 Joe Vaughan

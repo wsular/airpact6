@@ -173,7 +173,7 @@ for row in locations:
 	id = SFid[31:62]
 	area = round(float(row['area'])/3)
 	NFDRSCODE = '-9'
-	FCCS_ID = row['fccs_number']
+	FCCS_ID = str(int(float(row['fccs_number'])))
 	type = row['type']
 	fips = row['GEOID']
 	VEG = VEG_dict[FCCS_ID]
