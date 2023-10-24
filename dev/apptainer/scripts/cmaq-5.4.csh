@@ -53,4 +53,4 @@
   # ....Compile cctm
   echo "Compiling CCTM..."
   cd $CMAQ_HOME/CCTM/scripts
-  ./bldit_cctm.csh gcc 11.3.0 > /home/airpact/build_cctm.log
+#  ./bldit_cctm.csh gcc 11.3.0 > build_cctm.log
