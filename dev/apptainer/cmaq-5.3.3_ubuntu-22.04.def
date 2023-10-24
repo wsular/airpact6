@@ -78,11 +78,17 @@ From: ubuntu
   cd /opt/share
   git clone https://github.com/wsular/airpact6.git
 
-  # ....Clone or copy all repos
+  # ....Clone IOapi v3.2
   git clone https://github.com/cjcoats/ioapi-3.2.git
+  # ....Clone CMAQ v5.3.3
   git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
 
   # ....Run bash script to compile software
+  #     For CMAQ v5.3.3
   cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .
   chmod ugo+x cmaq-5.3.3.csh
   ./cmaq-5.3.3.csh > cmaq-5.3.3.log
+
+  # ....Update links to shared libraries
+  ldconfig
+  

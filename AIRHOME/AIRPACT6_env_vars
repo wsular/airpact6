@@ -1,6 +1,6 @@
 # Top-level directories (!! based on host computers HOME directory)
-AIRHOME=$HOME/AIRHOME
-AIRRUN=$HOME/AIRRUN
+AIRHOME=$HOME/airpact6/AIRHOME
+AIRRUN=$HOME/airpact6/AIRRUN
 
 # Input directories
 InMetDir=$AIRRUN/input/UW_WRF

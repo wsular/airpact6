@@ -8,11 +8,13 @@ class AIRPACT6:
 
     def __init__(self):        
         # ....Forecast settings
-        self.numberOfForecastDays = 3
-        self.forecastDays = range(self.numberOfForecastDays)
+        self.forecast_type = 'One 3-day'
+#        self.forecast_type = 'Three 1-day'    # Like AIRPACT5
+        self.number_of_forecast_days = 3
+        self.forecast_days = range(self.number_of_forecast_days)
         
         # ....Current Forecast Day
-#        dn = datetime(2023, 1, 7, 0, 0, 0)
+#        dn = datetime(2023, 6, 15, 0, 0, 0)
         dn = datetime.utcnow().date()
         self.year    = dn.year
         self.month   = dn.month
@@ -32,12 +34,12 @@ class AIRPACT6:
         self.wrf_host = 'rainier.atmos.washington.edu'
         self.wrf_data = '/home/disk/rainier_mm5rt/data/'
         #    Hours of UW WRF forecasts that are stored for WSU AIRPACT
-        self.wrf_beghour  = 7
-        self.wrf_endhour  = 82
+        self.wrf_beg_hour    = 7
+        self.wrf_end_hour    = 82
         #    Forecast start hour; STTIME (start time)
-        self.wrf_fcsthour = 8
+        self.wrf_fcst_hour   = 8
         #    Forecast length in hours
-        self.wrf_fcstlen  = 24
+        self.wrf_fcst_length = 72
 
         # ....AIRPACT6 Log File
         logging.basicConfig(filename=self.AIRLOG + 'AIRPACT6_' + self.datestr + '.log', 
@@ -72,27 +74,45 @@ class AIRPACT6:
                 time.sleep(5*60)   # Wait 5 minutes
         logging.info(f'UW WRF files are now available at {self.wrf_user}@{self.wrf_host}:{self.wrf_data}')
 
-        downloadWRFfiles = f"scp -r {self.wrf_user}@{self.wrf_host}:{self.wrf_data}{self.datestr}00 {self.WRF}."
-        os.system(downloadWRFfiles)
+        download_WRF_files = f"scp -r {self.wrf_user}@{self.wrf_host}:{self.wrf_data}{self.datestr}00 {self.WRF}."
+        os.system(download_WRF_files)
         logging.info('UW WRF files have been downloaded successfully.')
-
-        # ....Run MCIP in CMAQ apptainer for each forecast day
-        for forecastDay in self.forecastDays:
-            
-            # Determine the start and end times for MCIP conversion
-            mcipStart = (self.datenum + timedelta(hours=(forecastDay*24)+self.wrf_fcsthour)).strftime('%Y%m%d%H')
-            mcipEnd   = (self.datenum + timedelta(hours=((forecastDay+1)*24)+self.wrf_fcsthour)).strftime('%Y%m%d%H')
-            
+        
+        logging.info('AIRPACT6 forecast type is: ' + self.forecast_type)
+        if self.forecast_type == 'One 3-day':
+            mcip_start = (self.datenum + timedelta(hours=self.wrf_fcst_hour)).strftime('%Y%m%d%H')
+            mcip_end   = (self.datenum + timedelta(hours=self.wrf_fcst_hour+self.wrf_fcst_length-1)).strftime('%Y%m%d%H')
+                
             # Determine the indices into the list of WRF files.
-            offset = self.wrf_beghour - 1
-            wrfStart = ((forecastDay * self.wrf_fcstlen) + self.wrf_fcsthour - 1) - offset
-            wrfEnd  = ((forecastDay * self.wrf_fcstlen) + self.wrf_fcsthour + self.wrf_fcstlen + 1) - offset
+            wrf_start = 1
+            wrf_end  = 74
             
             # Run MCIP in the apptainer
-            runMCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcipStart} {mcipEnd} {wrfStart} {wrfEnd}'
-            os.system(runMCIP)
-            logging.info(f'UW WRF files for {mcipStart} to {mcipEnd} have been converted to MCIP files.')
+            run_MCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcip_start} {mcip_end} {wrf_start} {wrf_end}'
+            os.system(run_MCIP)
+            logging.info(f'UW WRF files for {mcip_start} to {mcip_end} have been converted to MCIP files.')
 
+        elif self.forecast_type == 'Three 1-day':
+            # ....Run MCIP in CMAQ apptainer for each forecast day
+            for forecast_day in self.forecast_days:
+                
+                # Determine the start and end times for MCIP conversion
+                mcip_start = (self.datenum + timedelta(hours=(forecast_day*24)+self.wrf_fcsthour)).strftime('%Y%m%d%H')
+                mcip_end   = (self.datenum + timedelta(hours=((forecast_day+1)*24)+self.wrf_fcsthour)).strftime('%Y%m%d%H')
+                
+                # Determine the indices into the list of WRF files.
+                offset = self.wrf_beghour - 1
+                wrf_start = ((forecast_day * self.wrf_fcstlen) + self.wrf_fcsthour - 1) - offset
+                wrf_end  = ((forecast_day * self.wrf_fcstlen) + self.wrf_fcsthour + self.wrf_fcstlen + 1) - offset
+                
+                # Run MCIP in the apptainer
+                run_MCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcip_start} {mcip_end} {wrf_start} {wrf_end}'
+                os.system(run_MCIP)
+                logging.info(f'UW WRF files for {mcip_start} to {mcip_end} have been converted to MCIP files.')
+        else:
+            logging.error('Forecast type is unknown. Exiting...')
+            raise SystemExit
+        
         logging.info('End')        
         return
     
@@ -156,7 +176,7 @@ class AIRPACT6:
             # Serena Chung 2016-03-18
             # Rob Pinder 2013-06-24
             # Note that this script divides heat by 3 to deal with the bug in SMOKE 3.5.1 which multiples heat x 3 when opening these ORL files for fire emissions.
-            '''
+            '''            
             import string
             import csv
             import math
@@ -314,9 +334,16 @@ class AIRPACT6:
                 id = SFid[31:62]
                 area = round(float(row['area'])/3)
                 NFDRSCODE = '-9'
-                FCCS_ID = str(int(float(row['fccs_number'])))
                 type = row['type']
                 fips = row['GEOID']
+                # ToDo: Skips missing fccs_numbers in the US
+                if row['fccs_number']!='':   
+                    FCCS_ID = str(int(float(row['fccs_number'])))
+                else:
+                    FCCS_ID = '52'
+                #Set a default FCCS for Canada locations within the AIRPACT domain: 47xxx is SK, 48xxx is AB, 59xxx is BC.
+                if fips[:2] in [47, 48, 59]:
+                    FCCS_ID = '52' #Douglas Fir - Ponderosa Pine... moderate forest burn emission rates
                 VEG = VEG_dict[FCCS_ID]
                 if int(month)>9:
                     type = 'RX'
@@ -499,7 +526,8 @@ class AIRPACT6:
         logging.info('Start')
         yesterday = (self.datenum - timedelta(days=1)).strftime('%Y-%m-%d')
         runBlueSky = """apptainer exec /apptainer/bluesky/bluesky_v4.3.56.sif bsp -n -J load.sources='[{"name": "firespider", "format": "JSON","type": "API", "endpoint":  "https://airfire-data-exports.s3-us-west-2.amazonaws.com/fire-spider/v3/fireinfosystem-v4-dropouts-persisted-mean-area/""" + yesterday + """.json"}]' -B skip_failed_fires=true -B fuelbeds.skip_failures=true -o """ + self.AIRHOME + """emis/fire/bluesky/output.json -C extrafiles.dest_dir=""" + self.AIRHOME + """emis/fire/bluesky/ -J extrafiles.sets='["firescsvs"]' load fuelbeds extrafiles"""
-        os.system(runBlueSky)
+        # TODO should I switch os to subprocess?
+        os.system(runBlueSky + '>/dev/null 2>&1')
         
         # ....Log status of bluesky run
         from glob import glob
@@ -508,16 +536,32 @@ class AIRPACT6:
         else:
             logging.info('Fires From BlueSky Pipeline found.')
         
-        '''
-          mv fire_locations.kml $TARGET_DIR/fire_locations_${YMD}.kml
-          mv ptday.orl $TARGET_DIR/ptday-${YMD}00.orl
-          mv ptinv.orl $TARGET_DIR/ptinv-${YMD}00.orl
-          rm -f fire_locations.csv fire_locations_fips.csv
-        '''
+        BSP_ORL_Conversion()
+        
+        # ....Copy necessary files to aeolus.wsu.edu
+        copy_fire_locations = 'scp ' + self.AIRHOME + '/emis/fire/bluesky/fire_locations.csv airpact5@aeolus:/home/airpact5/AIRHOME/run_ap5_day1/emis/fire_AP6/.'
+        #copy_ptday          = 'scp ' + self.AIRHOME + '/emis/fire/bluesky/ptday.orl airpact5@aeolus:/home/airpact5/AIRHOME/run_ap5_day1/emis/fire_AP6/.'
+        #copy_ptinv          = 'scp ' + self.AIRHOME + '/emis/fire/bluesky/ptinv.orl airpact5@aeolus:/home/airpact5/AIRHOME/run_ap5_day1/emis/fire_AP6/.'
+        os.system(copy_fire_locations)
+        #os.system(copy_ptday)
+        #os.system(copy_ptinv)
+        logging.info('Fires from Bluesky Pipeline were copied from gaia to aeolus.')
         
         logging.info('End')
         return
     
+    def NOAA_HMS(self):
+        
+        logging.info('Start')
+        today = self.datenum.strftime('%Y-%m-%d')
+        getNOAA_HMS = 'wget https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Fire_Points/Text/' + today[0:4] + '/' + today[5:7] + '/hms_fire' + today.replace('-', '') + '.txt'
+        os.system(getBlueSky)
+        logging.info('Fires from NOAA Hazard Mapping System (HMS) were copied to gaia.')
+        
+        # Link to NOAA HMS Fire GIS files
+        # https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/
+        return
+
     def emis_merge(self):
         logging.info('Start')
         # TODO: Temporarily just copy the merged files from aeolus (for CCTM testing!!)

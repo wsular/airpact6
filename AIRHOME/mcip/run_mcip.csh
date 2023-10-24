@@ -94,8 +94,8 @@ echo Running $0 for date $1
 #=======================================================================
 
 # AIRPACT locations (see AIRPACT6_env_vars for universal env vars)
-set OutDir    = $AIROUT/$1/$2
-set ProgDir   = /opt/CMAQv5.3.2/PREP/mcip/src
+set OutDir    = $AIROUT/$1
+set ProgDir   = /opt/share/CMAQ-5.3.3/PREP/mcip/src
 set WorkDir   = $OutDir
 
 # Creates output (and work) directory
@@ -387,7 +387,8 @@ else
   set InGeo = "no_file"
 endif
 
-set FILE_GD  = $OutDir/GRIDDESC
+#cp $AIRRUN/input/domain/GRIDDESC $OutDir/GRIDDESC
+set FILE_GD  = $AIRRUN/input/domain/GRIDDESC
 set FILE_HDR = $OutDir/mmheader  # .${APPL}
 
 #-----------------------------------------------------------------------
@@ -404,7 +405,9 @@ endif
   # removed from middle of the next cat set 	file_hdr   = "$FILE_HDR"
 cat > $WorkDir/namelist.${PROG} << !
 
- &FILENAMES
+echo $InMetFiles
+
+&FILENAMES
   file_gd    = "$FILE_GD"
   file_mm    = "$InMetFiles[1]",
 !

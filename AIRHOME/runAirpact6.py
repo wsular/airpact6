@@ -2,10 +2,9 @@
 import airpact6
 airpact = airpact6.AIRPACT6()
 
-#%%
+#%% PRECCTM
 airpact.mcip()
 
-# PRECCTM
 #%%
 airpact.bcon()
 
@@ -20,6 +19,9 @@ airpact.jproc()
 
 ## Fires
 airpact.bluesky()
+
+#%%
+airpact.NOAA_HMS()
 
 #%%
 # CCTM
