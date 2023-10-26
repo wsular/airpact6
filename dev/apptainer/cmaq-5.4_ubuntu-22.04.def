@@ -63,16 +63,20 @@ From: ubuntu
   ./configure --prefix=${NFDIR} --disable-fortran-type-check
   make check
   make install
+
+  # ....Update links to shared libraries
+  ldconfig
+
   #     pnetcdf
-#  cd /opt/share
-#  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-#  tar xvf pnetcdf-1.12.3.tar.gz
-#  cd pnetcdf-1.12.3
-#  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/bin/mpicc MPICXX=/usr/bin/mpiCC MPIF77=/usr/bin/mpif77 MPIF90=/usr/bin/mpif90
-#  make
-#  make install
-#  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
-#  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
+  cd /opt/share
+  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
+  tar xvf pnetcdf-1.12.3.tar.gz
+  cd pnetcdf-1.12.3
+  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/bin/mpicc MPICXX=/usr/bin/mpiCC MPIF77=/usr/bin/mpif77 MPIF90=/usr/bin/mpif90
+  make
+  make install
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
+  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
 
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
@@ -91,10 +95,10 @@ From: ubuntu
   #chmod ugo+x cmaq-5.3.3.csh
   #./cmaq-5.3.3.csh > cmaq-5.3.3.log
   #     For CMAQ v5.4
-#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-#  chmod ugo+x cmaq-5.4.csh
-#  ./cmaq-5.4.csh > cmaq-5.4.log
+  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+  chmod ugo+x cmaq-5.4.csh
+  ./cmaq-5.4.csh > cmaq-5.4.log
 
   # ....Update links to shared libraries
-#  ldconfig
+  ldconfig
   
