@@ -158,7 +158,7 @@
         #> I/O API and netCDF for WRF-CMAQ 
         setenv NCDIR /usr/local                                        # C netCDF install path
         setenv NFDIR /usr/local                                        # Fortran netCDF install path for CMAQ
-	setenv NETCDF netcdf_combined_directory_path                   # Note only for  WRF-CMAQ as it requires combining the netcdf C and netcdf F into a single directory. CMAQ users - don't change this setting
+	     setenv NETCDF netcdf_combined_directory_path                   # Note only for  WRF-CMAQ as it requires combining the netcdf C and netcdf F into a single directory. CMAQ users - don't change this setting
         setenv IOAPI /opt/share/ioapi-3.2                              # I/O API 
         setenv WRF_ARCH 34                                             # [1-75] Optional, ONLY for WRF-CMAQ  
   

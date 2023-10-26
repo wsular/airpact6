@@ -4,17 +4,17 @@
   echo "Compiling IOAPI..."
   setenv HOME /opt/share
   setenv INSTALL /opt/share/ioapi-3.2
-  setenv BIN Linux2_x86_64gfort
-  setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:$LD_LIBRARY_PATH
+  setenv BIN Linux2_x86_64gfortmpi
+  setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.nocpl.ioapi Makefile
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makeinclude.Linux2_x86_64gfort_gcc_9.5.0 Makeinclude.Linux2_x86_64gfort
+  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.ioapi Makefile
+  cp /opt/share/airpact6/dev/apptainer/scripts/Makeinclude.Linux2_x86_64gfortmpi Makeinclude.Linux2_x86_64gfortmpi
   make -f Makefile
 
   # ....Compile m3tools
   echo "Compiling M3TOOLS..."
   cd /opt/share/ioapi-3.2/m3tools
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.nocpl.m3tools Makefile
+  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.m3tools Makefile
   make -f Makefile
 
   # ....Compile mcip
