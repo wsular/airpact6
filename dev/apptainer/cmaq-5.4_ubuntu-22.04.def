@@ -1,6 +1,10 @@
 Bootstrap: docker
 From: ubuntu
 
+%files
+  /home/airpact/models/MEGANv3.2
+  /home/airpact/models/SMOKEv5.0
+
 %post
   # ....Install compilers and utilities
   apt -y update
@@ -18,6 +22,16 @@ From: ubuntu
   LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
   apt -y install git
 
+  # ....Install wine for MOVES4
+  dpkg --add-architecture i386 && apt-get update && apt-get install wine32
+  apt -y install wine winetricks
+
+  # ....Create shared directories
+  mkdir -p /opt/share
+  mkdir -p /opt/share/MEGANv3.2
+  mkdir -p /opt/share/SMOKEv5.0
+
+  # ....Install OpenMPI
   #     Needed by openmpi
   apt -y install autoconf
   apt -y install automake
@@ -25,8 +39,6 @@ From: ubuntu
   apt -y install flex
   apt -y install pandoc
 
-  # ....Install OpenMPI
-  mkdir -p /opt/share
   cd /opt/share
   wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
   tar xvfz openmpi-4.1.4.tar.gz
@@ -64,15 +76,12 @@ From: ubuntu
   make check
   make install
 
-  # ....Update links to shared libraries
-  ldconfig
-
   #     pnetcdf
   cd /opt/share
   wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
   tar xvf pnetcdf-1.12.3.tar.gz
   cd pnetcdf-1.12.3
-  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/bin/mpicc MPICXX=/usr/bin/mpiCC MPIF77=/usr/bin/mpif77 MPIF90=/usr/bin/mpif90
+  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
   make
   make install
   ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
