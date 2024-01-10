@@ -16,6 +16,15 @@
 
 ---
 
+## 10 January 2023
+
+- Use update-alternatives for multiple gcc versions
+  - https://man7.org/linux/man-pages/man1/update-alternatives.1.html
+  - https://www.dedicatedcore.com/blog/install-gcc-compiler-ubuntu/
+  - https://www.baeldung.com/linux/update-alternatives-command
+
+---
+
 ## 12 October 2022
 
 - Successfully created a Singularity sandbox that can process MCIP files from UW WRF !!
