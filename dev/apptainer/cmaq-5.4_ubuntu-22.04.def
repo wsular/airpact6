@@ -37,21 +37,6 @@ From: ubuntu
   #mkdir -p /opt/share/MEGANv3.2
   #mkdir -p /opt/share/SMOKEv5.0
 
-  # ....Install OpenMPI
-  #     Needed by openmpi
-  #apt -y install autoconf
-  #apt -y install automake
-  #apt -y install libtool
-  #apt -y install flex
-  #apt -y install pandoc
-  #cd /opt/share
-  #wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
-  #tar xvfz openmpi-4.1.4.tar.gz
-  #cd openmpi-4.1.4
-  #./configure --prefix=/usr/local
-  #make all install
-  #LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
   # ....Install mpich
   apt -y update
   apt -y install mpich
