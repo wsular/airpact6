@@ -50,7 +50,7 @@ MODEL = mcip.exe
 FC         = mpifort
 NETCDF     = /usr/local
 IOAPI_ROOT = /opt/share/ioapi-3.2
-FFLAGS     = -O3 -fallow-argument-mismatch -I$(NETCDF)/include -I$(IOAPI_ROOT)/Linux2_x86_64gfortmpi
+FFLAGS     = -O3 -I$(NETCDF)/include -I$(IOAPI_ROOT)/Linux2_x86_64gfortmpi
 LIBS       = -L$(IOAPI_ROOT)/Linux2_x86_64gfortmpi -lioapi -L$(NETCDF)/lib -lnetcdff -lnetcdf -fopenmp
 #LIBS       = -L$(IOAPI_ROOT)/Linux2_x86_64gfortmpi -lioapi -L$(NETCDF)/lib -lnetcdff -lnetcdf -lpnetcdf -fopenmp
 
