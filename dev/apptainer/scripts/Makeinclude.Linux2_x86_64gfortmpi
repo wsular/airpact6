@@ -24,7 +24,7 @@
 AR   = ar
 CC   = mpicc
 CXX  = mpiCC
-FC   = mpif90
+FC   = mpifort
 M4   = m4
 LINK = $(CC)
 
@@ -32,7 +32,7 @@ LINK = $(CC)
 MODI = -I
 E132 = -ffixed-line-length-132
 
-MFLAGS    = -ffast-math -funroll-loops -m64 -fallow-argument-mismatch  #  -Wall -Wsurprising -march=native -mtune=native
+MFLAGS    = -ffast-math -funroll-loops -m64     #  -Wall -Wsurprising -march=native -mtune=native
 
 OMPFLAGS  = -fopenmp
 OMPLIBS   = -fopenmp
