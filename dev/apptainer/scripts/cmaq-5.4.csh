@@ -33,24 +33,24 @@
   setenv CMAQ_HOME /opt/share/CMAQ-5.4
   chmod ugo+x bldit_project.csh
   ./bldit_project.csh
-  ./config_cmaq.csh gcc 11.3.0
+  ./config_cmaq.csh gcc 9.5.0
 
   # ....Compile icon
   echo "Compiling ICON..."
   cd $CMAQ_HOME/PREP/icon/scripts
-  ./bldit_icon.csh gcc 11.3.0 > build_icon.log
+  ./bldit_icon.csh gcc 9.5.0 > build_icon.log
 
   # ....Compile bcon
   echo "Compiling BCON..."
   cd $CMAQ_HOME/PREP/bcon/scripts
-  ./bldit_bcon.csh gcc 11.3.0 > build_bcon.log
+  ./bldit_bcon.csh gcc 9.5.0 > build_bcon.log
 
   # ....Compile jproc
   echo "Compiling JPROC..."
   cd $CMAQ_HOME/UTIL/jproc/scripts
-  ./bldit_jproc.csh gcc 11.3.0 > build_jproc.log
+  ./bldit_jproc.csh gcc 9.5.0 > build_jproc.log
 
   # ....Compile cctm
   echo "Compiling CCTM..."
   cd $CMAQ_HOME/CCTM/scripts
-#cd  ./bldit_cctm.csh gcc 11.3.0 > build_cctm.log
+#cd  ./bldit_cctm.csh gcc 9.5.0 > build_cctm.log
