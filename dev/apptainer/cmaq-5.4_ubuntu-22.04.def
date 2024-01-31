@@ -107,9 +107,9 @@ From: ubuntu
 
   ###################################################################
   #     Make and Install CMAQ v5.4
-  #cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-  #chmod ugo+x cmaq-5.4.csh
-  #./cmaq-5.4.csh > cmaq-5.4.log
+  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+  chmod ugo+x cmaq-5.4.csh
+  ./cmaq-5.4.csh > cmaq-5.4.log
 
   # ....Update links to shared libraries
   ldconfig

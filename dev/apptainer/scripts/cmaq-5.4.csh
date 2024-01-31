@@ -7,6 +7,7 @@
   setenv BIN Linux2_x86_64gfortmpi
   setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
+  git checkout -b 20200828
   cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.ioapi Makefile
   cp /opt/share/airpact6/dev/apptainer/scripts/Makeinclude.Linux2_x86_64gfortmpi Makeinclude.Linux2_x86_64gfortmpi
   make -f Makefile
@@ -53,4 +54,4 @@
   # ....Compile cctm
   echo "Compiling CCTM..."
   cd $CMAQ_HOME/CCTM/scripts
-#cd  ./bldit_cctm.csh gcc 11.4.0 > build_cctm.log
+  ./bldit_cctm.csh gcc 11.4.0 > build_cctm.log

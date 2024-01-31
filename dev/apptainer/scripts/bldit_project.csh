@@ -17,7 +17,7 @@
 #> directory.
 
 
- set CMAQ_HOME =  /opt/share/CMAQ-5.4
+ set CMAQ_HOME = /opt/share/CMAQ-5.4
 
 #> This section allows users to choose explicitly which tools
 #> to make available from the repo. For each selected tool,
@@ -26,12 +26,12 @@
  set EXT_CCTM    = Y
 
  #Utilities
- set EXT_JPROC = Y 
+ set EXT_JPROC = N 
 
  # Pre-Processing Tools
- set EXT_BCON = Y 
- set EXT_ICON = Y 
- set EXT_MCIP = Y 
+ set EXT_BCON = N
+ set EXT_ICON = N 
+ set EXT_MCIP = N 
  
  # Post-Processing Tools
  set EXT_COMBINE = Y 
