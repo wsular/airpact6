@@ -6,7 +6,7 @@ From: ubuntu
 #  /home/airpact/models/SMOKEv5.0
 
 %post
-  ###################################################################
+###################################################################
   # ....Install compilers and utilities
   apt -y update
   apt -y install build-essential
@@ -32,7 +32,7 @@ From: ubuntu
   #mkdir -p /opt/share/MEGANv3.2
   #mkdir -p /opt/share/SMOKEv5.0
 
-  ###################################################################
+###################################################################
   # ....Install OpenMPI
   #     Needed by openmpi
   apt -y install autoconf
@@ -49,10 +49,10 @@ From: ubuntu
   make all install
   LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-  ###################################################################
+###################################################################
   # ....Install the netCDF libraries
-  export CC=mpicc
-  export FC=mpifort
+  export CC=gcc
+  export FC=gfortran
   export NCDIR=/usr/local
   export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
 
@@ -81,18 +81,7 @@ From: ubuntu
   make check
   make install
 
-  #         pnetcdf
-  cd /opt/share
-  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-  tar xvf pnetcdf-1.12.3.tar.gz
-  cd pnetcdf-1.12.3
-  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
-  make
-  make install
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
-
-  ###################################################################
+###################################################################
   # ....Clone repos for building CMAQ
 
   #         airpact6; contains customized Makefiles
@@ -105,11 +94,11 @@ From: ubuntu
   #         CMAQ v5.4
   git clone -b main https://github.com/USEPA/CMAQ.git
 
-  ###################################################################
+###################################################################
   #     Make and Install CMAQ v5.4
-  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-  chmod ugo+x cmaq-5.4.csh
-  ./cmaq-5.4.csh > cmaq-5.4.log
+#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+#  chmod ugo+x cmaq-5.4.csh
+#  ./cmaq-5.4.csh > cmaq-5.4.log
 
   # ....Update links to shared libraries
-  ldconfig
+#  ldconfig

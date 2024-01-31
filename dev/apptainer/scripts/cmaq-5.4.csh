@@ -4,19 +4,18 @@
   echo "Compiling IOAPI..."
   setenv HOME /opt/share
   setenv INSTALL /opt/share/ioapi-3.2
-  setenv BIN Linux2_x86_64gfortmpi
+  setenv BIN Linux2_x86_64gfort10
+  setenv CPLMODE nocpl
   setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
   git checkout -b 20200828
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.ioapi Makefile
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makeinclude.Linux2_x86_64gfortmpi Makeinclude.Linux2_x86_64gfortmpi
-  make -f Makefile
+  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort10
+  make all -f Makefile.nocpl
 
   # ....Compile m3tools
   echo "Compiling M3TOOLS..."
   cd /opt/share/ioapi-3.2/m3tools
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.m3tools Makefile
-  make -f Makefile
+  make all -f Makefile.nocpl
 
   # ....Compile mcip
   echo "Compiling MCIP..."
