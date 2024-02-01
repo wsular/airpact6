@@ -48,7 +48,7 @@ From: ubuntu
   apt -y install pandoc
 
   cd /opt/share
-  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.0.1.tar.gz
+  wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
   tar xvfz openmpi-4.0.1.tar.gz
   cd openmpi-4.0.1
   ./configure --prefix=/usr/local
