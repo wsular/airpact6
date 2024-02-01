@@ -2,35 +2,39 @@
 
   # ....Compile ioapi-3.2
   echo "Compiling IOAPI..."
+  setenv NCDIR /usr/local
+  setenv NFDIR /usr/local
   setenv HOME /opt/share
-  setenv INSTALL /opt/share/ioapi-3.2
+  setenv INSTALL $HOME/ioapi-3.2
   setenv BIN Linux2_x86_64gfort10
   setenv CPLMODE nocpl
-  setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH
-  cd /opt/share/ioapi-3.2/ioapi
+  setenv LD_LIBRARY_PATH /usr/lib:/opt/share/ioapi-3.2/Linux2_x86_64gfort10:$LD_LIBRARY_PATH
+  cd $INSTALL/ioapi
   git checkout -b 20200828
   sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort10
   make all -f Makefile.nocpl
 
   # ....Compile m3tools
   echo "Compiling M3TOOLS..."
-  cd /opt/share/ioapi-3.2/m3tools
-  make all -f Makefile.nocpl
+  cd $INSTALL/m3tools
+  cp Makefile.nocpl Makefile
+  sed -i 's\ LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)\ LIBS = -L${OBJDIR} -lioapi -L${NFDIR}/lib -lnetcdff -L${NCDIR}/lib -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)\g' Makefile
+  make all -f Makefile
 
   # ....Compile mcip
   echo "Compiling MCIP..."
-  cd /opt/share
+  cd $HOME
   mv CMAQ CMAQ-5.4
-  cd CMAQ-5.4/PREP/mcip/src
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.mcip Makefile
+  setenv CMAQ_HOME $HOME/CMAQ-5.4
+  cd $CMAQ_HOME/PREP/mcip/src
+  cp $HOME/airpact6/dev/apptainer/scripts/Makefile.mcip Makefile
   make -f Makefile
 
   # ....Build-it for CMAQ routines (https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/CMAQ_UG_ch05_running_a_simulation.md)
   echo "Building CMAQ..."
-  cd /opt/share/CMAQ-5.4
+  cd $CMAQ_HOME
   cp /opt/share/airpact6/dev/apptainer/scripts/bldit_project.csh bldit_project.csh
   cp /opt/share/airpact6/dev/apptainer/scripts/config_cmaq.csh config_cmaq.csh
-  setenv CMAQ_HOME /opt/share/CMAQ-5.4
   chmod ugo+x bldit_project.csh
   ./bldit_project.csh
   ./config_cmaq.csh gcc 11.4.0
