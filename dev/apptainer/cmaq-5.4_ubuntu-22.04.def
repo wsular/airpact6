@@ -6,6 +6,7 @@ From: ubuntu
 #  /home/airpact/models/SMOKEv5.0
 
 %post
+#####################################################################
   # ....Install compilers and utilities
   apt -y update
   apt -y install build-essential
@@ -42,6 +43,7 @@ From: ubuntu
   apt -y install mpich
   LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
+#####################################################################
   # ....Install the netCDF libraries
   #     netcdf-c
   export CC=gcc
@@ -66,11 +68,11 @@ From: ubuntu
   export NFDIR=/usr/local
   export CPPFLAGS='-I${NCDIR}/include'
   export LDFLAGS='-L${NCDIR}/lib'
-  export OMPI_FCFLAGS='-fallow-argument-mismatch'
   ./configure --disable-shared --prefix=${NFDIR}
   make check
   make install
 
+#####################################################################
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
   git clone https://github.com/wsular/airpact6.git
@@ -82,11 +84,8 @@ From: ubuntu
   # ....Clone CMAQ v5.4
   git clone -b main https://github.com/USEPA/CMAQ.git
 
+#####################################################################
   # ....Run bash script to compile software
-  #     For CMAQ v5.3.3
-  #cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .
-  #chmod ugo+x cmaq-5.3.3.csh
-  #./cmaq-5.3.3.csh > cmaq-5.3.3.log
   #     For CMAQ v5.4
 #  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
 #  chmod ugo+x cmaq-5.4.csh
