@@ -124,6 +124,7 @@ From: ubuntu
   git checkout -b gcc9.5.0
 
   # ....Clone IOapi v3.2
+  cd /opt/share
   git clone https://github.com/cjcoats/ioapi-3.2.git
 
   # ....Clone CMAQ v5.4
