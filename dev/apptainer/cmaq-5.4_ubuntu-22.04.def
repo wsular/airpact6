@@ -119,16 +119,17 @@ From: ubuntu
 #####################################################################
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
-  git clone https://github.com/wsular/airpact6.git
-  cd airpact6
-  git checkout -b gcc9.5.0
+  git clone --branch gcc9.5.0 https://github.com/wsular/airpact6.git
 
   # ....Clone IOapi v3.2
-  cd /opt/share
-  git clone https://github.com/cjcoats/ioapi-3.2.git
+  wget https://github.com/cjcoats/ioapi-3.2/archive/refs/tags/20200828.tar.gz
+  tar xvf 20200828.tar.gz
+  mv ioapi-3.2-20200828 ioapi-3.2
 
   # ....Clone CMAQ v5.4
-  git clone -b main https://github.com/USEPA/CMAQ.git
+  wget https://github.com/USEPA/CMAQ/archive/refs/tags/CMAQv5.4_14Oct2022.tar.gz
+  tar xvf CMAQv5.4_14Oct2022.tar.gz
+  mv CMAQ-CMAQv5.4_14Oct2022 CMAQ-5.4
 
 #####################################################################
   # ....Run bash script to compile software
