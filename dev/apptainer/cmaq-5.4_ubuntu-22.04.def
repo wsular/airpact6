@@ -1,7 +1,7 @@
 Bootstrap: docker
 From: ubuntu
 
-#%files
+%files
 #  /home/airpact/models/MEGANv3.2
 #  /home/airpact/models/SMOKEv5.0
 
@@ -51,12 +51,33 @@ From: ubuntu
 
 ###################################################################
   # ....Install the netCDF libraries
-  export CC=mpicc
-  export FC=mpifort
+  export CC=gcc
+  export FC=gfortran
   export NCDIR=/usr/local
   export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
 
   #         netcdf-c; version used by CMAS
+  # Flags set in Makeinclude.Linux2_x86_64gfort10
+  #     ....See Environmental Variable Description Notes at https://docs.unidata.ucar.edu/netcdf-c/current/building_netcdf_fortran.html
+  #
+  # MFLAGS    = -ffast-math -funroll-loops -m64  #  -Wall -Wsurprising -march=native -mtune=native
+  #
+  # COPTFLAGS = -O3 ${MFLAGS}
+  # FOPTFLAGS = -O3 -fallow-argument-mismatch ${MFLAGS}
+  # FPPFLAGS  = -DF90=1
+  # FSFLAGS   = -fno-automatic
+  # ARCHFLAGS = \
+  #  -DAUTO_ARRAYS=1 \
+  #  -DF90=1 -DFLDMN=1 \
+  #  -DFSTR_L=int \
+  #  -DIOAPI_NO_STDOUT=1 \
+  #  -DNEED_ARGS=1
+  # PARFLAGS  =
+  # ARCHLIB   = -dynamic -L/usr/lib64 -lm -lpthread -lc
+
+  export CFLAGS='-O3 -ffast-math -funroll-loops -m64'
+  export FCFLAGS='-O3 -ffast-math -funroll-loops -m64 -fallow-argument-mismatch -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+
   cd /opt/share
   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
   tar xvf v4.8.1.tar.gz
@@ -74,9 +95,10 @@ From: ubuntu
   export CPPFLAGS='-I${NCDIR}/include'
   export LDFLAGS='-L${NCDIR}/lib'
   export LIBS='-lnetcdf'
-  ./configure --prefix=${NFDIR} --disable-fortran-type-check
+  ./configure --disable-shared --prefix=${NFDIR} --disable-fortran-type-check
   make check install
-
+  ldconfig
+  
 ###################################################################
   # ....Clone repos for building CMAQ
 
@@ -97,4 +119,4 @@ From: ubuntu
 #  ./cmaq-5.4.csh > cmaq-5.4.log
 
   # ....Update links to shared libraries
-#  ldconfig
+  ldconfig

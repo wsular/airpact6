@@ -8,18 +8,19 @@
   setenv INSTALL $HOME/ioapi-3.2
   setenv BIN Linux2_x86_64gfort10
   setenv CPLMODE nocpl
-  setenv LD_LIBRARY_PATH /usr/lib:/opt/share/ioapi-3.2/Linux2_x86_64gfort10:$LD_LIBRARY_PATH
+  setenv LD_LIBRARY_PATH /usr/local/lib:/opt/share/ioapi-3.2/Linux2_x86_64gfort10:$LD_LIBRARY_PATH
   cd $INSTALL/ioapi
   git checkout -b 20200828
   sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort10
-  make all -f Makefile.nocpl
+  cp Makefile.nocpl Makefile
+  make
 
   # ....Compile m3tools
   echo "Compiling M3TOOLS..."
   cd $INSTALL/m3tools
   cp Makefile.nocpl Makefile
-  sed -i 's\ LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)\ LIBS = -L${OBJDIR} -lioapi -L${NFDIR}/lib -lnetcdff -L${NCDIR}/lib -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)\g' Makefile
-  make all -f Makefile
+  sed -i 's\ LIBS = -L${OBJDIR} -lioapi -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)\ LIBS = -L${OBJDIR} -lioapi -L/usr/local/lib -lnetcdff -L/usr/local/lib -lnetcdf -lm -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)\g' Makefile
+  make
 
   # ....Compile mcip
   echo "Compiling MCIP..."
