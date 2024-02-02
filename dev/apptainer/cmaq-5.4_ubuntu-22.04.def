@@ -22,7 +22,6 @@ From: ubuntu
   apt -y install m4
   apt -y install nano
   apt -y install csh
-#  apt -y install tcsh
   apt -y install wget
   apt -y install zlib1g zlib1g-dev
   apt -y install libdispatch-dev
@@ -67,13 +66,37 @@ From: ubuntu
   export CC=gcc
   export FC=gfortran
   export NCDIR=/usr/local
-  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
+  export LD_LIBRARY_PATH=$NCDIR/lib:$LD_LIBRARY_PATH
+
+
+  #         netcdf-c; version used by CMAS
+  # Flags set in Makeinclude.Linux2_x86_64gfort10
+  #     ....See Environmental Variable Description Notes at https://docs.unidata.ucar.edu/netcdf-c/current/building_netcdf_fortran.html
+  #
+  # MFLAGS    = -ffast-math -funroll-loops -m64  #  -Wall -Wsurprising -march=native -mtune=native
+  #
+  # COPTFLAGS = -O3 ${MFLAGS}
+  # FOPTFLAGS = -O3 -fallow-argument-mismatch ${MFLAGS}
+  # FPPFLAGS  = -DF90=1
+  # FSFLAGS   = -fno-automatic
+  # ARCHFLAGS = \
+  #  -DAUTO_ARRAYS=1 \
+  #  -DF90=1 -DFLDMN=1 \
+  #  -DFSTR_L=int \
+  #  -DIOAPI_NO_STDOUT=1 \
+  #  -DNEED_ARGS=1
+  # PARFLAGS  =
+  # ARCHLIB   = -dynamic -L/usr/lib64 -lm -lpthread -lc
+
+  export CFLAGS='-O3 -ffast-math -funroll-loops -m64'
+  export FCFLAGS='-O3 -ffast-math -funroll-loops -m64 -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+
   cd /opt/share
   #       Version used by CMAS
   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
   tar xvf v4.8.1.tar.gz
   cd netcdf-c-4.8.1
-  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr
+  ./configure --prefix=$NCDIR --disable-netcdf-4 --disable-dap --disable-nczarr
   make check install
 
   #     netcdf-fortran
@@ -82,11 +105,13 @@ From: ubuntu
   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.4.tar.gz
   tar xvf v4.5.4.tar.gz
   cd netcdf-fortran-4.5.4
-  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
+  export LD_LIBRARY_PATH=$NCDIR/lib:$LD_LIBRARY_PATH
   export NFDIR=/usr/local
-  export CPPFLAGS='-I${NCDIR}/include'
-  export LDFLAGS='-L${NCDIR}/lib'
-  ./configure --disable-shared --prefix=${NFDIR}
+  export CPPFLAGS=-I$NCDIR/include
+  export LDFLAGS=-L$NCDIR/lib
+  #./configure --disable-shared --prefix=${NFDIR} --disable-fortran-type-check
+  #./configure --prefix=${NFDIR} --disable-fortran-type-check
+  ./configure --prefix=$NFDIR --disable-netcdf-4 --disable-dap --disable-nczarr
   make check
   make install
 
@@ -105,9 +130,9 @@ From: ubuntu
 #####################################################################
   # ....Run bash script to compile software
   #     For CMAQ v5.4
-#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-#  chmod ugo+x cmaq-5.4.csh
-#  ./cmaq-5.4.csh > cmaq-5.4.log
+  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+  chmod ugo+x cmaq-5.4.csh
+  ./cmaq-5.4.csh > cmaq-5.4.log
 
   # ....Update links to shared libraries
   ldconfig
