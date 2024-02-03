@@ -8,8 +8,8 @@
   setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
   #     !! Remove openMPI flags !!
-  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.$BIN
-  cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.mcip Makefile 
+  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort
+  cp Makefile.nocpl Makefile 
   make
 
   # ....Compile m3tools
