@@ -88,8 +88,8 @@ From: ubuntu
   # PARFLAGS  =
   # ARCHLIB   = -dynamic -L/usr/lib64 -lm -lpthread -lc
 
-  export CFLAGS='-O3 -ffast-math -funroll-loops -m64'
-  export FCFLAGS='-O3 -ffast-math -funroll-loops -m64 -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+  export CFLAGS='-O3 -ffast-math -funroll-loops -m64 -fopenmp'
+  export FCFLAGS='-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
 
   cd /opt/share
   #       Version used by CMAS

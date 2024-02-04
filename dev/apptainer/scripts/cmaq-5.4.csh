@@ -7,8 +7,8 @@
   setenv BIN Linux2_x86_64gfort
   setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
-  #     !! Remove openMPI flags !!
-  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort
+#       Remove openMPI flags
+#  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort
   cp Makefile.nocpl Makefile 
   make
 
@@ -53,6 +53,7 @@
 
   # ....Compile cctm
 #  echo "Compiling CCTM..."
-#  cd $CMAQ_HOME/CCTM/scripts
-#  sed -i "s\ set shaID   = `git --git-dir=${CMAQ_REPO}/.git rev-parse --short=10 HEAD`\ set shaID = 'd6696f1bb8'\g" bldit_cctm.csh
-#  ./bldit_cctm.csh gcc 9.5.0 > bldit_cctm.log
+  cd $CMAQ_HOME/CCTM/scripts
+  sed -i "s/ set shaID/# set shaID/g" bldit_cctm.csh
+  sed -i "s/echo "sha_ID/# echo "sha_ID/g" bldit_cctm.csh
+  ./bldit_cctm.csh gcc 9.5.0 > bldit_cctm.log

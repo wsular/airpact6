@@ -149,8 +149,8 @@
         setenv NETCDF_INCL_DIR  /usr/local/include                            #> netCDF C directory path
         setenv NETCDFF_LIB_DIR  /usr/local/lib                                #> netCDF Fortran directory path
         setenv NETCDFF_INCL_DIR /usr/local/include                            #> netCDF Fortran directory path
-        setenv MPI_INCL_DIR     /usr/local/include                            #> MPI Include directory path
         setenv MPI_LIB_DIR      /usr/local/lib                                #> MPI Lib directory path
+        setenv MPI_INCL_DIR     /usr/local/include                            #> MPI Include directory path
 
         #> Compiler Aliases and Flags
         #> set the compiler flag -fopt-info-missed to generate a missed optimization report in the bldit logfile
@@ -189,7 +189,7 @@
  setenv netcdff_lib "-lnetcdff"
  setenv ioapi_lib "-lioapi"
  setenv pnetcdf_lib "-lpnetcdf"
- setenv mpi_lib "-lmpi" #> -lmpich or -lmvapich 
+ setenv mpi_lib "-lmpi" #> -lmpich (MPICH) or -lmvapich (MVAPICH) or -lmpi (openMPI) 
 
 #> Query System Info and Current Working Directory
  setenv system "`uname -m`"
