@@ -13,8 +13,6 @@
   setenv HOME /opt/share
   setenv INSTALL /opt/share/ioapi-3.2
   setenv BIN Linux2_x86_64gfortmpi
-#  setenv BIN Linux2_x86_64gfort_medium
-#  setenv BIN Linux2_x86_64gfortmpi
   setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
   cp Makefile.pncf Makefile 
