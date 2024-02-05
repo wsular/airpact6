@@ -143,12 +143,12 @@ From: ubuntu
   tar xvf CMAQv5.4_14Oct2022.tar.gz
   mv CMAQ-CMAQv5.4_14Oct2022 CMAQ-5.4
 
+  # ....Update links to shared libraries
+  ldconfig
+
 #####################################################################
   # ....Run bash script to compile software
   #     For CMAQ v5.4
-#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-#  chmod ugo+x cmaq-5.4.csh
-#  ./cmaq-5.4.csh > cmaq-5.4.log
-
-  # ....Update links to shared libraries
-  ldconfig
+  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+  chmod ugo+x cmaq-5.4.csh
+  ./cmaq-5.4.csh > cmaq-5.4.log
