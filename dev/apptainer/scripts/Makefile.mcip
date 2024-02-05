@@ -21,11 +21,11 @@
 
 MODEL = mcip.exe
 
-#...gfortran
-FC	= gfortran
+#...gfortran with openMPI
+FC	= mpif90
 NETCDF = /usr/local
 IOAPI_ROOT = /opt/share/ioapi-3.2
-FFLAGS	= -O3 -I$(NETCDF)/include -I$(IOAPI_ROOT)/$(BIN)
+FFLAGS	= -O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1 -I$(NETCDF)/include -I$(IOAPI_ROOT)/$(BIN)
 LIBS    = -L$(IOAPI_ROOT)/$(BIN) -lioapi -L$(NETCDF)/lib -lpnetcdf -lnetcdff -lnetcdf
 
 DEFS   =
