@@ -26,7 +26,7 @@ FC	= gfortran
 NETCDF = /usr/local
 IOAPI_ROOT = /opt/share/ioapi-3.2
 FFLAGS	= -O3 -I$(NETCDF)/include -I$(IOAPI_ROOT)/$(BIN)
-LIBS    = -L$(IOAPI_ROOT)/$(BIN) -lioapi -L$(NETCDF)/lib -lnetcdff -lnetcdf
+LIBS    = -L$(IOAPI_ROOT)/$(BIN) -lioapi -L$(NETCDF)/lib -lpnetcdf -lnetcdff -lnetcdf
 
 DEFS   =
 

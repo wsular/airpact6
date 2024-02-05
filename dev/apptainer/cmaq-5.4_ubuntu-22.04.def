@@ -63,8 +63,8 @@ From: ubuntu
 #####################################################################
   # ....Install the netCDF libraries
   #     netcdf-c
-  export CC=gcc
-  export FC=gfortran
+  export CC=mpicc
+  export FC=mpif90
   export NCDIR=/usr/local
   export LD_LIBRARY_PATH=$NCDIR/lib:$LD_LIBRARY_PATH
 
@@ -75,9 +75,11 @@ From: ubuntu
   #
   # MFLAGS    = -ffast-math -funroll-loops -m64  #  -Wall -Wsurprising -march=native -mtune=native
   #
+  # OMPFLAGS  = -fopenmp
+  # OMPLIBS   = -fopenmp
   # COPTFLAGS = -O3 ${MFLAGS}
   # FOPTFLAGS = -O3 -fallow-argument-mismatch ${MFLAGS}
-  # FPPFLAGS  = -DF90=1
+  # FPPFLAGS  = -DF90=1 -DIOAPI_PNCF=1
   # FSFLAGS   = -fno-automatic
   # ARCHFLAGS = \
   #  -DAUTO_ARRAYS=1 \
@@ -89,7 +91,7 @@ From: ubuntu
   # ARCHLIB   = -dynamic -L/usr/lib64 -lm -lpthread -lc
 
   export CFLAGS='-O3 -ffast-math -funroll-loops -m64 -fopenmp'
-  export FCFLAGS='-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+  export FCFLAGS='-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DIOAPI_PNCF=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
 
   cd /opt/share
   #       Version used by CMAS
@@ -149,6 +151,6 @@ From: ubuntu
 #####################################################################
   # ....Run bash script to compile software
   #     For CMAQ v5.4
-  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-  chmod ugo+x cmaq-5.4.csh
-  ./cmaq-5.4.csh > cmaq-5.4.log
+#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+#  chmod ugo+x cmaq-5.4.csh
+#  ./cmaq-5.4.csh > cmaq-5.4.log
