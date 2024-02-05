@@ -443,9 +443,9 @@ set make_options = "-j"                #> additional options for make command if
 
  # Retrieve git repository sha ID for this source code version
 # set shaID   = `git --git-dir=${CMAQ_REPO}/.git rev-parse --short=10 HEAD`
- if ( $? != 0 ) then
-    set shaID   = "not_a_repo"
- endif
+# if ( $? != 0 ) then
+#    set shaID   = "not_a_repo"
+# endif
 
 # ============================================================================
 #> Create Config File 
@@ -462,8 +462,8 @@ set Cfile = ${Bld}/${CFG}.bld      # Config Filename
  echo "model        $EXEC;"                                        >> $Cfile
  echo                                                              >> $Cfile
  echo "repo        $CCTM_SRC;"                                     >> $Cfile
- echo                                                              >> $Cfile
- echo "sha_ID      $shaID;"                                        >> $Cfile
+# echo                                                              >> $Cfile
+# echo "sha_ID      $shaID;"                                        >> $Cfile
  echo                                                              >> $Cfile
  echo "mechanism   $Mechanism;"                                    >> $Cfile
  echo                                                              >> $Cfile

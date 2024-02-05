@@ -1,14 +1,24 @@
 #!/bin/csh -f
 
+  # ....Consistent flags used to compile netcdf libraries
+  #       without MPI
+  setenv CFLAGS '-O3 -ffast-math -funroll-loops -m64'
+  setenv FCFLAGS '-O3 -ffast-math -funroll-loops -m64 -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+  #       with MPI
+#  setenv CFLAGS '-O3 -ffast-math -funroll-loops -m64 -fopenmp'
+#  setenv FCFLAGS '-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+
   # ....Compile ioapi-3.2
   echo "Compiling IOAPI..."
   setenv HOME /opt/share
   setenv INSTALL /opt/share/ioapi-3.2
   setenv BIN Linux2_x86_64gfort
+#  setenv BIN Linux2_x86_64gfort_medium
+#  setenv BIN Linux2_x86_64gfortmpi
   setenv LD_LIBRARY_PATH /usr/lib:/usr/local/lib:$LD_LIBRARY_PATH
   cd /opt/share/ioapi-3.2/ioapi
 #       Remove openMPI flags
-#  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort
+  sed -i 's/-fopenmp/# -fopenmp/g' Makeinclude.Linux2_x86_64gfort
   cp Makefile.nocpl Makefile 
   make
 
@@ -21,8 +31,7 @@
 
   # ....Compile mcip
   echo "Compiling MCIP..."
-  cd /opt/share
-  cd CMAQ-5.4/PREP/mcip/src
+  cd /opt/share/CMAQ-5.4/PREP/mcip/src
   cp /opt/share/airpact6/dev/apptainer/scripts/Makefile.mcip Makefile
   make
 
@@ -54,6 +63,6 @@
   # ....Compile cctm
 #  echo "Compiling CCTM..."
   cd $CMAQ_HOME/CCTM/scripts
-  sed -i "s/ set shaID/# set shaID/g" bldit_cctm.csh
-  sed -i "s/echo "sha_ID/# echo "sha_ID/g" bldit_cctm.csh
-  ./bldit_cctm.csh gcc 9.5.0 > bldit_cctm.log
+#  sed -i "s/ set shaID/# set shaID/g" bldit_cctm.csh
+#  sed -i 's/echo "sha_ID/# echo "sha_ID/g' bldit_cctm.csh
+#  ./bldit_cctm.csh gcc 9.5.0 > bldit_cctm.log
