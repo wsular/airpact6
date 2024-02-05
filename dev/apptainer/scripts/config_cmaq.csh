@@ -144,7 +144,7 @@
  
         #> I/O API, netCDF, and MPI Library Locations -- used in CMAQ
         setenv IOAPI_INCL_DIR   /opt/share/ioapi-3.2/ioapi/fixed_src          #> I/O API include header files
-        setenv IOAPI_LIB_DIR    /opt/share/ioapi-3.2/Linux2_x86_64gfort       #> I/O API libraries
+        setenv IOAPI_LIB_DIR    /opt/share/ioapi-3.2/Linux2_x86_64gfortmpi    #> I/O API libraries
         setenv NETCDF_LIB_DIR   /usr/local/lib                                #> netCDF C directory path
         setenv NETCDF_INCL_DIR  /usr/local/include                            #> netCDF C directory path
         setenv NETCDFF_LIB_DIR  /usr/local/lib                                #> netCDF Fortran directory path
