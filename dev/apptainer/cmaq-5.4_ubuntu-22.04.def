@@ -128,6 +128,7 @@ From: ubuntu
   make install
   ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
   ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
+  cp /opt/share/Pnetcdf/include/* /usr/local/include/.
 
 #####################################################################
   # ....Clone the airpact6 repo, which contains customized Makefiles
