@@ -132,7 +132,7 @@ From: ubuntu
 #####################################################################
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
-  git clone --branch gcc9.5.0 https://github.com/wsular/airpact6.git
+  git clone --branch gcc9.5.0_mpi https://github.com/wsular/airpact6.git
 
   # ....Clone IOapi v3.2
 #  wget https://github.com/cjcoats/ioapi-3.2/archive/refs/tags/20200828.tar.gz
