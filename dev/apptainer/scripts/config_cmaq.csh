@@ -158,7 +158,7 @@
         setenv myCC mpicc
 #        setenv myFSTD "-O3 -funroll-loops -finit-character=32 -Wtabs -Wsurprising -ftree-vectorize -ftree-loop-if-convert -finline-limit=512"
 #        setenv myFSTD "-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1"
-        setenv myFSTD "-O3 -ffast-math -funroll-loops -m64 -qopenmp -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1"
+        setenv myFSTD "-O3 -ffast-math -funroll-loops -m64 -fopenmp -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1"
         setenv myDBG  "-Wall -O0 -g -fcheck=all -ffpe-trap=invalid,zero,overflow -fbacktrace"
         setenv myFFLAGS "-ffixed-form -ffixed-line-length-132 -funroll-loops -finit-character=32"
         setenv myFRFLAGS "-ffree-form -ffree-line-length-none -funroll-loops -finit-character=32"
