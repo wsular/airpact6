@@ -6,7 +6,7 @@
   #setenv FCFLAGS '-O3 -ffast-math -funroll-loops -m64 -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
   #       with MPI
   setenv CFLAGS '-O3 -ffast-math -funroll-loops -m64 -fopenmp'
-  setenv FCFLAGS '-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
+  setenv FCFLAGS '-O3 -ffast-math -funroll-loops -m64 -fopenmp -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1'
 
   # ....Compile ioapi-3.2
   echo "Compiling IOAPI..."
