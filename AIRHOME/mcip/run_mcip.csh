@@ -360,7 +360,9 @@ endif
 
 cat > $WorkDir/namelist.${PROG} << !
 
- &FILENAMES
+echo $InMetFiles
+
+&FILENAMES
   file_gd    = "$FILE_GD"
   file_mm    = "$InMetFiles[1]",
 !

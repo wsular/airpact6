@@ -88,33 +88,10 @@ class AIRPACT6:
             wrf_end  = 74
             
             # Run MCIP in the apptainer
-            run_MCIP = f'apptainer exec /mnt/usda/apptainer/cmaq/CMAQv55.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcip_start} {mcip_end} {wrf_start} {wrf_end}'
-#            run_MCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcip_start} {mcip_end} {wrf_start} {wrf_end}'
-            run_MCIP = f'{self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcip_start} {mcip_end} {wrf_start} {wrf_end}'
-            os.system(run_MCIP)
-            logging.info(f'UW WRF files for {mcip_start} to {mcip_end} have been converted to MCIP files.')
+            runMCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcipStart} {mcipEnd} {wrfStart} {wrfEnd}'
+            os.system(runMCIP)
+            logging.info(f'UW WRF files for {mcipStart} to {mcipEnd} have been converted to MCIP files.')
 
-        elif self.forecast_type == 'Three 1-day':
-            # ....Run MCIP in CMAQ apptainer for each forecast day
-            for forecast_day in self.forecast_days:
-                
-                # Determine the start and end times for MCIP conversion
-                mcip_start = (self.datenum + timedelta(hours=(forecast_day*24)+self.wrf_fcst_hour)).strftime('%Y%m%d%H')
-                mcip_end   = (self.datenum + timedelta(hours=((forecast_day+1)*24)+self.wrf_fcst_hour)).strftime('%Y%m%d%H')
-                
-                # Determine the indices into the list of WRF files.
-                offset = self.wrf_beg_hour - 1
-                wrf_start = ((forecast_day * self.wrf_fcst_length) + self.wrf_fcst_hour - 1) - offset
-                wrf_end  = ((forecast_day * self.wrf_fcst_length) + self.wrf_fcst_hour + self.wrf_fcst_length + 1) - offset
-                
-                # Run MCIP in the apptainer
-                run_MCIP = f'apptainer exec --env-file {self.AIRHOME}AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif {self.AIRHOME}mcip/run_mcip.csh {self.datestr} {mcip_start} {mcip_end} {wrf_start} {wrf_end}'
-                os.system(run_MCIP)
-                logging.info(f'UW WRF files for {mcip_start} to {mcip_end} have been converted to MCIP files.')
-        else:
-            logging.error('Forecast type is unknown. Exiting...')
-            raise SystemExit
-        
         logging.info('End')        
         return
     

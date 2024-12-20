@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: ubuntu
+
+%post
+  # ....Install compilers and utilities
+  apt -y update
+  apt -y install build-essential
+  apt -y update
+  apt -y install software-properties-common
+  add-apt-repository ppa:ubuntu-toolchain-r/test
+  apt -y update
+  apt -y install gcc-9 g++-9 gfortran-9
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-9
+  update-alternatives --set gcc /usr/bin/gcc-9
+  gcc --version
+  g++ --version
+  gfortran --version

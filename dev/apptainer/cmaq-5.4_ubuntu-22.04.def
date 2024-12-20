@@ -1,11 +1,21 @@
 Bootstrap: docker
 From: ubuntu
 
+#%files
+#  /home/airpact/models/MEGANv3.2
+#  /home/airpact/models/SMOKEv5.0
+
 %post
   # ....Install compilers and utilities
   apt -y update
   apt -y install build-essential
-  apt -y install gfortran
+  apt -y update
+  apt -y install software-properties-common
+  add-apt-repository ppa:ubuntu-toolchain-r/test
+  apt -y update
+  apt -y install gcc-9 g++-9 gfortran-9
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-9
+  update-alternatives --set gcc /usr/bin/gcc-9
 
   apt -y install curl
   apt -y install m4
@@ -18,21 +28,18 @@ From: ubuntu
   LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
   apt -y install git
 
-  #     Needed by openmpi
-  apt -y install autoconf
-  apt -y install automake
-  apt -y install libtool
-  apt -y install flex
-  apt -y install pandoc
+  # ....Install wine for MOVES4
+  #dpkg --add-architecture i386 && apt-get update && apt-get install wine32
+  #apt -y install wine winetricks
 
-  # ....Install OpenMPI
+  # ....Create shared directories
   mkdir -p /opt/share
-  cd /opt/share
-  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
-  tar xvfz openmpi-4.1.4.tar.gz
-  cd openmpi-4.1.4
-  ./configure --prefix=/usr/local
-  make all install
+  #mkdir -p /opt/share/MEGANv3.2
+  #mkdir -p /opt/share/SMOKEv5.0
+
+  # ....Install mpich
+  apt -y update
+  apt -y install mpich
   LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
   # ....Install the netCDF libraries
@@ -52,9 +59,9 @@ From: ubuntu
   #     netcdf-fortran
   cd /opt/share
   #       Version used by CMAS
-  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
-  tar xvf v4.5.2.tar.gz
-  cd netcdf-fortran-4.5.2
+  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+  tar xvf v4.5.3.tar.gz
+  cd netcdf-fortran-4.5.3
   export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
   export NFDIR=/usr/local
   export CPPFLAGS='-I${NCDIR}/include'
@@ -63,22 +70,11 @@ From: ubuntu
   ./configure --prefix=${NFDIR} --disable-fortran-type-check
   make check
   make install
-  #     pnetcdf
-  cd /opt/share
-  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-  tar xvf pnetcdf-1.12.3.tar.gz
-  cd pnetcdf-1.12.3
-  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/bin/mpicc MPICXX=/usr/bin/mpiCC MPIF77=/usr/bin/mpif77 MPIF90=/usr/bin/mpif90
-  make
-  make install
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.
 
   # ....Clone the airpact6 repo, which contains customized Makefiles
   cd /opt/share
   git clone https://github.com/wsular/airpact6.git
 
-  # ....Clone IOapi v3.2
   # ....Clone IOapi v3.2
   git clone https://github.com/cjcoats/ioapi-3.2.git
   # ....Clone CMAQ v5.3.3
@@ -92,10 +88,9 @@ From: ubuntu
   #chmod ugo+x cmaq-5.3.3.csh
   #./cmaq-5.3.3.csh > cmaq-5.3.3.log
   #     For CMAQ v5.4
-#  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
-#  chmod ugo+x cmaq-5.4.csh
-#  ./cmaq-5.4.csh > cmaq-5.4.log
+  cp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.4.csh .
+  chmod ugo+x cmaq-5.4.csh
+  ./cmaq-5.4.csh > cmaq-5.4.log
 
   # ....Update links to shared libraries
-#  ldconfig
-  
+  ldconfig

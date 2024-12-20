@@ -79,7 +79,6 @@ From: ubuntu
   git clone https://github.com/wsular/airpact6.git
 
   # ....Clone IOapi v3.2
-  # ....Clone IOapi v3.2
   git clone https://github.com/cjcoats/ioapi-3.2.git
   # ....Clone CMAQ v5.3.3
   # git clone -b 5.3.3 https://github.com/USEPA/CMAQ.git
