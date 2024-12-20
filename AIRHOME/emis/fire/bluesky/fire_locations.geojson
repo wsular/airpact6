@@ -1,0 +1,702 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5394,
+          45.5788,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 1419-108956091<br><br>37 acres<br><br>Fuel: Idaho fescue - Bluebunch wheatgrass grassland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2578,
+          45.59036,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 6499-278325779<br><br>80 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2578,
+          45.59037,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 6499-278325779<br><br>79 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.217,
+          45.5556,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 6500-278325780<br><br>118 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.2184,
+          46.2407,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 5158-109045158<br><br>92 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1243,
+          46.2006,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 7946-109057946<br><br>133 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1748,
+          46.20308,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>7 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1657,
+          46.20348,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>43 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1611,
+          46.20368,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.166,
+          46.20869,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>43 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1615,
+          46.20888,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>43 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1569,
+          46.20909,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>29 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1753,
+          46.21349,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>43 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1707,
+          46.21369,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1663,
+          46.21389,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>43 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1618,
+          46.21409,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>43 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1572,
+          46.21429,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1526,
+          46.2145,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>29 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.162,
+          46.2193,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1575,
+          46.21951,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1578,
+          46.22229,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1612,
+          46.22398,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1571,
+          46.22514,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 8682-278423727<br><br>24 acres<br><br>Fuel: Salt-desert shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.2241,
+          46.2097,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 5608-109085608<br><br>94 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3854,
+          43.70292,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 9301-278430396<br><br>13 acres<br><br>Fuel: Pacific ponderosa pine - Douglas-fir forest</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3803,
+          43.70381,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 9301-278430396<br><br>13 acres<br><br>Fuel: Pacific ponderosa pine - Douglas-fir forest</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3752,
+          43.7047,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 9301-278430396<br><br>13 acres<br><br>Fuel: Pacific ponderosa pine - Douglas-fir forest</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.5792,
+          41.43493,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 0501-278423709<br><br>14 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.314,
+          52.3824,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 9062-278431548<br><br>43 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.2064,
+          40.57189,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 6900-278423708<br><br>5 acres<br><br>Fuel: Black oak woodland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.8357,
+          48.46717,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 4729-278392566<br><br>5 acres<br><br>Fuel: Douglas-fir - ponderosa pine forest</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.8349,
+          48.46827,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 4729-278392566<br><br>5 acres<br><br>Fuel: Douglas-fir - ponderosa pine forest</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.197,
+          45.5636,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 6655-278296655<br><br>75 acres<br><br>Fuel: Sagebrush shrubland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.9137,
+          45.43117,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 3696-278414725<br><br>19 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.9599,
+          46.95832,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 4470-278423728<br><br>20 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.9591,
+          46.95961,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 4470-278423728<br><br>20 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.9617,
+          46.96435,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 4471-278414768<br><br>13 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.6118,
+          46.97065,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 6050-278366050<br><br>27 acres<br><br>Fuel: Bluebunch wheatgrass - Bluegrass grassland</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.697,
+          43.788,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 7096-278419565<br><br>27 acres<br><br>Fuel: Sagebrush Shrubland - Sparse</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.772,
+          43.0201,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 0694-278370694<br><br>167 acres<br><br>Fuel: Black cottonwood - Douglas-fir - Quaking aspen</html>"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.4295,
+          49.20409,
+          null
+        ]
+      },
+      "properties": {
+        "name": "WF Event",
+        "styleUrl": "#airfire",
+        "styleHash": "-e90f4d9",
+        "description": "<html lang=\"en\"><b>Fire Assumptions:</b><br><br> 1963-278421963<br><br>6 acres<br><br>Fuel: Black cottonwood - Douglas-fir - Quaking aspen</html>"
+      }
+    }
+  ]
+}

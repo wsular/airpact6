@@ -1,6 +1,6 @@
-#!/bin/csh -f
+#!/bin/tcsh
 
-# ================= CMAQv5.3.X Configuration Script ================= #
+# ================= CMAQv5.4.X Configuration Script ================= #
 # Requirements: I/O API & netCDF libraries                            #
 #               PGI, Intel, or Gnu Fortran compiler                   #
 #               MPICH for multiprocessor computing                    #
@@ -79,25 +79,18 @@
 #>  Intel fortran compiler......................................................
     case intel:
 
-       #> I/O API and netCDF root
-       setenv NCDIR  netcdf_c_directory_path
-       setenv NFDIR  netcdf_f_directory_path
-       setenv NETCDF netcdf_combined_directory_path # Note only for  WRF-CMAQ as it requires combining the netcdf C and netcdf F into a single directory. CMAQ users - don't change this setting
-       setenv IOAPI  ioapi_root_intel  
-       setenv WRF_ARCH 15                           # [1-75] Optional, ONLY for WRF-CMAQ 
-
+        #> I/O API, netCDF Library Locations -- used in WRF-CMAQ
+        setenv NETCDF netcdf_root_intel # Note please combine netCDF-C & Fortran Libraries 
+        setenv IOAPI  ioapi_root_intel  
+        setenv WRF_ARCH # [1-75]  
     
-        #> I/O API, netCDF, and MPI library locations
-        setenv IOAPI_INCL_DIR   ${IOAPI}/ioapi_inc_intel    #> I/O API include header files
-        setenv IOAPI_LIB_DIR    ${IOAPI}/ioapi_lib_intel    #> I/O API libraries
-
-	if ( $NETCDF == "netcdf_combined_directory_path" ) then
-           setenv NETCDF_LIB_DIR   ${NCDIR}/lib                #> netCDF C directory path
-           setenv NETCDF_INCL_DIR  ${NCDIR}/include            #> netCDF C directory path
-           setenv NETCDFF_LIB_DIR  ${NFDIR}/lib                #> netCDF Fortran directory path
-           setenv NETCDFF_INCL_DIR ${NFDIR}/include            #> netCDF Fortran directory path
-        endif 
-
+        #> I/O API, netCDF, and MPI Library Locations -- used in CMAQ
+        setenv IOAPI_INCL_DIR   ioapi_inc_intel             #> I/O API include header files
+        setenv IOAPI_LIB_DIR    ioapi_lib_intel             #> I/O API libraries
+        setenv NETCDF_LIB_DIR   netcdf_lib_intel            #> netCDF C directory path
+        setenv NETCDF_INCL_DIR  netcdf_inc_intel            #> netCDF C directory path
+        setenv NETCDFF_LIB_DIR  netcdff_lib_intel           #> netCDF Fortran directory path
+        setenv NETCDFF_INCL_DIR netcdff_inc_intel           #> netCDF Fortran directory path
         setenv MPI_INCL_DIR     mpi_incl_intel              #> MPI Include directory path
         setenv MPI_LIB_DIR      mpi_lib_intel               #> MPI Lib directory path
     
@@ -107,7 +100,7 @@
         setenv myCC icc       
         setenv myFSTD "-O3 -fno-alias -mp1 -fp-model source -ftz -simd -align all -xHost -vec-guard-write -unroll-aggressive"
         setenv myDBG  "-O0 -g -check bounds -check uninit -fpe0 -fno-alias -ftrapuv -traceback"
-        setenv myLINK_FLAG     # -qopenmp # openMP may be required if I/O API was built using this link flag.
+        setenv myLINK_FLAG #"-qopenmp-simd" openMP not supported w/ CMAQ
         setenv myFFLAGS "-fixed -132"
         setenv myFRFLAGS "-free"
         setenv myCFLAGS "-O2"
@@ -118,31 +111,25 @@
 #>  Portland Group fortran compiler.............................................
     case pgi:
 
-        #> I/O API and netCDF for WRF-CMAQ 
+        #> I/O API, netCDF Library Locations -- used in WRF-CMAQ
+        setenv NETCDF netcdf_root_pgi # Note please combine netCDF-C & Fortran Libraries 
         setenv IOAPI  ioapi_root_pgi  
-        setenv NCDIR  netcdf_c_directory_path
-        setenv NFDIR  netcdf_f_directory_path
-	setenv NETCDF netcdf_combined_directory_path # Note only for  WRF-CMAQ as it requires combining the netcdf C and netcdf F into a single directory. CMAQ users - don't change this setting
-        setenv WRF_ARCH 3                            # [1-75] Optional, ONLY for WRF-CMAQ  
+        setenv WRF_ARCH # [1-75]  
  
-        #> I/O API, netCDF, and MPI library locations
-        setenv IOAPI_INCL_DIR   ${IOAPI}/iopai_inc_pgi    #> I/O API include header files
-        setenv IOAPI_LIB_DIR    ${IOAPI}/ioapi_lib_pgi    #> I/O API libraries
-	if ( $NETCDF == "netcdf_combined_directory_path" ) then
-            setenv NETCDF_LIB_DIR   ${NCDIR}/lib                      #> netCDF C directory path
-            setenv NETCDF_INCL_DIR  ${NCDIR}/include                      #> netCDF C directory path
-            setenv NETCDFF_LIB_DIR  ${NFDIR}/lib           #> netCDF Fortran directory path
-            setenv NETCDFF_INCL_DIR ${NFDIR}/include           #> netCDF Fortran directory path
-            setenv MPI_INCL_DIR     mpi_incl_pgi              #> MPI Include directory path
-            setenv MPI_LIB_DIR      mpi_lib_pgi               #> MPI Lib directory path
-        endif 
-
-
+        #> I/O API, netCDF, and MPI Library Locations -- used in CMAQ
+        setenv IOAPI_INCL_DIR   iopai_inc_pgi             #> I/O API include header files
+        setenv IOAPI_LIB_DIR    ioapi_lib_pgi             #> I/O API libraries
+        setenv NETCDF_LIB_DIR   netcdf_lib_pgi            #> netCDF C directory path
+        setenv NETCDF_INCL_DIR  netcdf_inc_pgi            #> netCDF C directory path
+        setenv NETCDFF_LIB_DIR  netcdff_lib_pgi           #> netCDF Fortran directory path
+        setenv NETCDFF_INCL_DIR netcdff_inc_pgi           #> netCDF Fortran directory path
+        setenv MPI_INCL_DIR     mpi_incl_pgi              #> MPI Include directory path
+        setenv MPI_LIB_DIR      mpi_lib_pgi               #> MPI Lib directory path
  
         #> Compiler Aliases and Flags
         setenv myFC mpifort 
         setenv myCC pgcc
-        setenv myLINK_FLAG # "-mp"  openMP may be required if I/O API was built using this link flag.
+        setenv myLINK_FLAG # "-mp" openMP not supported w/ CMAQ
         setenv myFSTD "-O3"
         setenv myDBG  "-O0 -g -Mbounds -Mchkptr -traceback -Ktrap=fp"
         setenv myFFLAGS "-Mfixed -Mextend -mcmodel=medium -tp px"
@@ -155,36 +142,28 @@
 #>  gfortran compiler............................................................
     case gcc:
  
-        #> I/O API and netCDF for WRF-CMAQ 
-        setenv NCDIR /usr/local                                        # C netCDF install path
-        setenv NFDIR /usr/local                                        # Fortran netCDF install path for CMAQ
-	setenv NETCDF netcdf_combined_directory_path                   # Note only for  WRF-CMAQ as it requires combining the netcdf C and netcdf F into a single directory. CMAQ users - don't change this setting
-        setenv IOAPI /opt/share/ioapi-3.2                              # I/O API 
-        setenv WRF_ARCH 34                                             # [1-75] Optional, ONLY for WRF-CMAQ  
-  
-        #> I/O API, netCDF, and MPI library locations
-        setenv IOAPI_INCL_DIR   ${IOAPI}/ioapi                         #> I/O API include header files
-        setenv IOAPI_LIB_DIR    ${IOAPI}/Linux2_x86_64gfortmpi         #> I/O API libraries
-	if ( $NETCDF == "netcdf_combined_directory_path" ) then
-            setenv NETCDF_LIB_DIR   ${NCDIR}/lib                       #> netCDF C directory path
-            setenv NETCDF_INCL_DIR  ${NCDIR}/include                   #> netCDF C directory path
-            setenv NETCDFF_LIB_DIR  ${NFDIR}/lib                       #> netCDF Fortran directory path
-            setenv NETCDFF_INCL_DIR ${NFDIR}/include                   #> netCDF Fortran directory path
-        endif 
-
-        setenv MPI_INCL_DIR     /usr/local                             #> MPI Include directory path
-        setenv MPI_LIB_DIR      /usr/local                             #> MPI Lib directory path
+        #> I/O API, netCDF, and MPI Library Locations -- used in CMAQ
+        setenv IOAPI_INCL_DIR   /home/airpact/CMAQ/ioapi-3.2/ioapi/fixed_src          #> I/O API include header files
+        setenv IOAPI_LIB_DIR    /home/airpact/CMAQ/ioapi-3.2/Linux2_x86_64gfort       #> I/O API libraries
+        setenv NETCDF_LIB_DIR   /usr/local/lib                                #> netCDF C directory path
+        setenv NETCDF_INCL_DIR  /usr/local/include                            #> netCDF C directory path
+        setenv NETCDFF_LIB_DIR  /usr/local/lib                                #> netCDF Fortran directory path
+        setenv NETCDFF_INCL_DIR /usr/local/include                            #> netCDF Fortran directory path
+        setenv MPI_LIB_DIR      /usr/local/lib                                #> MPI Lib directory path
+        setenv MPI_INCL_DIR     /usr/local/include                            #> MPI Include directory path
 
         #> Compiler Aliases and Flags
         #> set the compiler flag -fopt-info-missed to generate a missed optimization report in the bldit logfile
-        setenv myFC mpifort
+        setenv myFC mpif90
         setenv myCC mpicc
-        setenv myFSTD "-O3 -funroll-loops -finit-character=32 -Wtabs -Wsurprising -march=native -ftree-vectorize  -ftree-loop-if-convert -finline-limit=512"
+#        setenv myFSTD "-O3 -funroll-loops -finit-character=32 -Wtabs -Wsurprising -ftree-vectorize -ftree-loop-if-convert -finline-limit=512"
+#        setenv myFSTD "-O3 -ffast-math -funroll-loops -m64 -fopenmp -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1"
+        setenv myFSTD "-O3 -ffast-math -funroll-loops -m64 -fopenmp -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1"
         setenv myDBG  "-Wall -O0 -g -fcheck=all -ffpe-trap=invalid,zero,overflow -fbacktrace"
-        setenv myFFLAGS "-ffixed-form -ffixed-line-length-132 -funroll-loops -finit-character=32 -fallow-argument-mismatch"
-        setenv myFRFLAGS "-ffree-form -ffree-line-length-none -funroll-loops -finit-character=32 -fallow-argument-mismatch"
+        setenv myFFLAGS "-ffixed-form -ffixed-line-length-132 -funroll-loops -finit-character=32"
+        setenv myFRFLAGS "-ffree-form -ffree-line-length-none -funroll-loops -finit-character=32"
         setenv myCFLAGS "-O2"
-        setenv myLINK_FLAG  "-fopenmp"  # openMP may be required if I/O API was built using this link flag. 
+        setenv myLINK_FLAG "-fopenmp"
         setenv extra_lib ""
     
         breaksw
@@ -208,11 +187,11 @@
 #===============================================================================
  
 #> I/O API, netCDF, and MPI libraries
- setenv netcdf_lib "-lnetcdff -lnetcdf -lpnetcdf"  #> -lnetcdff -lnetcdf for netCDF v4.2.0 and later
+ setenv netcdf_lib "-lnetcdf"  #> -lnetcdff -lnetcdf for netCDF v4.2.0 and later
  setenv netcdff_lib "-lnetcdff"
  setenv ioapi_lib "-lioapi"
  setenv pnetcdf_lib "-lpnetcdf"
- setenv mpi_lib "-lmpi" #> -lmpich or -lmvapich 
+ setenv mpi_lib "-lmpi" #> -lmpich (MPICH) or -lmvapich (MVAPICH) or -lmpi (openMPI) 
 
 #> Query System Info and Current Working Directory
  setenv system "`uname -m`"

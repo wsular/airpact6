@@ -1,0 +1,52 @@
+Bootstrap: docker
+From: ubuntu
+
+%files
+  /home/airpact/airpact6/dev/apptainer/gcc_install_lar.csh /opt/share/gcc_install_lar.csh
+
+%post
+###################################################################
+  # ....Set home directory for entire installation
+  export HOME=/opt/share
+
+###################################################################
+  # ....Install compilers and utilities
+  apt -y update
+  apt -y install build-essential
+  apt -y update
+  apt -y install software-properties-common
+  add-apt-repository ppa:ubuntu-toolchain-r/test
+  apt -y update
+  apt -y install gcc-9 g++-9 gfortran-9
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-9
+  update-alternatives --set gcc /usr/bin/gcc-9
+  apt -y install tcsh
+  apt -y install git
+  apt -y install nano
+  apt -y install wget
+
+###################################################################
+# ....Create shared directory
+  mkdir -p $HOME
+
+###################################################################
+  # ....Install OpenMPI
+  #     Needed by openmpi
+  apt -y install autoconf
+  apt -y install automake
+  apt -y install libtool
+  apt -y install flex
+  apt -y install pandoc
+
+  cd $HOME
+  wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
+  tar xvfz openmpi-4.0.1.tar.gz
+  cd openmpi-4.0.1
+  ./configure --prefix=/usr/local
+  make all install
+  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+###################################################################
+  # ....Install necessary libraries, IOAPI, and CMAQ programs for LAR
+  cd $HOME
+  /opt/share/gcc_install_lar.csh

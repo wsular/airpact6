@@ -4,7 +4,10 @@
     "href": "index.html",
     "title": "AIRPACT6 Container Development",
     "section": "",
-    "text": "The AIRPACT6 Container"
+    "text": "The AIRPACT6 Container",
+    "crumbs": [
+      "The AIRPACT6 Container"
+    ]
   },
   {
     "objectID": "hdf5.html",
@@ -25,70 +28,100 @@
     "href": "ubuntu.html",
     "title": "Install Ubuntu",
     "section": "",
-    "text": "This container uses Ubuntu 22.04 - Jammy Jellyfish.\nThe image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:\n\nBootstrap: docker\nFrom: ubuntu"
+    "text": "This container uses Ubuntu 22.04 - Jammy Jellyfish.\nThe image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:\n\nBootstrap: docker\nFrom: ubuntu",
+    "crumbs": [
+      "Install Ubuntu"
+    ]
   },
   {
     "objectID": "gnu_compilers.html",
     "href": "gnu_compilers.html",
     "title": "Install GNU compilers",
     "section": "",
-    "text": "This container uses the GNU compilers, gcc, version 11.3.0 and gfortran, version 11.3.0.\ngcc is installed along with build-essentials in the defintion file.\n\n  apt -y update\n  apt -y install build-essential\n\nThe gfortran compiler is installed separately in the defintion file.\n\n  apt -y install gfortran"
+    "text": "This container uses the GNU compilers, gcc, version 11.3.0 and gfortran, version 11.3.0.\ngcc is installed along with build-essentials in the defintion file.\n\n  apt -y update\n  apt -y install build-essential\n\nThe gfortran compiler is installed separately in the defintion file.\n\n  apt -y install gfortran",
+    "crumbs": [
+      "Install GNU compilers"
+    ]
   },
   {
     "objectID": "useful.html",
     "href": "useful.html",
     "title": "Install useful commands and libraries",
     "section": "",
-    "text": "Some useful commands and libraries are needed for subsequent installations of openMPI and the netCDF libraries. Here are the commands from the definition file to load useful stuff.\n\n  apt -y install curl\n  apt -y install m4\n  apt -y install nano\n  apt -y install tcsh\n  apt -y install wget\n  apt -y install zlib1g zlib1g-dev\n  apt -y install libdispatch-dev\n  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH\n  apt -y install git\n\nNote that libdispatch must be on the path, so /usr/lib is added to LD_LIBRARY_PATH."
+    "text": "Some useful commands and libraries are needed for subsequent installations of openMPI and the netCDF libraries. Here are the commands from the definition file to load useful stuff.\n\n  apt -y install curl\n  apt -y install m4\n  apt -y install nano\n  apt -y install tcsh\n  apt -y install wget\n  apt -y install zlib1g zlib1g-dev\n  apt -y install libdispatch-dev\n  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH\n  apt -y install git\n\nNote that libdispatch must be on the path, so /usr/lib is added to LD_LIBRARY_PATH.",
+    "crumbs": [
+      "Install useful commands and libraries"
+    ]
   },
   {
     "objectID": "openmpi.html",
     "href": "openmpi.html",
     "title": "Install openMPI",
     "section": "",
-    "text": "CMAQ is a program that uses the Message Passing Interface (MPI). There are a few different libraries that can be used to add MPI functionality to this container. We have chosen openMPI. Here are the commands that install openMPI in the container.\n\n  #     Needed by openmpi\n  apt -y install autoconf\n  apt -y install automake\n  apt -y install libtool\n  apt -y install flex\n  apt -y install pandoc\n\n  # ....Install OpenMPI\n  mkdir -p /opt/share\n  cd /opt/share\n  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz\n  tar xvfz openmpi-4.1.4.tar.gz\n  cd openmpi-4.1.4\n  ./configure --prefix=/usr/local\n  make all install\n  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH\n\nThe openMPI libraries are installed by default into /usr/local/lib, so this directory is added to the library path."
+    "text": "CMAQ is a program that uses the Message Passing Interface (MPI). There are a few different libraries that can be used to add MPI functionality to this container. We have chosen openMPI. Here are the commands that install openMPI in the container.\n\n  #     Needed by openmpi\n  apt -y install autoconf\n  apt -y install automake\n  apt -y install libtool\n  apt -y install flex\n  apt -y install pandoc\n\n  # ....Install OpenMPI\n  mkdir -p /opt/share\n  cd /opt/share\n  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz\n  tar xvfz openmpi-4.1.4.tar.gz\n  cd openmpi-4.1.4\n  ./configure --prefix=/usr/local\n  make all install\n  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH\n\nThe openMPI libraries are installed by default into /usr/local/lib, so this directory is added to the library path.",
+    "crumbs": [
+      "Install openMPI"
+    ]
   },
   {
     "objectID": "netcdf.html#netcdf-c",
     "href": "netcdf.html#netcdf-c",
     "title": "Install netCDF libraries",
-    "section": "netcdf-c",
-    "text": "netcdf-c\n  #     netcdf-c\n  export CC=mpicc\n  export FC=mpifort\n  export NCDIR=/usr/local\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz\n  tar xvf v4.8.1.tar.gz\n  cd netcdf-c-4.8.1\n  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr\n  make check \n  make install"
+    "section": "",
+    "text": "#     netcdf-c\n  export CC=mpicc\n  export FC=mpifort\n  export NCDIR=/usr/local\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz\n  tar xvf v4.8.1.tar.gz\n  cd netcdf-c-4.8.1\n  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr\n  make check \n  make install",
+    "crumbs": [
+      "Install netCDF libraries"
+    ]
   },
   {
     "objectID": "netcdf.html#netcdf-fortran",
     "href": "netcdf.html#netcdf-fortran",
     "title": "Install netCDF libraries",
     "section": "netcdf-fortran",
-    "text": "netcdf-fortran\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz\n  tar xvf v4.5.2.tar.gz\n  cd netcdf-fortran-4.5.2\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  export NFDIR=/usr/local\n  export CPPFLAGS='-I${NCDIR}/include'\n  export LDFLAGS='-L${NCDIR}/lib'\n  export OMPI_FCFLAGS='-fallow-argument-mismatch'\n  ./configure --prefix=${NFDIR} --disable-fortran-type-check\n  make check\n  make install"
+    "text": "netcdf-fortran\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz\n  tar xvf v4.5.2.tar.gz\n  cd netcdf-fortran-4.5.2\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  export NFDIR=/usr/local\n  export CPPFLAGS='-I${NCDIR}/include'\n  export LDFLAGS='-L${NCDIR}/lib'\n  export OMPI_FCFLAGS='-fallow-argument-mismatch'\n  ./configure --prefix=${NFDIR} --disable-fortran-type-check\n  make check\n  make install",
+    "crumbs": [
+      "Install netCDF libraries"
+    ]
   },
   {
     "objectID": "netcdf.html#pnetcdf",
     "href": "netcdf.html#pnetcdf",
     "title": "Install netCDF libraries",
     "section": "pnetcdf",
-    "text": "pnetcdf\n  #     pnetcdf\n  cd /opt/share\n  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz\n  tar xvf pnetcdf-1.12.3.tar.gz\n  cd pnetcdf-1.12.3\n  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90\n  make\n  make install\n  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.\n  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.\n\nNote that it was necessary to create symbolic links from the pnetcdf installation directory to /usr/local/lib, to ensure that the libraries were on the library path."
+    "text": "pnetcdf\n  #     pnetcdf\n  cd /opt/share\n  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz\n  tar xvf pnetcdf-1.12.3.tar.gz\n  cd pnetcdf-1.12.3\n  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90\n  make\n  make install\n  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.\n  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.\n\nNote that it was necessary to create symbolic links from the pnetcdf installation directory to /usr/local/lib, to ensure that the libraries were on the library path.",
+    "crumbs": [
+      "Install netCDF libraries"
+    ]
   },
   {
     "objectID": "ioapi.html",
     "href": "ioapi.html",
     "title": "Install I/O API",
     "section": "",
-    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.\n\ngit clone https://github.com/cjcoats/ioapi-3.2.git\n\n\n\n\n\n\nImportant\n\n\n\nInstallation of I/O API requires a customized version of Makefile.nocpl.\n\n\n\n\n\n\n\n\nNote\n\n\n\nHere are some commands from early work on compiling I/O API.\n\n\n  # ....Compile ioapi-3.2\n  export HOME=/opt/share\n  export INSTALL=/opt/share/ioapi-3.2\n  export BIN=Linux2_x86_64gfortmpi\n  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH\n  cd /opt/share/\n  git clone https://github.com/cjcoats/ioapi-3.2.git\n  cd ioapi-3.2/ioapi\n  cp Makefile.nocpl Makefile\n  make -f Makefile\n  make install"
+    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.\n\ngit clone https://github.com/cjcoats/ioapi-3.2.git\n\n\n\n\n\n\nImportant\n\n\n\nInstallation of I/O API requires a customized version of Makefile.nocpl.\n\n\n\n\n\n\n\n\nNote\n\n\n\nHere are some commands from early work on compiling I/O API.\n\n\n  # ....Compile ioapi-3.2\n  export HOME=/opt/share\n  export INSTALL=/opt/share/ioapi-3.2\n  export BIN=Linux2_x86_64gfortmpi\n  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH\n  cd /opt/share/\n  git clone https://github.com/cjcoats/ioapi-3.2.git\n  cd ioapi-3.2/ioapi\n  cp Makefile.nocpl Makefile\n  make -f Makefile\n  make install",
+    "crumbs": [
+      "Install I/O API"
+    ]
   },
   {
     "objectID": "index.html#steps-to-build-container",
     "href": "index.html#steps-to-build-container",
     "title": "AIRPACT6 Container Development",
     "section": "Steps to build container",
-    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nClone AIRPACT6 repo\nClone I/O API repo\nClone CMAQ repo\nBuild CMAQ"
+    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nClone AIRPACT6 repo\nClone I/O API repo\nClone CMAQ repo\nBuild CMAQ",
+    "crumbs": [
+      "The AIRPACT6 Container"
+    ]
   },
   {
     "objectID": "index.html#run-the-container",
     "href": "index.html#run-the-container",
     "title": "AIRPACT6 Container Development",
     "section": "Run the Container",
-    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file /home/airpact/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33"
+    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file /home/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33",
+    "crumbs": [
+      "The AIRPACT6 Container"
+    ]
   },
   {
     "objectID": "airpact6.html",
@@ -102,13 +135,29 @@
     "href": "cmaq.html",
     "title": "Clone CMAQ repository",
     "section": "",
-    "text": "The Community Multiscale Air Quality (CMAQ) model is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6. The\n\ngit clone -b 5.3.3 https://github.com/USEPA/CMAQ.git\n\n\n\n\n\n\nImportant\n\n\n\nNote that AIRPACT6 is currently based on CMAQ version 5.3.3 (not 5.4)."
+    "text": "The Community Multiscale Air Quality (CMAQ) model is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6. The\n\ngit clone -b 5.3.3 https://github.com/USEPA/CMAQ.git\n\n\n\n\n\n\nImportant\n\n\n\nNote that AIRPACT6 is currently based on CMAQ version 5.3.3 (not 5.4).",
+    "crumbs": [
+      "Clone CMAQ repository"
+    ]
   },
   {
     "objectID": "build_cmaq.html",
     "href": "build_cmaq.html",
     "title": "Building CMAQ",
     "section": "",
-    "text": "To build CMAQ within the container, a customized script is used from the AIRPACT6 repo. This script is copied to the working directory, then CMAQ is built on the container by executing the script.\n\n# ....Run script to compile CMAQ software\ncp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .\nchmod ugo+x cmaq-5.3.3.csh\n./cmaq-5.3.3.csh &gt; cmaq-5.3.3.log"
+    "text": "To build CMAQ within the container, a customized script is used from the AIRPACT6 repo. This script is copied to the working directory, then CMAQ is built on the container by executing the script.\n\n# ....Run script to compile CMAQ software\ncp /opt/share/airpact6/dev/apptainer/scripts/cmaq-5.3.3.csh .\nchmod ugo+x cmaq-5.3.3.csh\n./cmaq-5.3.3.csh &gt; cmaq-5.3.3.log",
+    "crumbs": [
+      "Building CMAQ"
+    ]
+  },
+  {
+    "objectID": "netcdf.html",
+    "href": "netcdf.html",
+    "title": "Install netCDF libraries",
+    "section": "",
+    "text": "netcdf-c",
+    "crumbs": [
+      "Install netCDF libraries"
+    ]
   }
 ]

@@ -21,48 +21,12 @@
 
 MODEL = mcip.exe
 
-#...Portland Group Fortran
-#...also need to setenv LM_LICENSE_FILE from /usr/local/apps/pgi
-#FC     = /usr/local/apps/pgi/linux86-64/19.10/bin/pgf90
-#NETCDF = /usr/local/apps/netcdf-4.7.4/pgi-19.10
-#IOAPI_ROOT = /usr/local/apps/ioapi-3.2_20200828/pgi-19.10
-###FFLAGS = -g -O0 -Ktrap=unf -Ktrap=ovf -Ktrap=divz -Ktrap=inv -Ktrap=fp  \
-###         -Ktrap=inexact -pc 32 -Mbounds -Mchkfpstk -Mchkptr -Kieee     \
-###         -Minform,inform -Mfree -byteswapio -I$(NETCDF)/include \
-###         -I$(IOAPI_ROOT)/Linux2_x86_64pg
-#FFLAGS = -O4 -fastsse -pc 32 -Mfree -byteswapio -I$(NETCDF)/include \
-#         -I$(IOAPI_ROOT)/Linux2_x86_64pg
-#LIBS   = -L$(IOAPI_ROOT)/Linux2_x86_64pg -lioapi \
-#	 -L$(NETCDF)/lib -lnetcdff -lnetcdf
-
 #...gfortran
-#FC	= gfortran
-#NETCDF = /usr/local/apps/netcdf-4.6.3/gcc-6.1.0
-#IOAPI_ROOT = /usr/local/apps/ioapi-3.2_20181011/gcc-6.1.0
-#FFLAGS	= -O3 -I$(NETCDF)/include -I$(IOAPI_ROOT)/Linux2_x86_64
-###FFLAGS	= -g -O0  \
-###          -ffpe-trap='invalid','zero','overflow','underflow'  \
-###          -I$(NETCDF)/include -I$(IOAPI_ROOT)/Linux2_x86_64
-#LIBS    = -L$(IOAPI_ROOT)/Linux2_x86_64 -lioapi  \
-#          -L$(NETCDF)/lib -lnetcdff -lnetcdf
-
-#...mpifort (gfortran with openmpi)
-FC         = mpifort
-NETCDF     = /usr/local
-IOAPI_ROOT = /opt/share/ioapi-3.2
-FFLAGS     = -O3 -fallow-argument-mismatch -I$(NETCDF)/include -I$(IOAPI_ROOT)/Linux2_x86_64gfortmpi
-#LIBS       = -L$(IOAPI_ROOT)/Linux2_x86_64gfortmpi -lioapi -L$(NETCDF)/lib -lnetcdff -lnetcdf -fopenmp
-LIBS       = -L$(IOAPI_ROOT)/Linux2_x86_64gfortmpi -lioapi -L$(NETCDF)/lib -lnetcdff -lnetcdf -lpnetcdf -fopenmp
-
-#...Intel Fortran
-#FC      = ifort
-#NETCDF = /usr/local/apps/netcdf-4.7.3/intel-19.0
-#IOAPI_ROOT = /usr/local/apps/ioapi-3.2_20181011/intel-19.0
-####FFLAGS  = -g -O0 -check all -C -traceback -FR -I$(NETCDF)/include  \
-####          -I$(IOAPI_ROOT)/Linux2_x86_64ifort
-#FFLAGS  = -O3 -traceback -FR -I$(NETCDF)/include -I$(IOAPI_ROOT)/Linux2_x86_64ifort
-#LIBS    = -L$(IOAPI_ROOT)/lib -lioapi \
-#          -L$(NETCDF)/lib -lnetcdff -lnetcdf
+FC	= gfortran
+NETCDF = /usr/local
+IOAPI_ROOT = /home/airpact/CMAQ/ioapi-3.2
+FFLAGS	= -O3 -ffast-math -funroll-loops -m64 -fno-automatic -DAUTO_ARRAYS=1 -DF90=1 -DFLDMN=1 -DFSTR_L=int -DIOAPI_NO_STDOUT=1 -DNEED_ARGS=1 -I$(NETCDF)/include -I$(IOAPI_ROOT)/$(BIN)
+LIBS    = -L$(IOAPI_ROOT)/$(BIN) -lioapi -L$(NETCDF)/lib -lpnetcdf -lnetcdff -lnetcdf
 
 DEFS   =
 
