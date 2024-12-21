@@ -2,7 +2,7 @@ Bootstrap: docker
 From: ubuntu
 
 %files
-  /home/airpact/airpact6/dev/apptainer/gcc_install_lar.csh /opt/share/gcc_install_lar.csh
+  /mnt/disk2/airpact/airpact6/dev/apptainer/gcc_install_lar.csh /opt/share/gcc_install_lar.csh
 
 %post
 ###################################################################
