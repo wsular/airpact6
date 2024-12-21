@@ -16,7 +16,7 @@ book:
     - ioapi.qmd
 #    - mcip.qmd
     - cmaq.qmd
-    - build_cmaq.qmd
+#    - build_cmaq.qmd
 
 format:
   html:

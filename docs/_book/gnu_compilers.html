@@ -197,15 +197,26 @@ ul.task-list li input[type="checkbox"] {
 
 
 <ul>
-<li><p>This container uses the GNU compilers, <a href="https://gcc.gnu.org/gcc-11/">gcc, version 11.3.0</a> and <a href="https://gcc.gnu.org/onlinedocs/gcc-11.3.0/gfortran.pdf">gfortran, version 11.3.0</a>.</p></li>
-<li><p>gcc is installed along with build-essentials in the defintion file.</p></li>
+<li><p>This container uses the GNU compilers, <a href="https://gcc.gnu.org/gcc-9/">gcc, version 9.5</a> and <a href="https://gcc.gnu.org/onlinedocs/gcc-9.5.0/gfortran/">gfortran, version 9.5</a>.</p></li>
+<li><p>gcc is installed along with build-essentials in the defintion file. This installs a relative new version of gcc</p></li>
 </ul>
 <pre><code>  apt -y update
   apt -y install build-essential</code></pre>
 <ul>
-<li>The gfortran compiler is installed separately in the defintion file.</li>
+<li><code>update-alternatives</code> is used to install multiple gcc versions in Linux.
+<ul>
+<li>https://man7.org/linux/man-pages/man1/update-alternatives.1.html</li>
+<li>https://www.dedicatedcore.com/blog/install-gcc-compiler-ubuntu/</li>
+<li>https://www.baeldung.com/linux/update-alternatives-command</li>
+</ul></li>
+<li>The gcc-9 compilers are installed separately in the defintion file.</li>
 </ul>
-<pre><code>  apt -y install gfortran</code></pre>
+<pre><code>  apt -y install software-properties-common
+  add-apt-repository ppa:ubuntu-toolchain-r/test
+  apt -y update
+  apt -y install gcc-9 g++-9 gfortran-9
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-9
+  update-alternatives --set gcc /usr/bin/gcc-9</code></pre>
 
 
 

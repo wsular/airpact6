@@ -3,16 +3,8 @@
 - Some useful commands and libraries are needed for subsequent installations of openMPI and the netCDF libraries. Here are the commands from the definition file to load useful stuff.
 
 ```
-  apt -y install curl
-  apt -y install m4
-  apt -y install nano
   apt -y install tcsh
-  apt -y install wget
-  apt -y install zlib1g zlib1g-dev
-  apt -y install libdispatch-dev
-  LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
   apt -y install git
+  apt -y install nano
+  apt -y install wget
 ```
-
-  - Note that libdispatch must be on the path, so /usr/lib is added to LD_LIBRARY_PATH.
-

@@ -201,7 +201,17 @@ ul.task-list li input[type="checkbox"] {
 <li><p>The image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:</p></li>
 </ul>
 <pre><code>Bootstrap: docker
-From: ubuntu</code></pre>
+From: ubuntu:22.04</code></pre>
+<ul>
+<li><p>Note that one can specify a newer version of Ubuntu using either</p>
+<pre><code>    Bootstrap: docker
+    From: ubuntu:24.04
+    ```
+
+or
+</code></pre>
+<p>Bootstrap: docker From: ubuntu ```</p></li>
+</ul>
 
 
 
