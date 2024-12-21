@@ -28,7 +28,7 @@
     "href": "ubuntu.html",
     "title": "Install Ubuntu",
     "section": "",
-    "text": "This container uses Ubuntu 22.04 - Jammy Jellyfish.\nThe image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:\n\nBootstrap: docker\nFrom: ubuntu",
+    "text": "This container uses Ubuntu 22.04 - Jammy Jellyfish.\nThe image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:\n\nBootstrap: docker\nFrom: ubuntu:22.04\n\nNote that one can specify a newer version of Ubuntu using either\n    Bootstrap: docker\n    From: ubuntu:24.04\n    ```\n\nor\n\nBootstrap: docker From: ubuntu ```",
     "crumbs": [
       "Install Ubuntu"
     ]
@@ -38,7 +38,7 @@
     "href": "gnu_compilers.html",
     "title": "Install GNU compilers",
     "section": "",
-    "text": "This container uses the GNU compilers, gcc, version 11.3.0 and gfortran, version 11.3.0.\ngcc is installed along with build-essentials in the defintion file.\n\n  apt -y update\n  apt -y install build-essential\n\nThe gfortran compiler is installed separately in the defintion file.\n\n  apt -y install gfortran",
+    "text": "This container uses the GNU compilers, gcc, version 9.5 and gfortran, version 9.5.\ngcc is installed along with build-essentials in the defintion file. This installs a relative new version of gcc\n\n  apt -y update\n  apt -y install build-essential\n\nupdate-alternatives is used to install multiple gcc versions in Linux.\n\nhttps://man7.org/linux/man-pages/man1/update-alternatives.1.html\nhttps://www.dedicatedcore.com/blog/install-gcc-compiler-ubuntu/\nhttps://www.baeldung.com/linux/update-alternatives-command\n\nThe gcc-9 compilers are installed separately in the defintion file.\n\n  apt -y install software-properties-common\n  add-apt-repository ppa:ubuntu-toolchain-r/test\n  apt -y update\n  apt -y install gcc-9 g++-9 gfortran-9\n  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-9\n  update-alternatives --set gcc /usr/bin/gcc-9",
     "crumbs": [
       "Install GNU compilers"
     ]
@@ -58,7 +58,7 @@
     "href": "openmpi.html",
     "title": "Install openMPI",
     "section": "",
-    "text": "CMAQ is a program that uses the Message Passing Interface (MPI). There are a few different libraries that can be used to add MPI functionality to this container. We have chosen openMPI. Here are the commands that install openMPI in the container.\n\n  #     Needed by openmpi\n  apt -y install autoconf\n  apt -y install automake\n  apt -y install libtool\n  apt -y install flex\n  apt -y install pandoc\n\n  # ....Install OpenMPI\n  mkdir -p /opt/share\n  cd /opt/share\n  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz\n  tar xvfz openmpi-4.1.4.tar.gz\n  cd openmpi-4.1.4\n  ./configure --prefix=/usr/local\n  make all install\n  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH\n\nThe openMPI libraries are installed by default into /usr/local/lib, so this directory is added to the library path.",
+    "text": "CMAQ is a program that uses the Message Passing Interface (MPI). There are a few different libraries that can be used to add MPI functionality to this container. We have chosen openMPI. Here are the commands that install openMPI in the container.\n\n# ....Create shared directory\n  mkdir -p $HOME\n\n###################################################################\n  #     Needed by openmpi\n  apt -y install autoconf\n  apt -y install automake\n  apt -y install libtool\n  apt -y install flex\n  apt -y install pandoc\n\n  # ....Install OpenMPI\n  cd $HOME\n  wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz\n  tar xvfz openmpi-4.0.1.tar.gz\n  cd openmpi-4.0.1\n  ./configure --prefix=/usr/local\n  make all install\n  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH\n\nThe openMPI libraries are installed by default into /usr/local/lib, so this directory is added to the library path.",
     "crumbs": [
       "Install openMPI"
     ]
@@ -67,8 +67,8 @@
     "objectID": "netcdf.html#netcdf-c",
     "href": "netcdf.html#netcdf-c",
     "title": "Install netCDF libraries",
-    "section": "",
-    "text": "#     netcdf-c\n  export CC=mpicc\n  export FC=mpifort\n  export NCDIR=/usr/local\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz\n  tar xvf v4.8.1.tar.gz\n  cd netcdf-c-4.8.1\n  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr\n  make check \n  make install",
+    "section": "netCDF-C",
+    "text": "netCDF-C\n#  ---------------------------\n#  Download and build netCDF-C\n#  ---------------------------\n   cd  ${INSTDIR}\n   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.0.tar.gz\n   tar xvf v4.8.0.tar.gz\n   cd netcdf-c-4.8.0\n   setenv CPPFLAGS -I${INSTDIR}/include\n   setenv LDFLAGS -L${INSTDIR}/lib\n   ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=${INSTDIR}\n   make |& tee  make.gcc9.log\n   make install",
     "crumbs": [
       "Install netCDF libraries"
     ]
@@ -77,8 +77,8 @@
     "objectID": "netcdf.html#netcdf-fortran",
     "href": "netcdf.html#netcdf-fortran",
     "title": "Install netCDF libraries",
-    "section": "netcdf-fortran",
-    "text": "netcdf-fortran\n  cd /opt/share\n  #       Version used by CMAS\n  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz\n  tar xvf v4.5.2.tar.gz\n  cd netcdf-fortran-4.5.2\n  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}\n  export NFDIR=/usr/local\n  export CPPFLAGS='-I${NCDIR}/include'\n  export LDFLAGS='-L${NCDIR}/lib'\n  export OMPI_FCFLAGS='-fallow-argument-mismatch'\n  ./configure --prefix=${NFDIR} --disable-fortran-type-check\n  make check\n  make install",
+    "section": "netCDF-Fortran",
+    "text": "netCDF-Fortran\n#  ---------------------------------\n#  Download and build netCDF-Fortran\n#  ---------------------------------\n   cd ${INSTDIR}\n   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz\n   tar xvf v4.5.3.tar.gz\n   cd netcdf-fortran-4.5.3\n   ## Note, if non-standard locaions are used for the following compilers, you may need to specify their locations here: \n   setenv FC gfortran\n   setenv F90 gfortran\n   setenv F77 gfortran\n   setenv CC gcc\n   setenv CXX g++\n   #setenv LIBS \" -lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl \"\n   setenv NCDIR ${INSTDIR}\n   setenv LIBS \"-lnetcdf\"\n#   setenv CPPFLAGS -I${INSTDIR}/include\n#   setenv LDFLAGS -L${INSTDIR}/lib\n   setenv LD_LIBRARY_PATH ${INSTDIR}/lib:${LD_LIBRARY_PATH}\n   ./configure --with-pic  --enable-shared --prefix=${INSTDIR}\n   make |& tee make.gcc9.log \n   make install",
     "crumbs": [
       "Install netCDF libraries"
     ]
@@ -98,7 +98,7 @@
     "href": "ioapi.html",
     "title": "Install I/O API",
     "section": "",
-    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.\n\ngit clone https://github.com/cjcoats/ioapi-3.2.git\n\n\n\n\n\n\nImportant\n\n\n\nInstallation of I/O API requires a customized version of Makefile.nocpl.\n\n\n\n\n\n\n\n\nNote\n\n\n\nHere are some commands from early work on compiling I/O API.\n\n\n  # ....Compile ioapi-3.2\n  export HOME=/opt/share\n  export INSTALL=/opt/share/ioapi-3.2\n  export BIN=Linux2_x86_64gfortmpi\n  export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/opt/share/Pnetcdf/lib:$LD_LIBRARY_PATH\n  cd /opt/share/\n  git clone https://github.com/cjcoats/ioapi-3.2.git\n  cd ioapi-3.2/ioapi\n  cp Makefile.nocpl Makefile\n  make -f Makefile\n  make install",
+    "text": "I/O API is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.\n\nThe script below was adapted from here\n\n\n#  --------------------------------------\n# ....BUILD IOAPI\n#  --------------------------------------\n\n# Build I/O API version that supports NCF4 \n# Note - this script works for gcc 9.1, to use gcc 10 and above, use the  -fallow-argument-mismatch argument\n#  As of Aug. 28, 2020, there are now new BIN=Linux*gfort10* types and corresponding Makeinclude.Linux*gfort10* that incorporate this flag for the I/O API and M3Tools. \n# The above information is from the I/O API documentation: https://www.cmascenter.org/ioapi/documentation/all_versions/html/AVAIL.html\n\n   cd $INSTDIR\n\n#  --------------------------------------\n#  Add  to the library path\n#  --------------------------------------\n   if (! $?LD_LIBRARY_PATH) then\n      setenv  LD_LIBRARY_PATH $INSTDIR/lib\n   else\n     setenv  LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$INSTDIR/lib\n   endif\n   if (! $?PATH) then\n      setenv  PATH $INSTDIR/lib\n   else\n     setenv  PATH ${PATH}:$INSTDIR/lib\n   endif\n#  ----------------------\n#  Unpack and build IOAPI\n#  ----------------------\n   git clone https://github.com/cjcoats/ioapi-3.2\n   cd ioapi-3.2\n   git checkout -b 20200828\n   setenv BASEDIR $INSTDIR/ioapi-3.2\n   setenv BIN Linux2_x86_64gfort\n   mkdir $BASEDIR/$BIN\n   setenv CPLMODE nocpl\n   # Edit Makefile or use syntax: make BIN=Linux2_x86_64pg  CPLMODE=nocpl INSTALL=$INSTDIR\n   cd $BASEDIR/ioapi\n   # Copy the Makefile template\n   cp $BASEDIR/ioapi/Makefile.$CPLMODE  ${BASEDIR}/ioapi/Makefile\n   cp ${BASEDIR}/m3tools/Makefile.$CPLMODE  ${BASEDIR}/m3tools/Makefile\n   # Modify to specify the path of the netcdf libraries\n   sed -i 's/\\-lnetcdff/\\-L\\$\\{HOME\\}\\/lib \\-lnetcdff \\-lnetcdf \\-lhdf5_hl \\-lhdf5 \\-lm \\-ldl \\-lz \\-lcurl/g' ${BASEDIR}/m3tools/Makefile\n   # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’\n   # Makefile can be edited to use these options instead of the default options\n   #    VFLAG  = -DVERSION='3.2-nocpl-ncf4'\n   #    DEFINEFLAGS = -DIOAPI_NCF4=1 $(ARCHFLAGS) $(PARFLAGS)\n   #This will remove # from the start of line 102 or add it if it wasn't already there:\n   sed -i '102s/^#/\\n/; 102s/^[^\\n]/#&/; 102s/^\\n//' Makefile\n   sed -i '100s/^#/\\n/; 100s/^[^\\n]/#&/; 100s/^\\n//' Makefile\n   sed -i '109s/^#/\\n/; 109s/^[^\\n]/#&/; 109s/^\\n//' Makefile\n   sed -i '111s/^#/\\n/; 111s/^[^\\n]/#&/; 111s/^\\n//' Makefile\n   #sed -i -e 's/m64/m64 -DIOAPI_NCF4=1/g' Makeinclude.Linux2_x86_64gfort \n   make HOME=$INSTDIR | & tee make.ioapi.log\n   cd $INSTDIR/ioapi-3.2/m3tools\n   make HOME=$INSTDIR | & tee make.m3tools.log",
     "crumbs": [
       "Install I/O API"
     ]
@@ -135,7 +135,7 @@
     "href": "cmaq.html",
     "title": "Clone CMAQ repository",
     "section": "",
-    "text": "The Community Multiscale Air Quality (CMAQ) model is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6. The\n\ngit clone -b 5.3.3 https://github.com/USEPA/CMAQ.git\n\n\n\n\n\n\nImportant\n\n\n\nNote that AIRPACT6 is currently based on CMAQ version 5.3.3 (not 5.4).",
+    "text": "The Community Multiscale Air Quality (CMAQ) model is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6.\n\nThe script below was adapted from here\n\n\n#  --------------------------------------\n# ....BUILD CCTM\n#  --------------------------------------\n\n#  -----------------------\n#  Download and build CMAQ\n#  -----------------------\n# NOTE - please change the BUILD, CMAQ_HOME and OPENMPI directory to your local paths\n# To find the openmpi path, search for mpirun, and then look for the include and lib directories\n# &gt; which mpirun\nsetenv BUILD $HOME/CMAQv5.5/LIBRARIES\nsetenv IOAPI_DIR $BUILD/ioapi-3.2/Linux2_x86_64gfort\nsetenv NETCDF_DIR $BUILD/lib\nsetenv NETCDFF_DIR $BUILD/lib\nsetenv OPENMPI $HOME/openmpi_4.0.1/\ncd $BUILD/..\n#git clone -b 55  https://github.com/USEPA/CMAQ/CMAQ.git CMAQ_REPO_v55\n#git clone -b 5.5_testing ssh://github.com/lizadams/CMAQ_CMAS.git CMAQ_REPO_v55\ngit clone -b main https://github.com/USEPA/CMAQ.git CMAQ_REPO_v55\n\necho \"downloaded CMAQv55\"\ncd $BUILD/../CMAQ_REPO_v55/\n# Change CMAQ_HOME to a local directory\n   #This will remove # from the start of line 102 or add it if it wasn't already there:\n      sed -i '19s/^#/\\n/; 19s/^[^\\n]/#&/; 19s/^\\n//' bldit_project.csh\n      sed -i '20i set CMAQ_HOME = $HOME/CMAQv5.5/gcc_openmpi' bldit_project.csh\n\nset CMAQ_HOME = $BUILD/../gcc_openmpi\nmkdir $BUILD/../gcc_openmpi\n./bldit_project.csh\nsource ./config_cmaq.csh gcc\n\n# edit mcip MAKEFILE\ncd ../gcc_openmpi/PREP/mcip/src\n\n# edit config_cmaq.csh to specify the library locations\n cd $BUILD/../gcc_openmpi/\n sed -i '144i \\       setenv BUILD $HOME/CMAQv5.5/LIBRARIES' config_cmaq.csh\n sed -i '145i \\       setenv OPENMPI $HOME/openmpi_4.0.1/' config_cmaq.csh\n sed -i 's@ioapi_inc_gcc@$BUILD\\/ioapi-3.2\\/ioapi\\/fixed_src@g' config_cmaq.csh\n sed -i 's@ioapi_lib_gcc@$BUILD\\/ioapi-3.2\\/Linux2_x86_64gfort@g' config_cmaq.csh\n sed -i 's@netcdf_lib_gcc@$BUILD\\/lib@g' config_cmaq.csh\n sed -i 's@netcdf_inc_gcc@$BUILD\\/include@g' config_cmaq.csh\n sed -i 's@netcdff_lib_gcc@$BUILD\\/lib@g' config_cmaq.csh\n sed -i 's@netcdff_inc_gcc@$BUILD\\/include@g' config_cmaq.csh\n sed -i 's@mpi_incl_gcc@$OPENMPI\\/include@g' config_cmaq.csh\n sed -i 's@mpi_lib_gcc@$OPENMPI\\/lib@g' config_cmaq.csh\n #edit the config_cmaq.csh to use -fopenmp due to it being used by default for I/O API Library\n sed -i '172i \\       setenv myLINK_FLAG -fopenmp' config_cmaq.csh\n #edit the config_cmaq.csh to add extra libraries\n sed -i 's@-lnetcdf\\\"  #@-lnetcdf -lcurl -lhdf5 -lhdf5_hl \\\"  #@g'  config_cmaq.csh\ncd $BUILD/../gcc_openmpi/CCTM/scripts/\n cp bldit_cctm.csh bldit_cctmv55_cb6r5_m3dry.csh\n # Add extra libs to support nc4 compression in config_cmaq.csh\n #  -lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl\n  setenv extra_lib \"-lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl\"\n # Add openmp flag to match what was used in I/O API in config_cmaq.csh\n # setenv myLINK_FLAG  \"-fopenmp\" # openMP not supported w/ CMAQ\n#./bldit_cctmv55_cb6r5_m3dry.csh gcc |& tee ./bldit_cctmv55_cb6r5_m3dry.log\n\n# Verify that the executable was created.\n#ls -rlt BLD_CCTM_v55_gcc_cb6r5_ae7_aq_m3dry/*.exe\n\n\n#Note, to run CMAQ, please create modules or set the LD_LIBRARY_PATH to include the directories for $BUILD/lib at run time.\n\n##see this tutorial for instructions to install modules: \n##https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/developers_guide/cmaq-vm/install.html#install-environment-modules\n## If you have modules on your machine, you can create custom modules\n## https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/developers_guide/cmaq-vm/install.html#create-custom-environment-module-for-libraries",
     "crumbs": [
       "Clone CMAQ repository"
     ]
@@ -155,7 +155,27 @@
     "href": "netcdf.html",
     "title": "Install netCDF libraries",
     "section": "",
-    "text": "netcdf-c",
+    "text": "Necessary libraries for netCDF installation; curl, zlib, HDF5",
+    "crumbs": [
+      "Install netCDF libraries"
+    ]
+  },
+  {
+    "objectID": "netcdf.html#necessary-libraries-for-netcdf-installation-curl-zlib-hdf5",
+    "href": "netcdf.html#necessary-libraries-for-netcdf-installation-curl-zlib-hdf5",
+    "title": "Install netCDF libraries",
+    "section": "",
+    "text": "#  --------------------\n#  Set directory for CMAQ Libraries \n#  -------------------\n\n   mkdir -p $HOME/CMAQv5.5/LIBRARIES\n   setenv INSTDIR $HOME/CMAQv5.5/LIBRARIES\n\n# ----------------------\n# Build and install curl\n# ---------------------\n\n cd ${INSTDIR}\n wget https://curl.se/download/curl-8.10.1.tar.gz\n tar -xzvf curl-8.10.1.tar.gz\n cd curl-8.10.1\n ./configure --prefix=${INSTDIR} --without-ssl\n make |& tee make.curl.log\n make install |& tee make.install.curl.log\n\n#  ----------------------\n# Build and install zlib\n#  ---------------------\n\n  cd ${INSTDIR}\n  wget https://sourceforge.net/projects/libpng/files/zlib/1.2.11/zlib-1.2.11.tar.gz\n  tar -xzvf zlib-1.2.11.tar.gz\n  cd zlib-1.2.11\n  ./configure --prefix=${INSTDIR}\n  make test |& tee make.test.log\n  make install |& tee make.install.log\n\n#  -----------------------\n#  Download and build HDF5\n#  -----------------------\n   cd ${INSTDIR}\n   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz\n   tar xvf hdf5-1.10.5.tar.gz\n#   rm -f hdf5-1.10.5.tar.gz\n   cd hdf5-1.10.5\n   setenv CFLAGS \"-O3\"\n   setenv FFLAGS \"-O3\"\n   setenv CXXFLAGS \"-O3\"\n   setenv FCFLAGS \"-O3\"\n   ./configure --prefix=${INSTDIR} --with-zlib=${INSTDIR}/include,${INSTDIR}/lib --enable-hl\n   make |& tee make.gcc9.log \n#  make check &gt; make.gcc9.check\n   make install",
+    "crumbs": [
+      "Install netCDF libraries"
+    ]
+  },
+  {
+    "objectID": "netcdf.html#netcdf-cxx",
+    "href": "netcdf.html#netcdf-cxx",
+    "title": "Install netCDF libraries",
+    "section": "netCDF-CXX",
+    "text": "netCDF-CXX\n#  -----------------------------\n#  Download and build netCDF-CXX\n#  -----------------------------\n   cd  $INSTDIR\n   wget https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz\n   tar xvf v4.3.1.tar.gz\n   cd netcdf-cxx4-4.3.1\n   ./configure --with-pic --enable-shared --prefix=$INSTDIR\n   make |& tee  make.gcc9.log\n   make install",
     "crumbs": [
       "Install netCDF libraries"
     ]

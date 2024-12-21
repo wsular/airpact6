@@ -176,9 +176,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#netcdf-c" id="toc-netcdf-c" class="nav-link active" data-scroll-target="#netcdf-c">netcdf-c</a></li>
-  <li><a href="#netcdf-fortran" id="toc-netcdf-fortran" class="nav-link" data-scroll-target="#netcdf-fortran">netcdf-fortran</a></li>
-  <li><a href="#pnetcdf" id="toc-pnetcdf" class="nav-link" data-scroll-target="#pnetcdf">pnetcdf</a></li>
+  <li><a href="#necessary-libraries-for-netcdf-installation-curl-zlib-hdf5" id="toc-necessary-libraries-for-netcdf-installation-curl-zlib-hdf5" class="nav-link active" data-scroll-target="#necessary-libraries-for-netcdf-installation-curl-zlib-hdf5">Necessary libraries for netCDF installation; curl, zlib, HDF5</a></li>
+  <li><a href="#netcdf-c" id="toc-netcdf-c" class="nav-link" data-scroll-target="#netcdf-c">netCDF-C</a></li>
+  <li><a href="#netcdf-fortran" id="toc-netcdf-fortran" class="nav-link" data-scroll-target="#netcdf-fortran">netCDF-Fortran</a></li>
+  <li><a href="#netcdf-cxx" id="toc-netcdf-cxx" class="nav-link" data-scroll-target="#netcdf-cxx">netCDF-CXX</a></li>
   </ul>
 </nav>
     </div>
@@ -205,58 +206,117 @@ ul.task-list li input[type="checkbox"] {
 
 
 <ul>
-<li>The netCDF libraries for C and Fortran are needed. We chose to install <a href="https://github.com/Unidata/netcdf-c/releases/tag/v4.8.1">netcdf-c, version 4.8.1</a> and <a href="https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.2">netcdf-fortran, version 4.5.2</a> because both of these versions had been tested with CMAQ. In addition, we chose to install <a href="https://parallel-netcdf.github.io/wiki/Download.html">parallel netCDF (pnetcdf), version 1.12.3</a> to allow parallel I/O. Here are the commands from the defintion file for loading all three libraries.</li>
+<li>The netCDF libraries for C and Fortran are needed. We chose to install <a href="https://github.com/Unidata/netcdf-c/releases/tag/v4.8.0">netcdf-c, version 4.8.0</a> and <a href="https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.3">netcdf-fortran, version 4.5.3</a> because both of these versions had been tested with CMAQ. Here are the commands from the defintion file for loading the libraries.
+<ul>
+<li>The scripts below were adapted from <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/Tutorials/gcc_install_netcdf_for_nc4_compression.csh">here</a>.</li>
+</ul></li>
 </ul>
 <hr>
+<section id="necessary-libraries-for-netcdf-installation-curl-zlib-hdf5" class="level2">
+<h2 class="anchored" data-anchor-id="necessary-libraries-for-netcdf-installation-curl-zlib-hdf5">Necessary libraries for netCDF installation; curl, zlib, HDF5</h2>
+<pre><code>#  --------------------
+#  Set directory for CMAQ Libraries 
+#  -------------------
+
+   mkdir -p $HOME/CMAQv5.5/LIBRARIES
+   setenv INSTDIR $HOME/CMAQv5.5/LIBRARIES
+
+# ----------------------
+# Build and install curl
+# ---------------------
+
+ cd ${INSTDIR}
+ wget https://curl.se/download/curl-8.10.1.tar.gz
+ tar -xzvf curl-8.10.1.tar.gz
+ cd curl-8.10.1
+ ./configure --prefix=${INSTDIR} --without-ssl
+ make |&amp; tee make.curl.log
+ make install |&amp; tee make.install.curl.log
+
+#  ----------------------
+# Build and install zlib
+#  ---------------------
+
+  cd ${INSTDIR}
+  wget https://sourceforge.net/projects/libpng/files/zlib/1.2.11/zlib-1.2.11.tar.gz
+  tar -xzvf zlib-1.2.11.tar.gz
+  cd zlib-1.2.11
+  ./configure --prefix=${INSTDIR}
+  make test |&amp; tee make.test.log
+  make install |&amp; tee make.install.log
+
+#  -----------------------
+#  Download and build HDF5
+#  -----------------------
+   cd ${INSTDIR}
+   wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.gz
+   tar xvf hdf5-1.10.5.tar.gz
+#   rm -f hdf5-1.10.5.tar.gz
+   cd hdf5-1.10.5
+   setenv CFLAGS "-O3"
+   setenv FFLAGS "-O3"
+   setenv CXXFLAGS "-O3"
+   setenv FCFLAGS "-O3"
+   ./configure --prefix=${INSTDIR} --with-zlib=${INSTDIR}/include,${INSTDIR}/lib --enable-hl
+   make |&amp; tee make.gcc9.log 
+#  make check &gt; make.gcc9.check
+   make install</code></pre>
+<hr>
+</section>
 <section id="netcdf-c" class="level2">
-<h2 class="anchored" data-anchor-id="netcdf-c">netcdf-c</h2>
-<pre><code>  #     netcdf-c
-  export CC=mpicc
-  export FC=mpifort
-  export NCDIR=/usr/local
-  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
-  cd /opt/share
-  #       Version used by CMAS
-  wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
-  tar xvf v4.8.1.tar.gz
-  cd netcdf-c-4.8.1
-  ./configure --prefix=${NCDIR} --disable-netcdf-4 --disable-dap --disable-nczarr
-  make check 
-  make install</code></pre>
+<h2 class="anchored" data-anchor-id="netcdf-c">netCDF-C</h2>
+<pre><code>#  ---------------------------
+#  Download and build netCDF-C
+#  ---------------------------
+   cd  ${INSTDIR}
+   wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.0.tar.gz
+   tar xvf v4.8.0.tar.gz
+   cd netcdf-c-4.8.0
+   setenv CPPFLAGS -I${INSTDIR}/include
+   setenv LDFLAGS -L${INSTDIR}/lib
+   ./configure --with-pic --enable-netcdf-4 --enable-shared --prefix=${INSTDIR}
+   make |&amp; tee  make.gcc9.log
+   make install</code></pre>
 <hr>
 </section>
 <section id="netcdf-fortran" class="level2">
-<h2 class="anchored" data-anchor-id="netcdf-fortran">netcdf-fortran</h2>
-<pre><code>  cd /opt/share
-  #       Version used by CMAS
-  wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
-  tar xvf v4.5.2.tar.gz
-  cd netcdf-fortran-4.5.2
-  export LD_LIBRARY_PATH=${NCDIR}/lib:${LD_LIBRARY_PATH}
-  export NFDIR=/usr/local
-  export CPPFLAGS='-I${NCDIR}/include'
-  export LDFLAGS='-L${NCDIR}/lib'
-  export OMPI_FCFLAGS='-fallow-argument-mismatch'
-  ./configure --prefix=${NFDIR} --disable-fortran-type-check
-  make check
-  make install</code></pre>
+<h2 class="anchored" data-anchor-id="netcdf-fortran">netCDF-Fortran</h2>
+<pre><code>#  ---------------------------------
+#  Download and build netCDF-Fortran
+#  ---------------------------------
+   cd ${INSTDIR}
+   wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz
+   tar xvf v4.5.3.tar.gz
+   cd netcdf-fortran-4.5.3
+   ## Note, if non-standard locaions are used for the following compilers, you may need to specify their locations here: 
+   setenv FC gfortran
+   setenv F90 gfortran
+   setenv F77 gfortran
+   setenv CC gcc
+   setenv CXX g++
+   #setenv LIBS " -lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl "
+   setenv NCDIR ${INSTDIR}
+   setenv LIBS "-lnetcdf"
+#   setenv CPPFLAGS -I${INSTDIR}/include
+#   setenv LDFLAGS -L${INSTDIR}/lib
+   setenv LD_LIBRARY_PATH ${INSTDIR}/lib:${LD_LIBRARY_PATH}
+   ./configure --with-pic  --enable-shared --prefix=${INSTDIR}
+   make |&amp; tee make.gcc9.log 
+   make install</code></pre>
 <hr>
 </section>
-<section id="pnetcdf" class="level2">
-<h2 class="anchored" data-anchor-id="pnetcdf">pnetcdf</h2>
-<pre><code>  #     pnetcdf
-  cd /opt/share
-  wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
-  tar xvf pnetcdf-1.12.3.tar.gz
-  cd pnetcdf-1.12.3
-  ./configure --prefix=/opt/share/Pnetcdf MPICC=/usr/local/bin/mpicc MPICXX=/usr/local/bin/mpiCC MPIF77=/usr/local/bin/mpif77 MPIF90=/usr/local/bin/mpif90
-  make
-  make install
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.a /usr/local/lib/.
-  ln -s /opt/share/Pnetcdf/lib/libpnetcdf.la /usr/local/lib/.</code></pre>
-<ul>
-<li>Note that it was necessary to create symbolic links from the pnetcdf installation directory to /usr/local/lib, to ensure that the libraries were on the library path.</li>
-</ul>
+<section id="netcdf-cxx" class="level2">
+<h2 class="anchored" data-anchor-id="netcdf-cxx">netCDF-CXX</h2>
+<pre><code>#  -----------------------------
+#  Download and build netCDF-CXX
+#  -----------------------------
+   cd  $INSTDIR
+   wget https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz
+   tar xvf v4.3.1.tar.gz
+   cd netcdf-cxx4-4.3.1
+   ./configure --with-pic --enable-shared --prefix=$INSTDIR
+   make |&amp; tee  make.gcc9.log
+   make install</code></pre>
 
 
 </section>

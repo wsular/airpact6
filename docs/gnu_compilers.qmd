@@ -1,16 +1,27 @@
 # Install GNU compilers {.unnumbered}
 
-- This container uses the GNU compilers, [gcc, version 11.3.0](https://gcc.gnu.org/gcc-11/) and [gfortran, version 11.3.0](https://gcc.gnu.org/onlinedocs/gcc-11.3.0/gfortran.pdf).
+- This container uses the GNU compilers, [gcc, version 9.5](https://gcc.gnu.org/gcc-9/) and [gfortran, version 9.5](https://gcc.gnu.org/onlinedocs/gcc-9.5.0/gfortran/).
 
-- gcc is installed along with build-essentials in the defintion file.
+- gcc is installed along with build-essentials in the defintion file. This installs a relative new version of gcc
 
 ```
   apt -y update
   apt -y install build-essential
 ```
 
-- The gfortran compiler is installed separately in the defintion file.
+- ```update-alternatives``` is used to install multiple gcc versions in Linux.
+  - https://man7.org/linux/man-pages/man1/update-alternatives.1.html
+  - https://www.dedicatedcore.com/blog/install-gcc-compiler-ubuntu/
+  - https://www.baeldung.com/linux/update-alternatives-command
+
+- The gcc-9 compilers are installed separately in the defintion file.
+
 ```
-  apt -y install gfortran
+  apt -y install software-properties-common
+  add-apt-repository ppa:ubuntu-toolchain-r/test
+  apt -y update
+  apt -y install gcc-9 g++-9 gfortran-9
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-9
+  update-alternatives --set gcc /usr/bin/gcc-9
 ```
 

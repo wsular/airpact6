@@ -6,6 +6,16 @@
 
 ```
 Bootstrap: docker
-From: ubuntu
+From: ubuntu:22.04
 ```
 
+  - Note that one can specify a newer version of Ubuntu using either
+    ```
+    # this
+    Bootstrap: docker
+    From: ubuntu:24.04
+    
+    # or that
+    Bootstrap: docker
+    From: ubuntu
+    ```

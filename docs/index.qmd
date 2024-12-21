@@ -1,9 +1,9 @@
 # The AIRPACT6 Container {.unnumbered}
 
-- The AIRPACT6 container is built using [apptainer](https://apptainer.org). The container is built by using the [definition file](../dev/apptainer/cmaqv5.3.3_ubuntu22.04.def) with the following command:
+- The AIRPACT6 container is built using [apptainer](https://apptainer.org). The container is built by using the [definition file](../dev/apptainer/CMAQv5.5.def) with the following command:
 
 ```
-apptainer build /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif cmaq-5.3.3_ubuntu-22.04.def
+apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def &> build_airpact6.log
 ```
 
 ---

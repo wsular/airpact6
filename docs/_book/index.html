@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Von P. Walden">
-<meta name="dcterms.date" content="2023-07-20">
+<meta name="dcterms.date" content="2024-12-20">
 
 <title>AIRPACT6 Container Development</title>
 <style>
@@ -207,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 20, 2023</p>
+      <p class="date">December 20, 2024</p>
     </div>
   </div>
   
@@ -222,9 +222,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-airpact6-container" class="level1 unnumbered">
 <h1 class="unnumbered">The AIRPACT6 Container</h1>
 <ul>
-<li>The AIRPACT6 container is built using <a href="https://apptainer.org">apptainer</a>. The container is built by using the <a href="../dev/apptainer/cmaqv5.3.3_ubuntu22.04.def">definition file</a> with the following command:</li>
+<li>The AIRPACT6 container is built using <a href="https://apptainer.org">apptainer</a>. The container is built by using the <a href="../dev/apptainer/CMAQv5.5.def">definition file</a> with the following command:</li>
 </ul>
-<pre><code>apptainer build /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif cmaq-5.3.3_ubuntu-22.04.def</code></pre>
+<pre><code>apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def</code></pre>
 <hr>
 <section id="steps-to-build-container" class="level2">
 <h2 class="anchored" data-anchor-id="steps-to-build-container">Steps to build container</h2>

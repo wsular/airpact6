@@ -199,7 +199,11 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>CMAQ is a program that uses the <a href="https://www.mpi-forum.org">Message Passing Interface (MPI)</a>. There are a few different libraries that can be used to add MPI functionality to this container. We have chosen <a href="https://www.open-mpi.org">openMPI</a>. Here are the commands that install openMPI in the container.</li>
 </ul>
-<pre><code>  #     Needed by openmpi
+<pre><code># ....Create shared directory
+  mkdir -p $HOME
+
+###################################################################
+  #     Needed by openmpi
   apt -y install autoconf
   apt -y install automake
   apt -y install libtool
@@ -207,11 +211,10 @@ ul.task-list li input[type="checkbox"] {
   apt -y install pandoc
 
   # ....Install OpenMPI
-  mkdir -p /opt/share
-  cd /opt/share
-  wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
-  tar xvfz openmpi-4.1.4.tar.gz
-  cd openmpi-4.1.4
+  cd $HOME
+  wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
+  tar xvfz openmpi-4.0.1.tar.gz
+  cd openmpi-4.0.1
   ./configure --prefix=/usr/local
   make all install
   LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH</code></pre>
