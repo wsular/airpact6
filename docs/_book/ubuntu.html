@@ -160,12 +160,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Clone CMAQ repository</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./build_cmaq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building CMAQ</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -204,13 +198,13 @@ ul.task-list li input[type="checkbox"] {
 From: ubuntu:22.04</code></pre>
 <ul>
 <li><p>Note that one can specify a newer version of Ubuntu using either</p>
-<pre><code>    Bootstrap: docker
-    From: ubuntu:24.04
-    ```
+<pre><code># this
+Bootstrap: docker
+From: ubuntu:24.04
 
-or
-</code></pre>
-<p>Bootstrap: docker From: ubuntu ```</p></li>
+# or that
+Bootstrap: docker
+From: ubuntu</code></pre></li>
 </ul>
 
 

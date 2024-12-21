@@ -161,12 +161,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Clone CMAQ repository</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./build_cmaq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building CMAQ</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -224,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>The AIRPACT6 container is built using <a href="https://apptainer.org">apptainer</a>. The container is built by using the <a href="../dev/apptainer/CMAQv5.5.def">definition file</a> with the following command:</li>
 </ul>
-<pre><code>apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def</code></pre>
+<pre><code>apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def &amp;&gt; build_airpact6.log</code></pre>
 <hr>
 <section id="steps-to-build-container" class="level2">
 <h2 class="anchored" data-anchor-id="steps-to-build-container">Steps to build container</h2>
@@ -237,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="./airpact6.html">Clone AIRPACT6 repo</a></li>
 <li><a href="./ioapi.html">Clone I/O API repo</a></li>
 <li><a href="./cmaq.html">Clone CMAQ repo</a></li>
-<li><a href="./build_cmaq.html">Build CMAQ</a></li>
+<li><a href="build_cmaq.qmd">Build CMAQ</a></li>
 </ol>
 <hr>
 </section>

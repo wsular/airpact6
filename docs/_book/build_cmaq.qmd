@@ -1,4 +1,4 @@
-# Building CMAQ
+# Building CMAQ {.unnumbered}
 
 - To build CMAQ within the container, a customized script is used from the AIRPACT6 repo. This script is copied to the working directory, then CMAQ is built on the container by executing the script.
 
