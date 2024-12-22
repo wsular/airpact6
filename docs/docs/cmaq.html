@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Install I/O API – AIRPACT6 Container Development</title>
+<title>Clone CMAQ repository – AIRPACT6 Development</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./cmaq.html" rel="next">
-<link href="./airpact6.html" rel="prev">
+<link href="./ioapi.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ioapi.html">Install I/O API</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apptainer-dev.html">Apptainer</a></li><li class="breadcrumb-item"><a href="./cmaq.html">Clone CMAQ repository</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AIRPACT6 Container Development</a> 
+      <a href="./">AIRPACT6 Development</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -109,57 +108,74 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The AIRPACT6 Container</span></a>
+ <span class="menu-text">AIRPACT6</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">MCIP</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">SMOKE</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">CMAQ</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./apptainer-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apptainer</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ubuntu.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install Ubuntu</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gnu_compilers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install GNU compilers</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./useful.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install useful commands and libraries</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./openmpi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install openMPI</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./netcdf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install netCDF libraries</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./airpact6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clone the AIRPACT6 repository</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ioapi.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ioapi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install I/O API</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cmaq.html" class="sidebar-item-text sidebar-link">
+  <a href="./cmaq.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Clone CMAQ repository</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -171,9 +187,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apptainer-dev.html">Apptainer</a></li><li class="breadcrumb-item"><a href="./cmaq.html">Clone CMAQ repository</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Install I/O API</h1>
+<h1 class="title">Clone CMAQ repository</h1>
 </div>
 
 
@@ -191,65 +207,81 @@ ul.task-list li input[type="checkbox"] {
 
 
 <ul>
-<li><a href="https://www.cmascenter.org/ioapi/">I/O API</a> is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.
+<li>The <a href="https://github.com/USEPA/CMAQ.git">Community Multiscale Air Quality (CMAQ) model</a> is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6.
 <ul>
-<li>The script below was adapted from <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/Tutorials/gcc_install_ioapi_for_nc4_compression.csh">here</a></li>
+<li>The script below was adapted from <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/Tutorials/gcc_install_cmaq55_cb6r5_m3dry.csh">here</a></li>
 </ul></li>
 </ul>
 <pre><code>#  --------------------------------------
-# ....BUILD IOAPI
+# ....BUILD CCTM
 #  --------------------------------------
 
-# Build I/O API version that supports NCF4 
-# Note - this script works for gcc 9.1, to use gcc 10 and above, use the  -fallow-argument-mismatch argument
-#  As of Aug. 28, 2020, there are now new BIN=Linux*gfort10* types and corresponding Makeinclude.Linux*gfort10* that incorporate this flag for the I/O API and M3Tools. 
-# The above information is from the I/O API documentation: https://www.cmascenter.org/ioapi/documentation/all_versions/html/AVAIL.html
+#  -----------------------
+#  Download and build CMAQ
+#  -----------------------
+# NOTE - please change the BUILD, CMAQ_HOME and OPENMPI directory to your local paths
+# To find the openmpi path, search for mpirun, and then look for the include and lib directories
+# &gt; which mpirun
+setenv BUILD $HOME/CMAQv5.5/LIBRARIES
+setenv IOAPI_DIR $BUILD/ioapi-3.2/Linux2_x86_64gfort
+setenv NETCDF_DIR $BUILD/lib
+setenv NETCDFF_DIR $BUILD/lib
+setenv OPENMPI $HOME/openmpi_4.0.1/
+cd $BUILD/..
+#git clone -b 55  https://github.com/USEPA/CMAQ/CMAQ.git CMAQ_REPO_v55
+#git clone -b 5.5_testing ssh://github.com/lizadams/CMAQ_CMAS.git CMAQ_REPO_v55
+git clone -b main https://github.com/USEPA/CMAQ.git CMAQ_REPO_v55
 
-   cd $INSTDIR
-
-#  --------------------------------------
-#  Add  to the library path
-#  --------------------------------------
-   if (! $?LD_LIBRARY_PATH) then
-      setenv  LD_LIBRARY_PATH $INSTDIR/lib
-   else
-     setenv  LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$INSTDIR/lib
-   endif
-   if (! $?PATH) then
-      setenv  PATH $INSTDIR/lib
-   else
-     setenv  PATH ${PATH}:$INSTDIR/lib
-   endif
-#  ----------------------
-#  Unpack and build IOAPI
-#  ----------------------
-   git clone https://github.com/cjcoats/ioapi-3.2
-   cd ioapi-3.2
-   git checkout -b 20200828
-   setenv BASEDIR $INSTDIR/ioapi-3.2
-   setenv BIN Linux2_x86_64gfort
-   mkdir $BASEDIR/$BIN
-   setenv CPLMODE nocpl
-   # Edit Makefile or use syntax: make BIN=Linux2_x86_64pg  CPLMODE=nocpl INSTALL=$INSTDIR
-   cd $BASEDIR/ioapi
-   # Copy the Makefile template
-   cp $BASEDIR/ioapi/Makefile.$CPLMODE  ${BASEDIR}/ioapi/Makefile
-   cp ${BASEDIR}/m3tools/Makefile.$CPLMODE  ${BASEDIR}/m3tools/Makefile
-   # Modify to specify the path of the netcdf libraries
-   sed -i 's/\-lnetcdff/\-L\$\{HOME\}\/lib \-lnetcdff \-lnetcdf \-lhdf5_hl \-lhdf5 \-lm \-ldl \-lz \-lcurl/g' ${BASEDIR}/m3tools/Makefile
-   # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
-   # Makefile can be edited to use these options instead of the default options
-   #    VFLAG  = -DVERSION='3.2-nocpl-ncf4'
-   #    DEFINEFLAGS = -DIOAPI_NCF4=1 $(ARCHFLAGS) $(PARFLAGS)
+echo "downloaded CMAQv55"
+cd $BUILD/../CMAQ_REPO_v55/
+# Change CMAQ_HOME to a local directory
    #This will remove # from the start of line 102 or add it if it wasn't already there:
-   sed -i '102s/^#/\n/; 102s/^[^\n]/#&amp;/; 102s/^\n//' Makefile
-   sed -i '100s/^#/\n/; 100s/^[^\n]/#&amp;/; 100s/^\n//' Makefile
-   sed -i '109s/^#/\n/; 109s/^[^\n]/#&amp;/; 109s/^\n//' Makefile
-   sed -i '111s/^#/\n/; 111s/^[^\n]/#&amp;/; 111s/^\n//' Makefile
-   #sed -i -e 's/m64/m64 -DIOAPI_NCF4=1/g' Makeinclude.Linux2_x86_64gfort 
-   make HOME=$INSTDIR | &amp; tee make.ioapi.log
-   cd $INSTDIR/ioapi-3.2/m3tools
-   make HOME=$INSTDIR | &amp; tee make.m3tools.log</code></pre>
+      sed -i '19s/^#/\n/; 19s/^[^\n]/#&amp;/; 19s/^\n//' bldit_project.csh
+      sed -i '20i set CMAQ_HOME = $HOME/CMAQv5.5/gcc_openmpi' bldit_project.csh
+
+set CMAQ_HOME = $BUILD/../gcc_openmpi
+mkdir $BUILD/../gcc_openmpi
+./bldit_project.csh
+source ./config_cmaq.csh gcc
+
+# edit mcip MAKEFILE
+cd ../gcc_openmpi/PREP/mcip/src
+
+# edit config_cmaq.csh to specify the library locations
+ cd $BUILD/../gcc_openmpi/
+ sed -i '144i \       setenv BUILD $HOME/CMAQv5.5/LIBRARIES' config_cmaq.csh
+ sed -i '145i \       setenv OPENMPI $HOME/openmpi_4.0.1/' config_cmaq.csh
+ sed -i 's@ioapi_inc_gcc@$BUILD\/ioapi-3.2\/ioapi\/fixed_src@g' config_cmaq.csh
+ sed -i 's@ioapi_lib_gcc@$BUILD\/ioapi-3.2\/Linux2_x86_64gfort@g' config_cmaq.csh
+ sed -i 's@netcdf_lib_gcc@$BUILD\/lib@g' config_cmaq.csh
+ sed -i 's@netcdf_inc_gcc@$BUILD\/include@g' config_cmaq.csh
+ sed -i 's@netcdff_lib_gcc@$BUILD\/lib@g' config_cmaq.csh
+ sed -i 's@netcdff_inc_gcc@$BUILD\/include@g' config_cmaq.csh
+ sed -i 's@mpi_incl_gcc@$OPENMPI\/include@g' config_cmaq.csh
+ sed -i 's@mpi_lib_gcc@$OPENMPI\/lib@g' config_cmaq.csh
+ #edit the config_cmaq.csh to use -fopenmp due to it being used by default for I/O API Library
+ sed -i '172i \       setenv myLINK_FLAG -fopenmp' config_cmaq.csh
+ #edit the config_cmaq.csh to add extra libraries
+ sed -i 's@-lnetcdf\"  #@-lnetcdf -lcurl -lhdf5 -lhdf5_hl \"  #@g'  config_cmaq.csh
+cd $BUILD/../gcc_openmpi/CCTM/scripts/
+ cp bldit_cctm.csh bldit_cctmv55_cb6r5_m3dry.csh
+ # Add extra libs to support nc4 compression in config_cmaq.csh
+ #  -lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl
+  setenv extra_lib "-lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl"
+ # Add openmp flag to match what was used in I/O API in config_cmaq.csh
+ # setenv myLINK_FLAG  "-fopenmp" # openMP not supported w/ CMAQ
+#./bldit_cctmv55_cb6r5_m3dry.csh gcc |&amp; tee ./bldit_cctmv55_cb6r5_m3dry.log
+
+# Verify that the executable was created.
+#ls -rlt BLD_CCTM_v55_gcc_cb6r5_ae7_aq_m3dry/*.exe
+
+
+#Note, to run CMAQ, please create modules or set the LD_LIBRARY_PATH to include the directories for $BUILD/lib at run time.
+
+##see this tutorial for instructions to install modules: 
+##https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/developers_guide/cmaq-vm/install.html#install-environment-modules
+## If you have modules on your machine, you can create custom modules
+## https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/developers_guide/cmaq-vm/install.html#create-custom-environment-module-for-libraries</code></pre>
 
 
 
@@ -673,14 +705,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./airpact6.html" class="pagination-link" aria-label="Clone the AIRPACT6 repository">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Clone the AIRPACT6 repository</span>
+      <a href="./ioapi.html" class="pagination-link" aria-label="Install I/O API">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install I/O API</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./cmaq.html" class="pagination-link" aria-label="Clone CMAQ repository">
-        <span class="nav-page-text">Clone CMAQ repository</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

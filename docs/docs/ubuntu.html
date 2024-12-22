@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Clone CMAQ repository – AIRPACT6 Container Development</title>
+<title>Install Ubuntu – AIRPACT6 Development</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ioapi.html" rel="prev">
+<link href="./gnu_compilers.html" rel="next">
+<link href="./apptainer-dev.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cmaq.html">Clone CMAQ repository</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apptainer-dev.html">Apptainer</a></li><li class="breadcrumb-item"><a href="./ubuntu.html">Install Ubuntu</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AIRPACT6 Container Development</a> 
+      <a href="./">AIRPACT6 Development</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,57 +109,74 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The AIRPACT6 Container</span></a>
+ <span class="menu-text">AIRPACT6</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">MCIP</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">SMOKE</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">CMAQ</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./apptainer-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apptainer</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ubuntu.html" class="sidebar-item-text sidebar-link">
+  <a href="./ubuntu.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Install Ubuntu</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gnu_compilers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install GNU compilers</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./useful.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install useful commands and libraries</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./openmpi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install openMPI</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./netcdf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install netCDF libraries</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./airpact6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clone the AIRPACT6 repository</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ioapi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install I/O API</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cmaq.html" class="sidebar-item-text sidebar-link active">
+  <a href="./cmaq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clone CMAQ repository</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -170,9 +188,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apptainer-dev.html">Apptainer</a></li><li class="breadcrumb-item"><a href="./ubuntu.html">Install Ubuntu</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Clone CMAQ repository</h1>
+<h1 class="title">Install Ubuntu</h1>
 </div>
 
 
@@ -190,81 +208,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 <ul>
-<li>The <a href="https://github.com/USEPA/CMAQ.git">Community Multiscale Air Quality (CMAQ) model</a> is a suite of programs for simulating air quality. This model forms the basis of AIRPACT6.
-<ul>
-<li>The script below was adapted from <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/Tutorials/gcc_install_cmaq55_cb6r5_m3dry.csh">here</a></li>
-</ul></li>
+<li><p>This container uses <a href="https://releases.ubuntu.com/22.04/">Ubuntu 22.04 - Jammy Jellyfish</a>.</p></li>
+<li><p>The image for Ubuntu is pulled directly from Docker in the first two lines of the definition file:</p></li>
 </ul>
-<pre><code>#  --------------------------------------
-# ....BUILD CCTM
-#  --------------------------------------
+<pre><code>Bootstrap: docker
+From: ubuntu:22.04</code></pre>
+<ul>
+<li><p>Note that one can specify a newer version of Ubuntu using either</p>
+<pre><code># this
+Bootstrap: docker
+From: ubuntu:24.04
 
-#  -----------------------
-#  Download and build CMAQ
-#  -----------------------
-# NOTE - please change the BUILD, CMAQ_HOME and OPENMPI directory to your local paths
-# To find the openmpi path, search for mpirun, and then look for the include and lib directories
-# &gt; which mpirun
-setenv BUILD $HOME/CMAQv5.5/LIBRARIES
-setenv IOAPI_DIR $BUILD/ioapi-3.2/Linux2_x86_64gfort
-setenv NETCDF_DIR $BUILD/lib
-setenv NETCDFF_DIR $BUILD/lib
-setenv OPENMPI $HOME/openmpi_4.0.1/
-cd $BUILD/..
-#git clone -b 55  https://github.com/USEPA/CMAQ/CMAQ.git CMAQ_REPO_v55
-#git clone -b 5.5_testing ssh://github.com/lizadams/CMAQ_CMAS.git CMAQ_REPO_v55
-git clone -b main https://github.com/USEPA/CMAQ.git CMAQ_REPO_v55
-
-echo "downloaded CMAQv55"
-cd $BUILD/../CMAQ_REPO_v55/
-# Change CMAQ_HOME to a local directory
-   #This will remove # from the start of line 102 or add it if it wasn't already there:
-      sed -i '19s/^#/\n/; 19s/^[^\n]/#&amp;/; 19s/^\n//' bldit_project.csh
-      sed -i '20i set CMAQ_HOME = $HOME/CMAQv5.5/gcc_openmpi' bldit_project.csh
-
-set CMAQ_HOME = $BUILD/../gcc_openmpi
-mkdir $BUILD/../gcc_openmpi
-./bldit_project.csh
-source ./config_cmaq.csh gcc
-
-# edit mcip MAKEFILE
-cd ../gcc_openmpi/PREP/mcip/src
-
-# edit config_cmaq.csh to specify the library locations
- cd $BUILD/../gcc_openmpi/
- sed -i '144i \       setenv BUILD $HOME/CMAQv5.5/LIBRARIES' config_cmaq.csh
- sed -i '145i \       setenv OPENMPI $HOME/openmpi_4.0.1/' config_cmaq.csh
- sed -i 's@ioapi_inc_gcc@$BUILD\/ioapi-3.2\/ioapi\/fixed_src@g' config_cmaq.csh
- sed -i 's@ioapi_lib_gcc@$BUILD\/ioapi-3.2\/Linux2_x86_64gfort@g' config_cmaq.csh
- sed -i 's@netcdf_lib_gcc@$BUILD\/lib@g' config_cmaq.csh
- sed -i 's@netcdf_inc_gcc@$BUILD\/include@g' config_cmaq.csh
- sed -i 's@netcdff_lib_gcc@$BUILD\/lib@g' config_cmaq.csh
- sed -i 's@netcdff_inc_gcc@$BUILD\/include@g' config_cmaq.csh
- sed -i 's@mpi_incl_gcc@$OPENMPI\/include@g' config_cmaq.csh
- sed -i 's@mpi_lib_gcc@$OPENMPI\/lib@g' config_cmaq.csh
- #edit the config_cmaq.csh to use -fopenmp due to it being used by default for I/O API Library
- sed -i '172i \       setenv myLINK_FLAG -fopenmp' config_cmaq.csh
- #edit the config_cmaq.csh to add extra libraries
- sed -i 's@-lnetcdf\"  #@-lnetcdf -lcurl -lhdf5 -lhdf5_hl \"  #@g'  config_cmaq.csh
-cd $BUILD/../gcc_openmpi/CCTM/scripts/
- cp bldit_cctm.csh bldit_cctmv55_cb6r5_m3dry.csh
- # Add extra libs to support nc4 compression in config_cmaq.csh
- #  -lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl
-  setenv extra_lib "-lnetcdf -lhdf5_hl -lhdf5 -lm -ldl -lz -lcurl"
- # Add openmp flag to match what was used in I/O API in config_cmaq.csh
- # setenv myLINK_FLAG  "-fopenmp" # openMP not supported w/ CMAQ
-#./bldit_cctmv55_cb6r5_m3dry.csh gcc |&amp; tee ./bldit_cctmv55_cb6r5_m3dry.log
-
-# Verify that the executable was created.
-#ls -rlt BLD_CCTM_v55_gcc_cb6r5_ae7_aq_m3dry/*.exe
-
-
-#Note, to run CMAQ, please create modules or set the LD_LIBRARY_PATH to include the directories for $BUILD/lib at run time.
-
-##see this tutorial for instructions to install modules: 
-##https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/developers_guide/cmaq-vm/install.html#install-environment-modules
-## If you have modules on your machine, you can create custom modules
-## https://pcluster-cmaq.readthedocs.io/en/latest/user_guide_pcluster/developers_guide/cmaq-vm/install.html#create-custom-environment-module-for-libraries</code></pre>
+# or that
+Bootstrap: docker
+From: ubuntu</code></pre></li>
+</ul>
 
 
 
@@ -688,11 +646,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ioapi.html" class="pagination-link" aria-label="Install I/O API">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install I/O API</span>
+      <a href="./apptainer-dev.html" class="pagination-link" aria-label="Apptainer">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Apptainer</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./gnu_compilers.html" class="pagination-link" aria-label="Install GNU compilers">
+        <span class="nav-page-text">Install GNU compilers</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

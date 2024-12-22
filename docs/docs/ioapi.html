@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Von P. Walden">
-<meta name="dcterms.date" content="2024-12-21">
 
-<title>AIRPACT6 Container Development</title>
+<title>Install I/O API – AIRPACT6 Development</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ubuntu.html" rel="next">
+<link href="./cmaq.html" rel="next">
+<link href="./netcdf.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">The AIRPACT6 Container</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apptainer-dev.html">Apptainer</a></li><li class="breadcrumb-item"><a href="./ioapi.html">Install I/O API</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -97,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AIRPACT6 Container Development</a> 
+      <a href="./">AIRPACT6 Development</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -109,101 +108,96 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">The AIRPACT6 Container</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AIRPACT6</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">MCIP</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">SMOKE</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">CMAQ</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./apptainer-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apptainer</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ubuntu.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install Ubuntu</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gnu_compilers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install GNU compilers</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./useful.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install useful commands and libraries</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./openmpi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install openMPI</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./netcdf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Install netCDF libraries</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./airpact6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clone the AIRPACT6 repository</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ioapi.html" class="sidebar-item-text sidebar-link">
+  <a href="./ioapi.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Install I/O API</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cmaq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clone CMAQ repository</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#the-airpact6-container" id="toc-the-airpact6-container" class="nav-link active" data-scroll-target="#the-airpact6-container">The AIRPACT6 Container</a>
-  <ul class="collapse">
-  <li><a href="#steps-to-build-container" id="toc-steps-to-build-container" class="nav-link" data-scroll-target="#steps-to-build-container">Steps to build container</a></li>
-  <li><a href="#run-the-container" id="toc-run-the-container" class="nav-link" data-scroll-target="#run-the-container">Run the Container</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apptainer-dev.html">Apptainer</a></li><li class="breadcrumb-item"><a href="./ioapi.html">Install I/O API</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">AIRPACT6 Container Development</h1>
+<h1 class="title">Install I/O API</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Von P. Walden </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 21, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -213,41 +207,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-airpact6-container" class="level1 unnumbered">
-<h1 class="unnumbered">The AIRPACT6 Container</h1>
 <ul>
-<li>The AIRPACT6 container is built using <a href="https://apptainer.org">apptainer</a>. The container is built by using the <a href="../dev/apptainer/CMAQv5.5.def">definition file</a> with the following command:</li>
-</ul>
-<pre><code>sudo apptainer build --sandbox /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def</code></pre>
+<li><a href="https://www.cmascenter.org/ioapi/">I/O API</a> is a library that facilitates input and output of netCDF files for CMAQ. To install it in the container, the I/O API repo is cloned into the container.
 <ul>
-<li><code>--sandbox</code> creates a directory structure that is writable</li>
-<li>Remove <code>--sandbox</code> for final version</li>
-<li>Add <code>&amp;&gt; build_airpact6.log</code> if you want to save a log file of the build process</li>
+<li>The script below was adapted from <a href="https://github.com/USEPA/CMAQ/blob/main/DOCS/Users_Guide/Tutorials/gcc_install_ioapi_for_nc4_compression.csh">here</a></li>
+</ul></li>
 </ul>
-<hr>
-<section id="steps-to-build-container" class="level2">
-<h2 class="anchored" data-anchor-id="steps-to-build-container">Steps to build container</h2>
-<ol type="1">
-<li><a href="./ubuntu.html">Install Ubuntu</a></li>
-<li><a href="./gnu_compilers.html">Install GNU compilers</a></li>
-<li><a href="./useful.html">Install useful commands and libraries</a></li>
-<li><a href="./openmpi.html">Install OpenMPI</a></li>
-<li><a href="./netcdf.html">Install netCDF libraries</a></li>
-<li><a href="./ioapi.html">Clone I/O API repo</a></li>
-<li><a href="./cmaq.html">Build CMAQ</a></li>
-</ol>
-<hr>
-</section>
-<section id="run-the-container" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-container">Run the Container</h2>
-<ul>
-<li>Several different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):</li>
-</ul>
-<pre><code>apptainer exec --env-file /mnt/disk2/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /opt/share/CMAQv5.5/gcc_openmpi/PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33</code></pre>
+<pre><code>#  --------------------------------------
+# ....BUILD IOAPI
+#  --------------------------------------
+
+# Build I/O API version that supports NCF4 
+# Note - this script works for gcc 9.1, to use gcc 10 and above, use the  -fallow-argument-mismatch argument
+#  As of Aug. 28, 2020, there are now new BIN=Linux*gfort10* types and corresponding Makeinclude.Linux*gfort10* that incorporate this flag for the I/O API and M3Tools. 
+# The above information is from the I/O API documentation: https://www.cmascenter.org/ioapi/documentation/all_versions/html/AVAIL.html
+
+   cd $INSTDIR
+
+#  --------------------------------------
+#  Add  to the library path
+#  --------------------------------------
+   if (! $?LD_LIBRARY_PATH) then
+      setenv  LD_LIBRARY_PATH $INSTDIR/lib
+   else
+     setenv  LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$INSTDIR/lib
+   endif
+   if (! $?PATH) then
+      setenv  PATH $INSTDIR/lib
+   else
+     setenv  PATH ${PATH}:$INSTDIR/lib
+   endif
+#  ----------------------
+#  Unpack and build IOAPI
+#  ----------------------
+   git clone https://github.com/cjcoats/ioapi-3.2
+   cd ioapi-3.2
+   git checkout -b 20200828
+   setenv BASEDIR $INSTDIR/ioapi-3.2
+   setenv BIN Linux2_x86_64gfort
+   mkdir $BASEDIR/$BIN
+   setenv CPLMODE nocpl
+   # Edit Makefile or use syntax: make BIN=Linux2_x86_64pg  CPLMODE=nocpl INSTALL=$INSTDIR
+   cd $BASEDIR/ioapi
+   # Copy the Makefile template
+   cp $BASEDIR/ioapi/Makefile.$CPLMODE  ${BASEDIR}/ioapi/Makefile
+   cp ${BASEDIR}/m3tools/Makefile.$CPLMODE  ${BASEDIR}/m3tools/Makefile
+   # Modify to specify the path of the netcdf libraries
+   sed -i 's/\-lnetcdff/\-L\$\{HOME\}\/lib \-lnetcdff \-lnetcdf \-lhdf5_hl \-lhdf5 \-lm \-ldl \-lz \-lcurl/g' ${BASEDIR}/m3tools/Makefile
+   # need updated Makefile to include ‘-DIOAPI_NCF4=1’ to the MFLAGS make-variable to avoid multiple definition of `nf_get_vara_int64_’
+   # Makefile can be edited to use these options instead of the default options
+   #    VFLAG  = -DVERSION='3.2-nocpl-ncf4'
+   #    DEFINEFLAGS = -DIOAPI_NCF4=1 $(ARCHFLAGS) $(PARFLAGS)
+   #This will remove # from the start of line 102 or add it if it wasn't already there:
+   sed -i '102s/^#/\n/; 102s/^[^\n]/#&amp;/; 102s/^\n//' Makefile
+   sed -i '100s/^#/\n/; 100s/^[^\n]/#&amp;/; 100s/^\n//' Makefile
+   sed -i '109s/^#/\n/; 109s/^[^\n]/#&amp;/; 109s/^\n//' Makefile
+   sed -i '111s/^#/\n/; 111s/^[^\n]/#&amp;/; 111s/^\n//' Makefile
+   #sed -i -e 's/m64/m64 -DIOAPI_NCF4=1/g' Makeinclude.Linux2_x86_64gfort 
+   make HOME=$INSTDIR | &amp; tee make.ioapi.log
+   cd $INSTDIR/ioapi-3.2/m3tools
+   make HOME=$INSTDIR | &amp; tee make.m3tools.log</code></pre>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -669,10 +690,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./netcdf.html" class="pagination-link" aria-label="Install netCDF libraries">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install netCDF libraries</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ubuntu.html" class="pagination-link" aria-label="Install Ubuntu">
-        <span class="nav-page-text">Install Ubuntu</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./cmaq.html" class="pagination-link" aria-label="Clone CMAQ repository">
+        <span class="nav-page-text">Clone CMAQ repository</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

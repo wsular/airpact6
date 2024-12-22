@@ -1,22 +1,28 @@
 project:
   type: book
+  output-dir: docs
 
 book:
-  title: "AIRPACT6 Container Development"
+  title: "AIRPACT6 Development"
   author: "Von P. Walden"
   date: last-modified
   chapters:
     - index.qmd
-    - ubuntu.qmd
-    - gnu_compilers.qmd
-    - useful.qmd
-    - openmpi.qmd
-    - netcdf.qmd
-#    - airpact6.qmd
-    - ioapi.qmd
-#    - mcip.qmd
-    - cmaq.qmd
-#    - build_cmaq.qmd
+    - part: mcip-dev.qmd
+    - part: smoke-dev.qmd
+    - part: cmaq-dev.qmd
+    - part: apptainer-dev.qmd
+      chapters:
+        - ubuntu.qmd
+        - gnu_compilers.qmd
+        - useful.qmd
+        - openmpi.qmd
+        - netcdf.qmd
+    #    - airpact6.qmd
+        - ioapi.qmd
+    #    - mcip.qmd
+        - cmaq.qmd
+    #    - build_cmaq.qmd
 
 format:
   html:
