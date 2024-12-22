@@ -12,7 +12,7 @@ book:
     - useful.qmd
     - openmpi.qmd
     - netcdf.qmd
-    - airpact6.qmd
+#    - airpact6.qmd
     - ioapi.qmd
 #    - mcip.qmd
     - cmaq.qmd
