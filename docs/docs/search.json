@@ -14,7 +14,7 @@
     "href": "mcip-dev.html",
     "title": "MCIP",
     "section": "",
-    "text": "Testing of MCIP",
+    "text": "Documentation of MCIP development is contained in this GitHub issue.",
     "crumbs": [
       "MCIP"
     ]
@@ -24,7 +24,7 @@
     "href": "smoke-dev.html",
     "title": "SMOKE",
     "section": "",
-    "text": "SMOKE testing",
+    "text": "Documentation of SMOKE development is contained in this GitHub issue.",
     "crumbs": [
       "SMOKE"
     ]
@@ -34,7 +34,7 @@
     "href": "cmaq-dev.html",
     "title": "CMAQ",
     "section": "",
-    "text": "Testing of CMAQ",
+    "text": "Documentation of CMAQ development is contained in this GitHub issue.",
     "crumbs": [
       "CMAQ"
     ]
