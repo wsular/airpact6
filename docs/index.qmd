@@ -3,9 +3,11 @@
 - The AIRPACT6 container is built using [apptainer](https://apptainer.org). The container is built by using the [definition file](../dev/apptainer/CMAQv5.5.def) with the following command:
 
 ```
-apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def &> build_airpact6.log
+sudo apptainer build --sandbox /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def
 ```
-
+  - ```--sandbox``` creates a directory structure that is writable
+  - Remove ```--sandbox``` for final version
+  - Add ``` &> build_airpact6.log``` if you want to save a log file of the build process
 ---
 
 ## Steps to build container
@@ -15,10 +17,8 @@ apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpac
 3. [Install useful commands and libraries](useful.qmd)
 4. [Install OpenMPI](openmpi.qmd)
 5. [Install netCDF libraries](netcdf.qmd)
-6. [Clone AIRPACT6 repo](airpact6.qmd)
-7. [Clone I/O API repo](ioapi.qmd)
-8. [Clone CMAQ repo](cmaq.qmd)
-9. [Build CMAQ](build_cmaq.qmd)
+6. [Clone I/O API repo](ioapi.qmd)
+7. [Build CMAQ](cmaq.qmd)
 
 ---
 
@@ -27,5 +27,5 @@ apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpac
 - Several different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):
 
 ```
-apptainer exec --env-file /home/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33
+apptainer exec --env-file /mnt/disk2/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /opt/share/CMAQv5.5/gcc_openmpi/PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33
 ```

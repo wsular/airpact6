@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Von P. Walden">
-<meta name="dcterms.date" content="2024-12-20">
+<meta name="dcterms.date" content="2024-12-21">
 
 <title>AIRPACT6 Container Development</title>
 <style>
@@ -201,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 20, 2024</p>
+      <p class="date">December 21, 2024</p>
     </div>
   </div>
   
@@ -218,7 +218,12 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>The AIRPACT6 container is built using <a href="https://apptainer.org">apptainer</a>. The container is built by using the <a href="../dev/apptainer/CMAQv5.5.def">definition file</a> with the following command:</li>
 </ul>
-<pre><code>apptainer build /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def &amp;&gt; build_airpact6.log</code></pre>
+<pre><code>sudo apptainer build --sandbox /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /mnt/disk2/airpact/airpact6/dev/apptainer/CMAQv5.5.def</code></pre>
+<ul>
+<li><code>--sandbox</code> creates a directory structure that is writable</li>
+<li>Remove <code>--sandbox</code> for final version</li>
+<li>Add <code>&amp;&gt; build_airpact6.log</code> if you want to save a log file of the build process</li>
+</ul>
 <hr>
 <section id="steps-to-build-container" class="level2">
 <h2 class="anchored" data-anchor-id="steps-to-build-container">Steps to build container</h2>
@@ -228,10 +233,8 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="./useful.html">Install useful commands and libraries</a></li>
 <li><a href="./openmpi.html">Install OpenMPI</a></li>
 <li><a href="./netcdf.html">Install netCDF libraries</a></li>
-<li><a href="./airpact6.html">Clone AIRPACT6 repo</a></li>
 <li><a href="./ioapi.html">Clone I/O API repo</a></li>
-<li><a href="./cmaq.html">Clone CMAQ repo</a></li>
-<li><a href="build_cmaq.qmd">Build CMAQ</a></li>
+<li><a href="./cmaq.html">Build CMAQ</a></li>
 </ol>
 <hr>
 </section>
@@ -240,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Several different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):</li>
 </ul>
-<pre><code>apptainer exec --env-file /home/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33</code></pre>
+<pre><code>apptainer exec --env-file /mnt/disk2/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /opt/share/CMAQv5.5/gcc_openmpi/PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33</code></pre>
 
 
 </section>

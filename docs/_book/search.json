@@ -14,7 +14,7 @@
     "href": "index.html#steps-to-build-container",
     "title": "AIRPACT6 Container Development",
     "section": "Steps to build container",
-    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nClone AIRPACT6 repo\nClone I/O API repo\nClone CMAQ repo\nBuild CMAQ",
+    "text": "Steps to build container\n\nInstall Ubuntu\nInstall GNU compilers\nInstall useful commands and libraries\nInstall OpenMPI\nInstall netCDF libraries\nClone I/O API repo\nBuild CMAQ",
     "crumbs": [
       "The AIRPACT6 Container"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#run-the-container",
     "title": "AIRPACT6 Container Development",
     "section": "Run the Container",
-    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file /home/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /apptainer/cmaq/cmaq-5.3.3_ubuntu-22.04.sif /opt/share/CMAQ-5.3.3./PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33",
+    "text": "Run the Container\n\nSeveral different programs can be run from this container. This is done by issueing a command on the host computer of the container. Here is an example command (that run the MCIP utility):\n\napptainer exec --env-file /mnt/disk2/airpact/airpact6/AIRHOME/AIRPACT6_env_vars /mnt/disk2/apptainer/cmaq/CMAQv5.5.sif /opt/share/CMAQv5.5/gcc_openmpi/PREP/mcip/run_mcip.csh 2023011400 2023011408 2023011508 7 33",
     "crumbs": [
       "The AIRPACT6 Container"
     ]
