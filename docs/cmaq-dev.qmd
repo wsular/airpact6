@@ -1,5 +1,3 @@
 # CMAQ {.unnumbered}
 
-- [GitHub Issue](https://github.com/wsular/airpact6/issues/18)
-
-## Testing of CMAQ 
+Documentation of CMAQ development is contained in this [GitHub issue](https://github.com/wsular/airpact6/issues/18).
