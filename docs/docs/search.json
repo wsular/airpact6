@@ -24,7 +24,27 @@
     "href": "smoke-dev.html",
     "title": "SMOKE",
     "section": "",
-    "text": "Testing of SMOKE v5.1 failed. This testing is documented in GitHub issue #9.\nI’ve decided to regress back to SMOKE v4.5\n\nThis is the version that is currently working on aeolus\nI’m hoping that having v4.5 running on gaia may allow a smoother transition from aeolus to gaia, and from AIRPACT5 to AIRPACT6\n\nInstallation of SMOKE v4.5 is documented in GitHub issue #19",
+    "text": "v5.1",
+    "crumbs": [
+      "SMOKE"
+    ]
+  },
+  {
+    "objectID": "smoke-dev.html#v5.1",
+    "href": "smoke-dev.html#v5.1",
+    "title": "SMOKE",
+    "section": "",
+    "text": "Testing of SMOKE v5.1 failed. This testing is documented in GitHub issue #9.",
+    "crumbs": [
+      "SMOKE"
+    ]
+  },
+  {
+    "objectID": "smoke-dev.html#v4.5",
+    "href": "smoke-dev.html#v4.5",
+    "title": "SMOKE",
+    "section": "v4.5",
+    "text": "v4.5\n\nI’ve decided to regress back to SMOKE v4.5\n\nThis is the version that is currently working on aeolus\nI’m hoping that having v4.5 running on gaia may allow a smoother transition from aeolus to gaia, and from AIRPACT5 to AIRPACT6\n\n\n\nInstallation\n\nInstallation of SMOKE v4.5 is documented in GitHub issue #19\n\n\n\nTesting\n\nTesting of SMOKE v4.5 is documented in GitHub issue #20",
     "crumbs": [
       "SMOKE"
     ]
